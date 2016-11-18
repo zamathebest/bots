@@ -1,0 +1,341 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Configuration &mdash; Bots EDI Translator 3.2.0 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="Bots EDI Translator 3.2.0 documentation" href="../index.html"/>
+        <link rel="next" title="How to do configuration" href="how-to-configuration.html"/>
+        <link rel="prev" title="Glossary of Terms" href="../overview/glossary.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Bots EDI Translator
+          
+
+          
+            
+            <img src="../_static/botslogo_square2.png" class="logo" />
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                3.2.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../readme.html">Welcome to <code class="docutils literal"><span class="pre">Bots</span></code>&#8216;s documentation!</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../get-bots-running.html">Get Bots Running</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quick-start-guide/index.html">Quick Start Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guide-for-botsmonitor/index.html">Guide For Bots-Monitor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview/index.html">Overview</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Configuration</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="how-to-configuration.html">How to do configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="route/index.html">Routes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="channel/index.html">Channels</a></li>
+<li class="toctree-l2"><a class="reference internal" href="translation/index.html">Translation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mapping-scripts/index.html">Mapping Scripts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="grammars/index.html">Grammars</a></li>
+<li class="toctree-l2"><a class="reference internal" href="document-view.html">Document View</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user-scripting.html">User Scripting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="acknowledgements.html">Confirmations/Acknowledgements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="split-merge.html">Split, Merge and Envelope</a></li>
+<li class="toctree-l2"><a class="reference internal" href="partner/index.html">EDI Partners</a></li>
+<li class="toctree-l2"><a class="reference internal" href="charsets.html">Characters Sets</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../deployment/index.html">Deployment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../advanced-deployment/index.html">Advanced Deployment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../plugins/index.html">Plugins</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/index.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../debugging.html">Debugging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../troubleshooting.html">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../change-migrate/index.html">Changes and Migrate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../new-to-python.html">New to python?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../external-reference.html">External reference links</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../useful-tools.html">Useful Tools</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">Bots EDI Translator</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+    <li>Configuration</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/configuration/index.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="configuration">
+<h1>Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li>Out of the box bots does nothing. You have to configure bots for your specific edi requirements.</li>
+<li>Check out different ways to start your own <a class="reference internal" href="how-to-configuration.html"><span class="doc">configuration</span></a>.</li>
+<li>See <a class="reference internal" href="../debugging.html"><span class="doc">debug</span></a> overview for info how to debug while making a configuration.</li>
+<li>Bots also has nice features for <a class="reference internal" href="../advanced-deployment/change-management.html"><span class="doc">configuration change management</span></a> (build test sets for you configuration, easier pushing of changes from test to production).</li>
+</ul>
+<p><strong>Configuration explained in short</strong></p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">routes</span></code> are edi-workflows.</li>
+<li><code class="docutils literal"><span class="pre">channels</span></code> do the communication (from file system, ftp, etc).</li>
+<li>each route hs an <code class="docutils literal"><span class="pre">inchannel</span></code> and an <code class="docutils literal"><span class="pre">outchannel</span></code></li>
+<li>Translations rules determine: translate what to what.</li>
+</ul>
+<p><strong>Most asked configuration topics</strong></p>
+<ul class="simple">
+<li><a class="reference internal" href="route/composite-routes.html"><span class="doc">composite routes</span></a></li>
+<li><a class="reference internal" href="route/passthrough.html"><span class="doc">passthrough route</span></a> (without translation)</li>
+<li><a class="reference internal" href="channel/filenames.html"><span class="doc">options for outgoing filenames</span></a></li>
+<li><a class="reference internal" href="channel/database.html"><span class="doc">direct database communication</span></a></li>
+<li><a class="reference internal" href="partner/partner-translation.html"><span class="doc">partner specific translations</span></a></li>
+<li><a class="reference internal" href="mapping-scripts/code-conversion.html"><span class="doc">code conversion</span></a></li>
+<li>view <a class="reference internal" href="document-view.html"><span class="doc">business documents</span></a> instead of edi-files.</li>
+<li><a class="reference internal" href="acknowledgements.html"><span class="doc">confirmations/acknowledgements</span></a></li>
+<li><a class="reference internal" href="split-merge.html"><span class="doc">merging and enveloping outgoing edi files</span></a></li>
+<li><a class="reference internal" href="partner/partner-syntax.html"><span class="doc">partner specific syntax</span></a> (especially for x12 and edifact)</li>
+</ul>
+<p><strong>Index</strong></p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="how-to-configuration.html">How to do configuration</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="how-to-configuration.html#diy-step-by-step">DIY step by step</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="route/index.html">Routes</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="route/composite-routes.html">Composite routes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="route/passthrough.html">PassThrough (no translation)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="route/route-scripting.html">Route Scripting</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="channel/index.html">Channels</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="channel/standard-comms.html">Standard Communications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="channel/database.html">Database Communication</a></li>
+<li class="toctree-l2"><a class="reference internal" href="channel/channel-scripting.html">Channel Scripting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="channel/filenames.html">Filenames</a></li>
+<li class="toctree-l2"><a class="reference internal" href="channel/channel-ports.html">Channel Port Numbers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="channel/file-locking.html">Safe File Writing/Locking</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="translation/index.html">Translation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="translation/howitworks.html">How Translation Works</a></li>
+<li class="toctree-l2"><a class="reference internal" href="translation/whatwhen.html">What Translation When?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="translation/chained-translations.html">Chained Translations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="translation/multiple-versions.html">Multiple EDI Versions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="mapping-scripts/index.html">Mapping Scripts</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="mapping-scripts/how-it-works.html">How Mapping Works</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mapping-scripts/get-from-msg.html">Get Data from Incoming Message</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mapping-scripts/put-in-msg.html">Put Data in Outgoing Message</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mapping-scripts/mapping-functions.html">Mapping Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mapping-scripts/code-conversion.html">Code Conversion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mapping-scripts/calculate-count.html">Calculations and Counting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mapping-scripts/persist.html">Persist (Store Data)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mapping-scripts/eanupc-check.html">EAN/UCC Check Digits</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mapping-scripts/change-delete.html">Change and Delete Functions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="grammars/index.html">Grammars</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="grammars/get-grammars.html">How to Get Grammars</a></li>
+<li class="toctree-l2"><a class="reference internal" href="grammars/syntax-params.html">Syntax Parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="grammars/structure.html">Structure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="grammars/recorddefs.html">Recorddefs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="grammars/nextmessage.html">Next Message</a></li>
+<li class="toctree-l2"><a class="reference internal" href="grammars/nextmessageblock.html">Next Message Block</a></li>
+<li class="toctree-l2"><a class="reference internal" href="grammars/edifact-charsets.html">EDIFACT Character-Sets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="grammars/xml-namespaces.html">XML Namespaces</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="document-view.html">Document View</a></li>
+<li class="toctree-l1"><a class="reference internal" href="user-scripting.html">User Scripting</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="user-scripting.html#route-script-for-bots-engine">Route Script for Bots-engine</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="acknowledgements.html">Confirmations/Acknowledgements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="split-merge.html">Split, Merge and Envelope</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="split-merge.html#splitting-edi-files">Splitting EDI files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="split-merge.html#merge-envelope-edi-message">Merge/Envelope EDI message</a></li>
+<li class="toctree-l2"><a class="reference internal" href="split-merge.html#envelope-scripting">Envelope Scripting</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="partner/index.html">EDI Partners</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="partner/partner-lookup.html">Partner look-up</a></li>
+<li class="toctree-l2"><a class="reference internal" href="partner/partner-groups.html">Partner Groups</a></li>
+<li class="toctree-l2"><a class="reference internal" href="partner/partner-syntax.html">Partner Dependent Syntax</a></li>
+<li class="toctree-l2"><a class="reference internal" href="partner/partner-translation.html">Partner Specific Translation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="partner/organize-partner-translation.html">Organize Partner Specific Translations</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="charsets.html">Characters Sets</a></li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="how-to-configuration.html" class="btn btn-neutral float-right" title="How to do configuration" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../overview/glossary.html" class="btn btn-neutral" title="Glossary of Terms" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, henk-jan ebbers.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'3.2.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

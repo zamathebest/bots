@@ -1,0 +1,362 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Mapping Functions &mdash; Bots EDI Translator 3.2.0 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../genindex.html"/>
+        <link rel="search" title="Search" href="../../search.html"/>
+    <link rel="top" title="Bots EDI Translator 3.2.0 documentation" href="../../index.html"/>
+        <link rel="up" title="Mapping Scripts" href="index.html"/>
+        <link rel="next" title="Code Conversion" href="code-conversion.html"/>
+        <link rel="prev" title="Put Data in Outgoing Message" href="put-in-msg.html"/> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Bots EDI Translator
+          
+
+          
+            
+            <img src="../../_static/botslogo_square2.png" class="logo" />
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                3.2.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../readme.html">Welcome to <code class="docutils literal"><span class="pre">Bots</span></code>&#8216;s documentation!</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../get-bots-running.html">Get Bots Running</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quick-start-guide/index.html">Quick Start Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../guide-for-botsmonitor/index.html">Guide For Bots-Monitor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../overview/index.html">Overview</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Configuration</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../how-to-configuration.html">How to do configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../route/index.html">Routes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../channel/index.html">Channels</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../translation/index.html">Translation</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Mapping Scripts</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="how-it-works.html">How Mapping Works</a></li>
+<li class="toctree-l3"><a class="reference internal" href="get-from-msg.html">Get Data from Incoming Message</a></li>
+<li class="toctree-l3"><a class="reference internal" href="put-in-msg.html">Put Data in Outgoing Message</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Mapping Functions</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#sort-mpath">sort(mpath)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#transform-useoneof-first-get-second-get-etc">transform.useoneof(first get, second get, etc)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#transform-datemask-value-frommask-tomask">transform.datemask(value,frommask,tomask)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#transform-concat-args">transform.concat(*args)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#transform-sendbotsemail-partner-subject-reporttext">transform.sendbotsemail(partner,subject,reporttext)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#transform-unique-domain">transform.unique(domain)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#transform-unique-runcounter-domain">transform.unique_runcounter(domain))</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#transform-inn2out-inn-out">transform.inn2out(inn,out)</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="code-conversion.html">Code Conversion</a></li>
+<li class="toctree-l3"><a class="reference internal" href="calculate-count.html">Calculations and Counting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="persist.html">Persist (Store Data)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="eanupc-check.html">EAN/UCC Check Digits</a></li>
+<li class="toctree-l3"><a class="reference internal" href="change-delete.html">Change and Delete Functions</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../grammars/index.html">Grammars</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../document-view.html">Document View</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../user-scripting.html">User Scripting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../acknowledgements.html">Confirmations/Acknowledgements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../split-merge.html">Split, Merge and Envelope</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../partner/index.html">EDI Partners</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../charsets.html">Characters Sets</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../deployment/index.html">Deployment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../advanced-deployment/index.html">Advanced Deployment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../plugins/index.html">Plugins</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorials/index.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../debugging.html">Debugging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../troubleshooting.html">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../change-migrate/index.html">Changes and Migrate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../new-to-python.html">New to python?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../external-reference.html">External reference links</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../useful-tools.html">Useful Tools</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">Bots EDI Translator</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../index.html">Configuration</a> &raquo;</li>
+      
+          <li><a href="index.html">Mapping Scripts</a> &raquo;</li>
+      
+    <li>Mapping Functions</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../_sources/configuration/mapping-scripts/mapping-functions.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="mapping-functions">
+<h1>Mapping Functions<a class="headerlink" href="#mapping-functions" title="Permalink to this headline">¶</a></h1>
+<p>Bots provides a set of helper functions out of the box to ease the map development. Let us see the available functions:</p>
+<div class="section" id="sort-mpath">
+<h2>sort(mpath)<a class="headerlink" href="#sort-mpath" title="Permalink to this headline">¶</a></h2>
+<p>Sorts the incoming message according to certain value.
+Sorts alphabetically.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">inn</span><span class="o">.</span><span class="n">sort</span><span class="p">({</span><span class="s1">&#39;BOTSID&#39;</span><span class="p">:</span><span class="s1">&#39;UNH&#39;</span><span class="p">},{</span><span class="s1">&#39;BOTSID&#39;</span><span class="p">:</span><span class="s1">&#39;LIN&#39;</span><span class="p">,</span><span class="s1">&#39;C212.7140&#39;</span><span class="p">:</span><span class="bp">None</span><span class="p">})</span>
+<span class="c1">#sort article lines by EAN article number (GTIN).</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="transform-useoneof-first-get-second-get-etc">
+<h2>transform.useoneof(first get, second get, etc)<a class="headerlink" href="#transform-useoneof-first-get-second-get-etc" title="Permalink to this headline">¶</a></h2>
+<p>Use for default values or when data can be in different places in a message.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">value</span> <span class="o">=</span> <span class="n">transform</span><span class="o">.</span><span class="n">useoneof</span><span class="p">(</span><span class="n">inn</span><span class="o">.</span><span class="n">get</span><span class="p">({</span><span class="s1">&#39;BOTSID&#39;</span><span class="p">:</span><span class="s1">&#39;IMD&#39;</span><span class="p">,</span><span class="s1">&#39;C960.4294&#39;</span><span class="p">:</span><span class="bp">None</span><span class="p">}),</span><span class="n">inn</span><span class="o">.</span><span class="n">get</span><span class="p">({</span><span class="s1">&#39;BOTSID&#39;</span><span class="p">:</span><span class="s1">&#39;IMD&#39;</span><span class="p">,</span><span class="s1">&#39;7078&#39;</span><span class="p">:</span><span class="bp">None</span><span class="p">}))</span>
+<span class="c1">#returns the result of the first get() that is succesful.</span>
+<span class="c1">#remarked was that this is simular to:</span>
+<span class="n">value</span> <span class="o">=</span> <span class="n">inn</span><span class="o">.</span><span class="n">get</span><span class="p">({</span><span class="s1">&#39;BOTSID&#39;</span><span class="p">:</span><span class="s1">&#39;IMD&#39;</span><span class="p">,</span><span class="s1">&#39;C960.4294&#39;</span><span class="p">:</span><span class="bp">None</span><span class="p">})</span> <span class="ow">or</span> <span class="n">inn</span><span class="o">.</span><span class="n">get</span><span class="p">({</span><span class="s1">&#39;BOTSID&#39;</span><span class="p">:</span><span class="s1">&#39;IMD&#39;</span><span class="p">,</span><span class="s1">&#39;7078&#39;</span><span class="p">:</span><span class="bp">None</span><span class="p">})</span>
+<span class="c1">#Usage for default values (if field not there, use default):</span>
+<span class="n">value</span> <span class="o">=</span> <span class="n">inn</span><span class="o">.</span><span class="n">get</span><span class="p">({</span><span class="s1">&#39;BOTSID&#39;</span><span class="p">:</span><span class="s1">&#39;IMD&#39;</span><span class="p">,</span><span class="s1">&#39;C960.4294&#39;</span><span class="p">:</span><span class="bp">None</span><span class="p">})</span> <span class="ow">or</span> <span class="s1">&#39;my value&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="transform-datemask-value-frommask-tomask">
+<h2>transform.datemask(value,frommask,tomask)<a class="headerlink" href="#transform-datemask-value-frommask-tomask" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Does format conversions based upon pattern matching.</li>
+<li>Especially useful for date/time conversion.</li>
+<li><strong>Note</strong>: only simple pattern matching, without &#8216;intelligence&#8217; about date/time.</li>
+</ul>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">transform</span><span class="o">.</span><span class="n">datemask</span><span class="p">(</span><span class="s1">&#39;09/21/2011&#39;</span><span class="p">,</span><span class="s1">&#39;MM/DD/CCYY&#39;</span><span class="p">,</span><span class="s1">&#39;YY-MM-DD&#39;</span><span class="p">)</span>
+<span class="c1">#returns &#39;11-09-21&#39;</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li>Funny trick with datamask:</li>
+</ul>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">print</span> <span class="n">transform</span><span class="o">.</span><span class="n">datemask</span><span class="p">(</span><span class="s1">&#39;201512312359&#39;</span><span class="p">,</span><span class="s1">&#39;YYYYmmDD0000&#39;</span><span class="p">,</span><span class="s1">&#39;YYYYmmDD0000&#39;</span><span class="p">)</span>
+<span class="k">print</span> <span class="n">transform</span><span class="o">.</span><span class="n">datemask</span><span class="p">(</span><span class="s1">&#39;201512310000&#39;</span><span class="p">,</span><span class="s1">&#39;YYYYmmDD0000&#39;</span><span class="p">,</span><span class="s1">&#39;YYYYmmDD0000&#39;</span><span class="p">)</span>
+<span class="k">print</span> <span class="n">transform</span><span class="o">.</span><span class="n">datemask</span><span class="p">(</span><span class="s1">&#39;20151231&#39;</span><span class="p">,</span><span class="s1">&#39;YYYYmmDD0000&#39;</span><span class="p">,</span><span class="s1">&#39;YYYYmmDD0000&#39;</span><span class="p">)</span>
+<span class="c1">#returns date always in CCYYmmDDHHMM, if no tiem in original tiem is &#39;0000&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="transform-concat-args">
+<h2>transform.concat(*args)<a class="headerlink" href="#transform-concat-args" title="Permalink to this headline">¶</a></h2>
+<p>Concatenate a list of strings. If argument is None, nothing is concatenated.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">transform</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span><span class="s1">&#39;my&#39;</span><span class="p">,</span><span class="bp">None</span><span class="s1">&#39;,&#39;</span><span class="n">string</span><span class="s1">&#39;)</span>
+<span class="c1">#returns &#39;mystring&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="transform-sendbotsemail-partner-subject-reporttext">
+<h2>transform.sendbotsemail(partner,subject,reporttext)<a class="headerlink" href="#transform-sendbotsemail-partner-subject-reporttext" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Send a simple email message to any bots partner (in partner-table) from a mapping script.</li>
+<li>Mail is sent to all To: and cc: addresses for the partner (but send_mail does not support cc).</li>
+<li>Email parameters are in config/settings.py (EMAIL_HOST, etc).</li>
+</ul>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">transform</span><span class="o">.</span><span class="n">sendbotsemail</span><span class="p">(</span><span class="s1">&#39;buyerID1&#39;</span><span class="p">,</span><span class="s1">&#39;error in messsge&#39;</span><span class="p">,</span><span class="s1">&#39;There is an error in message blahblah&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="transform-unique-domain">
+<h2>transform.unique(domain)<a class="headerlink" href="#transform-unique-domain" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Returns counter/unique number.</li>
+<li>For each <strong>domain</strong> separate counters are used.</li>
+<li>Counter start at <strong>1</strong> (at first time you use counter).</li>
+<li>The counter can be changed in <code class="docutils literal"><span class="pre">bots-monitor-&gt;SysTasks-&gt;view/edit</span> <span class="pre">counters</span></code></li>
+</ul>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">transform</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="s1">&#39;my article line counter&#39;</span><span class="p">)</span>
+<span class="c1">#returns a number unique for the domain &#39;my article line counter&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="transform-unique-runcounter-domain">
+<h2>transform.unique_runcounter(domain))<a class="headerlink" href="#transform-unique-runcounter-domain" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Returns counter/unique number during the bots-run.</li>
+<li>For each <strong>domain</strong> separate counters are used.</li>
+<li>Counter start at <strong>1</strong> (at first time you use counter).</li>
+<li>In a next run the counter will start again at <strong>1</strong>.</li>
+<li>Useful for eg a message-counter per interchange.</li>
+</ul>
+</div>
+<div class="section" id="transform-inn2out-inn-out">
+<h2>transform.inn2out(inn,out)<a class="headerlink" href="#transform-inn2out-inn-out" title="Permalink to this headline">¶</a></h2>
+<p>Use the incoming message as the outgoing message.
+Is useful to translate the message one-on-one to another editype.
+Examples:</p>
+<ul class="simple">
+<li>Edifact to flat file. This is what a lot of translators do.</li>
+<li>x12 to xml. x12 data is translated to xml syntax, semantics are of course still x12</li>
+<li>Another use: read a edi message, adapt, and write (to same editype/messagetype including changes).</li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="code-conversion.html" class="btn btn-neutral float-right" title="Code Conversion" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="put-in-msg.html" class="btn btn-neutral" title="Put Data in Outgoing Message" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, henk-jan ebbers.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'3.2.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

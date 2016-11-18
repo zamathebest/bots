@@ -1,0 +1,310 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Characters Sets &mdash; Bots EDI Translator 3.2.0 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="Bots EDI Translator 3.2.0 documentation" href="../index.html"/>
+        <link rel="up" title="Configuration" href="index.html"/>
+        <link rel="next" title="Deployment" href="../deployment/index.html"/>
+        <link rel="prev" title="Organize Partner Specific Translations" href="partner/organize-partner-translation.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Bots EDI Translator
+          
+
+          
+            
+            <img src="../_static/botslogo_square2.png" class="logo" />
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                3.2.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../readme.html">Welcome to <code class="docutils literal"><span class="pre">Bots</span></code>&#8216;s documentation!</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../get-bots-running.html">Get Bots Running</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quick-start-guide/index.html">Quick Start Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guide-for-botsmonitor/index.html">Guide For Bots-Monitor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview/index.html">Overview</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Configuration</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="how-to-configuration.html">How to do configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="route/index.html">Routes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="channel/index.html">Channels</a></li>
+<li class="toctree-l2"><a class="reference internal" href="translation/index.html">Translation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mapping-scripts/index.html">Mapping Scripts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="grammars/index.html">Grammars</a></li>
+<li class="toctree-l2"><a class="reference internal" href="document-view.html">Document View</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user-scripting.html">User Scripting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="acknowledgements.html">Confirmations/Acknowledgements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="split-merge.html">Split, Merge and Envelope</a></li>
+<li class="toctree-l2"><a class="reference internal" href="partner/index.html">EDI Partners</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Characters Sets</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../deployment/index.html">Deployment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../advanced-deployment/index.html">Advanced Deployment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../plugins/index.html">Plugins</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/index.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../debugging.html">Debugging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../troubleshooting.html">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../change-migrate/index.html">Changes and Migrate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../new-to-python.html">New to python?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../external-reference.html">External reference links</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../useful-tools.html">Useful Tools</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">Bots EDI Translator</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="index.html">Configuration</a> &raquo;</li>
+      
+    <li>Characters Sets</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/configuration/charsets.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="characters-sets">
+<h1>Characters Sets<a class="headerlink" href="#characters-sets" title="Permalink to this headline">¶</a></h1>
+<p><strong>The good news</strong>: in general Bots handles character sets well.
+Incoming files are read using the character-set specified in the <code class="docutils literal"><span class="pre">incoming</span></code> syntax, outgoing files are written
+using the character-set as specified in the <code class="docutils literal"><span class="pre">outgoing</span></code> syntax. You do not need to do anything in the mapping, Bots does the character-set conversion automatically.</p>
+<ul class="simple">
+<li>Lots of information about this topic can be found on <a class="reference external" href="http://en.wikipedia.org/wiki/Character_encoding">wikipedia</a>.</li>
+<li>Information about the different character-sets in python is at <a class="reference external" href="http://docs.python.org/2/library/codecs.html#standard-encodings">python site</a>.</li>
+<li>Outgoing character sets can be set in syntax; this can be done on envelope level, messagetype level of per partner.</li>
+<li>Sometimes character-set conversion is not possible, eg uft-8-&gt;ascii, as uft8 can contain characters not in utf8.</li>
+<li>For edifact there is an option to do character-set mapping (eg é-&gt;e); this is also possible for x12 (bit more work).</li>
+<li>Note that x12 can be tricky: the separators used can not be in the data. There is no good workaround for this, best way is to change the separators used.</li>
+</ul>
+<p class="rubric">Specifics of different character-sets</p>
+<ul>
+<li><p class="first">Most used in edi is ascii, iso-8859-1, uft-8 (xml!).</p>
+</li>
+<li><p class="first">Most familiar is ascii. Note that ascii has only 128 characters! One character is one byte.</p>
+</li>
+<li><dl class="first docutils">
+<dt>The extended asccii character-sets.</dt>
+<dd><ul class="first last simple">
+<li>One character is always one byte.</li>
+<li>The upper 128 (above ascii) are used as special characters (eg éëè).</li>
+<li>These different character-sets are about displaying (on screen, print etc). If the texts is in iso-8859-1, but displayed as eg IBM850 looks <em>wrong</em>. Note that the content is still the same, it&#8217;s only the display that is different.</li>
+<li>In general these extended ascii character-sets will not be problematic in translations, as segment ID&#8217;s/tags are in ascii and one character is one byte. In Bots the content of the message will just be fetched and passed to the outgoing message. So if a iso-8859-3 is handled as iso-8859-1 that will generally not be problematic.</li>
+<li>Examples: iso-8859-1, windows-1252, iso-8859-2, iso-8859-3, IBM850, UNOC, latin1.</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Unicode.</dt>
+<dd><ul class="first last simple">
+<li>Examples: utf-8, utf-16, utf-32, UCS-2</li>
+<li>Unicode is designed at accommodate much more characters, think of eg Greek, Japanese, Chinese and Klingon characters.</li>
+<li>One character is not one byte. (the different Unicode characters-sets use different representation schemes.</li>
+<li>Much used is utf-8. Advantage of utf-8 is that the first 128 ascii characters are one byte; this is way uft-8 is <em>upward compatible</em> with ascii: a file with only ascii characters is the same in ascii and uft-8.</li>
+<li>In Microsoft environments often utf-16 and utf-32 is used.</li>
+<li>Fixed files can not have utf-8 character-set, as one character might be more than one byte.</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p class="first">EBCDIC :related to (extended) ascii: one character is one byte. There are some variations of EBCDIC (eg extended EBCDIC).</p>
+</li>
+</ul>
+<p>A nasty situation is eg when one partner sends Unicode (eg utf-8), and another sends extended ascii (eg iso-8859-1). These extended characters work quite differently: Bots has to know what character-set is used before reading them, as these character-sets are treated quite differently. Best way to solve this is to have receive these files via different route(parts). Bots does no <em>guessing of character-sets</em>, as this is not appropriate for business data.</p>
+<p class="rubric">X12 Incoming</p>
+<p>Character set as in envelope is used (if not set here default value of grammar.py is used (ascii)).</p>
+<p>Some typical issues and solutions:</p>
+<ul class="simple">
+<li>If partner sends x12 as eg iso-8859-1, just specify this in the syntax of the envelope (<code class="docutils literal"><span class="pre">usersys/grammars/x12/x12.py</span></code>). Note that this is a system-wide setting, this will be used for all incoming 12. Should not be a problem, iso-8859-1 is a superset of ascii. The character-set of outgoing files should also be set to handle the extended characters. Also check your ERP software: what can it handle?</li>
+<li>Same solution works for utf-8</li>
+</ul>
+<p class="rubric">EDIFACT Incoming</p>
+<p>Edifact has its own character-sets: UNOA, UNOB, UNOC, etc. In default bots setup:</p>
+<ul class="simple">
+<li>UNOA and UNOB have own character-set mapping <code class="docutils literal"><span class="pre">in</span> <span class="pre">usersys/charsets</span></code>.</li>
+<li>Other edifact character-sets are aliased in <code class="docutils literal"><span class="pre">config/bots.ini</span></code>, section charsets.</li>
+<li>Default UNOA and UNOB are not 100% strict but allow some extra characters like <code class="docutils literal"><span class="pre">&lt;CR/LF&gt;</span></code>.</li>
+<li>There are some variations of default UNOA/UNOB in <a class="reference external" href="http://http//sourceforge.net/projects/bots/files/edifact%20character%20sets/">sourceforge downloads</a>.</li>
+</ul>
+<p>Some typical issues and solutions:</p>
+<ul class="simple">
+<li>Edifact files have UNOA in them, but in fact they send more (UNOC). Solution: use <code class="docutils literal"><span class="pre">unoa_like_unoc.py</span></code> from downloads, save in <code class="docutils literal"><span class="pre">usersys/charsets</span></code> and rename to <code class="docutils literal"><span class="pre">unoa.py</span></code></li>
+<li>Partner sends UNOC character-set, but my system can only handle ascii. Solution: use <code class="docutils literal"><span class="pre">unoa_like_unoc.py</span></code> from downloads; if you open this file you can see a character mapping (note that incoming is a different character mapping as outgoing). You can map eg incoming é-&gt;e (etcetc)</li>
+<li>Our system uses iso-8859-1, but partner can handle only UNOB. Solution: use <code class="docutils literal"><span class="pre">unoa_like_unoc.py</span></code> from downloads; if you open this file you can see a character mapping (note that incoming is a different character mapping as outgoing). You can map eg outgoing é-&gt;e (etc etc)</li>
+</ul>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../deployment/index.html" class="btn btn-neutral float-right" title="Deployment" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="partner/organize-partner-translation.html" class="btn btn-neutral" title="Organize Partner Specific Translations" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, henk-jan ebbers.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'3.2.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

@@ -1,0 +1,309 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Migrate Kid to Genshi &mdash; Bots EDI Translator 3.2.0 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="Bots EDI Translator 3.2.0 documentation" href="../index.html"/>
+        <link rel="up" title="Changes and Migrate" href="index.html"/>
+        <link rel="next" title="Migrate Django versions" href="migrate-django.html"/>
+        <link rel="prev" title="Bots 2.1.0" href="bots210.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Bots EDI Translator
+          
+
+          
+            
+            <img src="../_static/botslogo_square2.png" class="logo" />
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                3.2.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../readme.html">Welcome to <code class="docutils literal"><span class="pre">Bots</span></code>&#8216;s documentation!</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../get-bots-running.html">Get Bots Running</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quick-start-guide/index.html">Quick Start Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guide-for-botsmonitor/index.html">Guide For Bots-Monitor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview/index.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../configuration/index.html">Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../deployment/index.html">Deployment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../advanced-deployment/index.html">Advanced Deployment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../plugins/index.html">Plugins</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/index.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../debugging.html">Debugging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../troubleshooting.html">Troubleshooting</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Changes and Migrate</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="bots320.html">Bots 3.2.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bots310.html">Bots 3.1.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bots300.html">Bots 3.0.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bots220.html">Bots 2.2.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bots210.html">Bots 2.1.0</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Migrate Kid to Genshi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="migrate-django.html">Migrate Django versions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="migrate-db.html">Migrate Database</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../new-to-python.html">New to python?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../external-reference.html">External reference links</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../useful-tools.html">Useful Tools</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">Bots EDI Translator</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="index.html">Changes and Migrate</a> &raquo;</li>
+      
+    <li>Migrate Kid to Genshi</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/change-migrate/migrate-kid.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="migrate-kid-to-genshi">
+<h1>Migrate Kid to Genshi<a class="headerlink" href="#migrate-kid-to-genshi" title="Permalink to this headline">¶</a></h1>
+<p>If you use bots edi type template then you are using kid for those templates. From version 2.1.0 onwards, using Genshi is also supported, using edi type <code class="docutils literal"><span class="pre">template-html</span></code>. In a future bots version, kid will be removed as it is no longer being developed.</p>
+<p>You may have copied templates from a plugin, or developed your own. Each template normally consists of three files:</p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">usersys/grammars/template/&lt;messagetype&gt;.py</span></code> is the grammar configured in the translation and defines the actual template files used.</li>
+<li><code class="docutils literal"><span class="pre">usersys/grammars/template/templates/&lt;messagetype&gt;.kid</span></code> is the template containing html code for the main body of the message.</li>
+<li><code class="docutils literal"><span class="pre">usersys/grammars/template/templates/&lt;messagetype&gt;_envelope.kid</span></code> is the envelope template containing header and footer html code.</li>
+</ul>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Your naming standard for the .kid files may differ from the above example</p>
+</div>
+<p>To convert this to a Genshi template, at least the following steps are required. There may be additional changes depending on your template complexity.
+For more info see <a class="reference external" href="http://genshi.edgewall.org/wiki/GenshiVsKid">Comparing Genshi to Kid</a>.</p>
+<ol class="arabic">
+<li><p class="first">Of course, the <a class="reference external" href="http://genshi.edgewall.org/">Genshi</a> library must be installed for this to work.</p>
+</li>
+<li><p class="first">Copy the three source files from <code class="docutils literal"><span class="pre">usersys/template</span></code> to <code class="docutils literal"><span class="pre">usersys/templatehtml</span></code>. The compiled .pyc files are not copied. Keep the same <code class="docutils literal"><span class="pre">/templates</span></code> sub-directory structure for the templates.</p>
+</li>
+<li><p class="first">Also copy the <code class="docutils literal"><span class="pre">__init.py__</span></code> files when first creating this new directory structure.</p>
+</li>
+<li><p class="first">Rename the two copied .kid files to .html (ie. just change the file extension)</p>
+</li>
+<li><dl class="first docutils">
+<dt>Edit the <code class="docutils literal"><span class="pre">&lt;messagetype&gt;.py</span></code> file and change it&#8217;s <code class="docutils literal"><span class="pre">template</span></code> and <code class="docutils literal"><span class="pre">envelope-template</span></code> settings that refer to the .kid files to .html files.</dt>
+<dd><div class="first last highlight-python"><div class="highlight"><pre><span></span><span class="n">syntax</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s1">&#39;charset&#39;</span><span class="p">:</span><span class="s1">&#39;utf-8&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;contenttype&#39;</span><span class="p">:</span><span class="s1">&#39;text/html&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;merge&#39;</span><span class="p">:</span><span class="bp">False</span><span class="p">,</span>
+        <span class="s1">&#39;template&#39;</span><span class="p">:</span><span class="s1">&#39;&lt;messagetype&gt;.html&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;envelope-template&#39;</span><span class="p">:</span><span class="s1">&#39;&lt;messagetype&gt;_envelope.html&#39;</span><span class="p">}</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</li>
+<li><p class="first">Edit the two .html template files and make the following changes:</p>
+<blockquote>
+<div><ul class="simple">
+<li>Namespaces should be changed</li>
+</ul>
+<div class="highlight-html"><div class="highlight"><pre><span></span><span class="c">&lt;!-- Kid namespace --&gt;</span>
+<span class="p">&lt;</span><span class="nt">html</span> <span class="na">xmlns:py</span><span class="o">=</span><span class="s">&quot;http://purl.org/kid/ns#&quot;</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+<div class="highlight-html"><div class="highlight"><pre><span></span><span class="c">&lt;!-- Genshi namespaces (xmlns:xi probably needed only in envelope) --&gt;</span>
+<span class="p">&lt;</span><span class="nt">html</span> <span class="na">xmlns:py</span><span class="o">=</span><span class="s">&quot;http://genshi.edgewall.org/&quot;</span> <span class="na">xmlns:xi</span><span class="o">=</span><span class="s">&quot;http://www.w3.org/2001/XInclude&quot;</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li>xi:include should be used instead of py:replace in the envelope template</li>
+</ul>
+<div class="highlight-html"><div class="highlight"><pre><span></span><span class="c">&lt;!-- Kid syntax for replace --&gt;</span>
+<span class="p">&lt;</span><span class="nt">div</span> <span class="na">py:strip</span><span class="o">=</span><span class="s">&quot;True&quot;</span> <span class="na">py:for</span><span class="o">=</span><span class="s">&quot;message in data&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">py:replace</span><span class="o">=</span><span class="s">&quot;document(message)&quot;</span><span class="p">/&gt;</span>
+<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+<div class="highlight-html"><div class="highlight"><pre><span></span><span class="c">&lt;!-- Genshi syntax for include --&gt;</span>
+<span class="p">&lt;</span><span class="nt">div</span> <span class="na">py:strip</span><span class="o">=</span><span class="s">&quot;True&quot;</span> <span class="na">py:for</span><span class="o">=</span><span class="s">&quot;message in data&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">xi:include</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;${message}&quot;</span> <span class="p">/&gt;</span>
+<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p class="first">Change your translation: change template to template-html.</p>
+</li>
+<li><p class="first">Last, but not least: test this ;-)</p>
+</li>
+</ol>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="migrate-django.html" class="btn btn-neutral float-right" title="Migrate Django versions" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="bots210.html" class="btn btn-neutral" title="Bots 2.1.0" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, henk-jan ebbers.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'3.2.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

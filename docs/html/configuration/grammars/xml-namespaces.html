@@ -1,0 +1,521 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>XML Namespaces &mdash; Bots EDI Translator 3.2.0 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../genindex.html"/>
+        <link rel="search" title="Search" href="../../search.html"/>
+    <link rel="top" title="Bots EDI Translator 3.2.0 documentation" href="../../index.html"/>
+        <link rel="up" title="Grammars" href="index.html"/>
+        <link rel="next" title="Document View" href="../document-view.html"/>
+        <link rel="prev" title="EDIFACT Character-Sets" href="edifact-charsets.html"/> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Bots EDI Translator
+          
+
+          
+            
+            <img src="../../_static/botslogo_square2.png" class="logo" />
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                3.2.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../readme.html">Welcome to <code class="docutils literal"><span class="pre">Bots</span></code>&#8216;s documentation!</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../get-bots-running.html">Get Bots Running</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quick-start-guide/index.html">Quick Start Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../guide-for-botsmonitor/index.html">Guide For Bots-Monitor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../overview/index.html">Overview</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Configuration</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../how-to-configuration.html">How to do configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../route/index.html">Routes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../channel/index.html">Channels</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../translation/index.html">Translation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../mapping-scripts/index.html">Mapping Scripts</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Grammars</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="get-grammars.html">How to Get Grammars</a></li>
+<li class="toctree-l3"><a class="reference internal" href="syntax-params.html">Syntax Parameters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="structure.html">Structure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="recorddefs.html">Recorddefs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="nextmessage.html">Next Message</a></li>
+<li class="toctree-l3"><a class="reference internal" href="nextmessageblock.html">Next Message Block</a></li>
+<li class="toctree-l3"><a class="reference internal" href="edifact-charsets.html">EDIFACT Character-Sets</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">XML Namespaces</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../document-view.html">Document View</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../user-scripting.html">User Scripting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../acknowledgements.html">Confirmations/Acknowledgements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../split-merge.html">Split, Merge and Envelope</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../partner/index.html">EDI Partners</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../charsets.html">Characters Sets</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../deployment/index.html">Deployment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../advanced-deployment/index.html">Advanced Deployment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../plugins/index.html">Plugins</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorials/index.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../debugging.html">Debugging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../troubleshooting.html">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../change-migrate/index.html">Changes and Migrate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../new-to-python.html">New to python?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../external-reference.html">External reference links</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../useful-tools.html">Useful Tools</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">Bots EDI Translator</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../index.html">Configuration</a> &raquo;</li>
+      
+          <li><a href="index.html">Grammars</a> &raquo;</li>
+      
+    <li>XML Namespaces</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../_sources/configuration/grammars/xml-namespaces.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="xml-namespaces">
+<h1>XML Namespaces<a class="headerlink" href="#xml-namespaces" title="Permalink to this headline">¶</a></h1>
+<p>Dealing with xml namespaces can be a bit difficult in Bots. They can greatly complicate grammars and mappings. Often your EDI partner will want to send or receive XML with namespaces, but actually Bots does not need (or want) them as there are rarely any naming conflicts within a single XML file!</p>
+<p>Where an XML file has only one namespace, usually the &#8220;default&#8221; namespace is used.
+eg. <code class="docutils literal"><span class="pre">xmlns=&quot;schemas-hiwg-org-au:EnvelopeV1.0&quot;</span></code></p>
+<p>If the file has multiple namespaces, then namespace prefixes are used. These prefixes can be any value.
+eg. <code class="docutils literal"><span class="pre">xmlns:ENV=&quot;schemas-hiwg-org-au:EnvelopeV1.0&quot;</span></code></p>
+<p>There are several ways to deal with namespaces in Bots:</p>
+<ol class="arabic">
+<li><p class="first"><strong>Ignore incoming XML namespace</strong></p>
+<blockquote>
+<div><p>For incoming XML files that are to be mapped into something else, you probably don&#8217;t need the namespaces at all. In my opinion this is the &#8220;best&#8221; way. See an <a class="reference internal" href="../route/route-scripting.html"><span class="doc">example preprocessing script</span></a> to achieve this.</p>
+</div></blockquote>
+</li>
+<li><p class="first"><strong>Use incoming XML namespace</strong></p>
+<blockquote>
+<div><p>When a namespace must be used, it is needed in many places (structure, recorddefs, mapping) but you want to specify the namespace string,
+which can be quite long, only in one place (<a class="reference external" href="https://en.wikipedia.org/wiki/Don%27t_repeat_yourself">DRY principle</a>). This has several benefits:</p>
+<ul class="simple">
+<li>If it needs to change, this is easy to do in one place only</li>
+<li>grammar and mapping will be smaller, and look neater</li>
+</ul>
+<p>For example, the incoming XML file may look like ...</p>
+<div class="highlight-xml"><div class="highlight"><pre><span></span><span class="cp">&lt;?xml version=&quot;1.0&quot;?&gt;</span>
+<span class="nt">&lt;Orders</span> <span class="na">xmlns:xsd=</span><span class="s">&quot;http://www.w3.org/2001/XMLSchema&quot;</span>
+     <span class="na">xmlns=</span><span class="s">&quot;http://www.company.com/EDIOrders&quot;</span>
+     <span class="na">targetNamespace=</span><span class="s">&quot;http//www.company.com/EDIOrders&quot;</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;Order&gt;</span>
+        <span class="nt">&lt;OrderNumber&gt;</span>239062415<span class="nt">&lt;/OrderNumber&gt;</span>
+        <span class="nt">&lt;DateOrdered&gt;</span>2014-02-24<span class="nt">&lt;/DateOrdered&gt;</span>
+        <span class="nt">&lt;LineCount&gt;</span>10<span class="nt">&lt;/LineCount&gt;</span>
+etc...
+</pre></div>
+</div>
+<p>If you created your grammar with <code class="docutils literal"><span class="pre">xml2botsgrammar</span></code>, it probably has the namespace repeated over and over in structure and recorddefs, like this:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">structure</span><span class="o">=</span>    <span class="p">[</span>
+<span class="p">{</span><span class="n">ID</span><span class="p">:</span><span class="s1">&#39;{http://www.company.com/EDIOrders}Orders&#39;</span><span class="p">,</span><span class="n">MIN</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="n">MAX</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="n">LEVEL</span><span class="p">:[</span>
+    <span class="p">{</span><span class="n">ID</span><span class="p">:</span><span class="s1">&#39;{http://www.company.com/EDIOrders}Order&#39;</span><span class="p">,</span><span class="n">MIN</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="n">MAX</span><span class="p">:</span><span class="mi">99999</span><span class="p">,</span>
+        <span class="n">QUERIES</span><span class="p">:{</span>
+             <span class="s1">&#39;botskey&#39;</span><span class="p">:</span>      <span class="p">{</span><span class="s1">&#39;BOTSID&#39;</span><span class="p">:</span><span class="s1">&#39;{http://www.company.com/EDIOrders}Order&#39;</span><span class="p">,</span><span class="s1">&#39;{http://www.company.com/EDIOrders}OrderNumber&#39;</span><span class="p">:</span><span class="bp">None</span><span class="p">},</span>
+            <span class="p">},</span>
+        <span class="n">LEVEL</span><span class="p">:[</span>
+        <span class="p">{</span><span class="n">ID</span><span class="p">:</span><span class="s1">&#39;{http://www.company.com/EDIOrders}OrderItems&#39;</span><span class="p">,</span><span class="n">MIN</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="n">MAX</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="n">LEVEL</span><span class="p">:[</span>
+            <span class="p">{</span><span class="n">ID</span><span class="p">:</span><span class="s1">&#39;{http://www.company.com/EDIOrders}OrderLine&#39;</span><span class="p">,</span><span class="n">MIN</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="n">MAX</span><span class="p">:</span><span class="mi">99999</span><span class="p">},</span>
+            <span class="p">]},</span>
+        <span class="p">]},</span>
+    <span class="p">]}</span>
+<span class="p">]</span>
+
+<span class="n">recorddefs</span> <span class="o">=</span> <span class="p">{</span>
+   <span class="s1">&#39;{http://www.company.com/EDIOrders}Orders&#39;</span><span class="p">:[</span>
+            <span class="p">[</span><span class="s1">&#39;BOTSID&#39;</span><span class="p">,</span><span class="s1">&#39;M&#39;</span><span class="p">,</span><span class="mi">256</span><span class="p">,</span><span class="s1">&#39;A&#39;</span><span class="p">],</span>
+            <span class="p">[</span><span class="s1">&#39;{http://www.company.com/EDIOrders}Orders__targetNamespace&#39;</span><span class="p">,</span><span class="s1">&#39;C&#39;</span><span class="p">,</span><span class="mi">256</span><span class="p">,</span><span class="s1">&#39;AN&#39;</span><span class="p">],</span>
+          <span class="p">],</span>
+   <span class="s1">&#39;{http://www.company.com/EDIOrders}Order&#39;</span><span class="p">:[</span>
+            <span class="p">[</span><span class="s1">&#39;BOTSID&#39;</span><span class="p">,</span><span class="s1">&#39;M&#39;</span><span class="p">,</span><span class="mi">256</span><span class="p">,</span><span class="s1">&#39;A&#39;</span><span class="p">],</span>
+            <span class="p">[</span><span class="s1">&#39;{http://www.company.com/EDIOrders}OrderNumber&#39;</span><span class="p">,</span><span class="s1">&#39;C&#39;</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span><span class="s1">&#39;AN&#39;</span><span class="p">],</span>
+            <span class="p">[</span><span class="s1">&#39;{http://www.company.com/EDIOrders}DateOrdered&#39;</span><span class="p">,</span><span class="s1">&#39;C&#39;</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span><span class="s1">&#39;AN&#39;</span><span class="p">],</span>
+            <span class="p">[</span><span class="s1">&#39;{http://www.company.com/EDIOrders}LineCount&#39;</span><span class="p">,</span><span class="s1">&#39;C&#39;</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span><span class="s1">&#39;R&#39;</span><span class="p">],</span>
+
+<span class="c1"># etc...</span>
+</pre></div>
+</div>
+<p>So, we want to improve this. In your grammar, first add the namespace as a string constant. This is the only place it should be specified, and everywhere else refers to it.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>If the XML has multiple namespaces, you can use the same technique and just add more constants (xmlns1, xmlns2, etc). Also include it in the syntax dict. This allows us to reference it later in mappings.</p>
+<blockquote class="last">
+<div><div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">xmlns</span><span class="o">=</span><span class="s1">&#39;{http://www.company.com/EDIOrders}&#39;</span>
+<span class="n">syntax</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;xmlns&#39;</span><span class="p">:</span><span class="n">xmlns</span><span class="p">,</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div></blockquote>
+</div>
+<p>In your grammar, replace all instances of the namespace string with the constant, so it looks like this:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">structure</span><span class="o">=</span>    <span class="p">[</span>
+<span class="p">{</span><span class="n">ID</span><span class="p">:</span><span class="n">xmlns</span><span class="o">+</span><span class="s1">&#39;Orders&#39;</span><span class="p">,</span><span class="n">MIN</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="n">MAX</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="n">LEVEL</span><span class="p">:[</span>
+    <span class="p">{</span><span class="n">ID</span><span class="p">:</span><span class="n">xmlns</span><span class="o">+</span><span class="s1">&#39;Order&#39;</span><span class="p">,</span><span class="n">MIN</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="n">MAX</span><span class="p">:</span><span class="mi">99999</span><span class="p">,</span>
+        <span class="n">QUERIES</span><span class="p">:{</span>
+             <span class="s1">&#39;botskey&#39;</span><span class="p">:</span>      <span class="p">{</span><span class="s1">&#39;BOTSID&#39;</span><span class="p">:</span><span class="n">xmlns</span><span class="o">+</span><span class="s1">&#39;Order&#39;</span><span class="p">,</span><span class="n">xmlns</span><span class="o">+</span><span class="s1">&#39;OrderNumber&#39;</span><span class="p">:</span><span class="bp">None</span><span class="p">},</span>
+            <span class="p">},</span>
+        <span class="n">LEVEL</span><span class="p">:[</span>
+        <span class="p">{</span><span class="n">ID</span><span class="p">:</span><span class="n">xmlns</span><span class="o">+</span><span class="s1">&#39;OrderItems&#39;</span><span class="p">,</span><span class="n">MIN</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="n">MAX</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="n">LEVEL</span><span class="p">:[</span>
+            <span class="p">{</span><span class="n">ID</span><span class="p">:</span><span class="n">xmlns</span><span class="o">+</span><span class="s1">&#39;OrderLine&#39;</span><span class="p">,</span><span class="n">MIN</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="n">MAX</span><span class="p">:</span><span class="mi">99999</span><span class="p">},</span>
+            <span class="p">]},</span>
+        <span class="p">]},</span>
+    <span class="p">]}</span>
+<span class="p">]</span>
+
+<span class="n">recorddefs</span> <span class="o">=</span> <span class="p">{</span>
+   <span class="n">xmlns</span><span class="o">+</span><span class="s1">&#39;Orders&#39;</span><span class="p">:[</span>
+            <span class="p">[</span><span class="s1">&#39;BOTSID&#39;</span><span class="p">,</span><span class="s1">&#39;M&#39;</span><span class="p">,</span><span class="mi">256</span><span class="p">,</span><span class="s1">&#39;A&#39;</span><span class="p">],</span>
+            <span class="p">[</span><span class="n">xmlns</span><span class="o">+</span><span class="s1">&#39;Orders__targetNamespace&#39;</span><span class="p">,</span><span class="s1">&#39;C&#39;</span><span class="p">,</span><span class="mi">256</span><span class="p">,</span><span class="s1">&#39;AN&#39;</span><span class="p">],</span>
+          <span class="p">],</span>
+   <span class="n">xmlns</span><span class="o">+</span><span class="s1">&#39;Order&#39;</span><span class="p">:[</span>
+            <span class="p">[</span><span class="s1">&#39;BOTSID&#39;</span><span class="p">,</span><span class="s1">&#39;M&#39;</span><span class="p">,</span><span class="mi">256</span><span class="p">,</span><span class="s1">&#39;A&#39;</span><span class="p">],</span>
+            <span class="p">[</span><span class="n">xmlns</span><span class="o">+</span><span class="s1">&#39;OrderNumber&#39;</span><span class="p">,</span><span class="s1">&#39;C&#39;</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span><span class="s1">&#39;AN&#39;</span><span class="p">],</span>
+            <span class="p">[</span><span class="n">xmlns</span><span class="o">+</span><span class="s1">&#39;DateOrdered&#39;</span><span class="p">,</span><span class="s1">&#39;C&#39;</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span><span class="s1">&#39;AN&#39;</span><span class="p">],</span>
+            <span class="p">[</span><span class="n">xmlns</span><span class="o">+</span><span class="s1">&#39;LineCount&#39;</span><span class="p">,</span><span class="s1">&#39;C&#39;</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span><span class="s1">&#39;R&#39;</span><span class="p">],</span>
+
+<span class="c1"># etc...</span>
+</pre></div>
+</div>
+<p>Now in the mapping script, read the xmlns value from grammar.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">bots.grammar</span> <span class="kn">as</span> <span class="nn">grammar</span>
+<span class="n">xmlns</span> <span class="o">=</span> <span class="n">grammar</span><span class="o">.</span><span class="n">grammarread</span><span class="p">(</span><span class="s1">&#39;xml&#39;</span><span class="p">,</span><span class="n">inn</span><span class="o">.</span><span class="n">ta_info</span><span class="p">[</span><span class="s1">&#39;messagetype&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">syntax</span><span class="p">[</span><span class="s1">&#39;xmlns&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>Then use it wherever needed in the mapping, like this:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># Get OrderNumber from XML with namespace</span>
+<span class="n">OrderNumber</span> <span class="o">=</span> <span class="n">inn</span><span class="o">.</span><span class="n">get</span><span class="p">({</span><span class="s1">&#39;BOTSID&#39;</span><span class="p">:</span><span class="n">xmlns</span><span class="o">+</span><span class="s1">&#39;Order&#39;</span><span class="p">,</span><span class="n">xmlns</span><span class="o">+</span><span class="s1">&#39;OrderNumber&#39;</span><span class="p">:</span><span class="bp">None</span><span class="p">})</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p class="first"><strong>Outgoing XML with only a default namespace</strong></p>
+<blockquote>
+<div><p>This can be done by defining xmlns as a tag, and setting it in mapping. It eliminates the need to use namespace prefix on every record and field. example grammar</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">recorddefs</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;shipment&#39;</span><span class="p">:</span>
+        <span class="p">[</span>
+        <span class="p">[</span><span class="s1">&#39;BOTSID&#39;</span><span class="p">,</span> <span class="s1">&#39;M&#39;</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="s1">&#39;AN&#39;</span><span class="p">],</span>
+        <span class="p">[</span><span class="s1">&#39;shipment__xmlns&#39;</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">,</span> <span class="mi">80</span><span class="p">,</span> <span class="s1">&#39;AN&#39;</span><span class="p">],</span>   <span class="c1"># xmlns is added as a tag (note double underscore)</span>
+        <span class="p">[</span><span class="s1">&#39;ediCustomerNumber&#39;</span><span class="p">,</span> <span class="s1">&#39;M&#39;</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="s1">&#39;N&#39;</span><span class="p">],</span>
+        <span class="p">[</span><span class="s1">&#39;ediParm1&#39;</span><span class="p">,</span> <span class="s1">&#39;M&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;N&#39;</span><span class="p">],</span>
+        <span class="p">[</span><span class="s1">&#39;ediParm2&#39;</span><span class="p">,</span> <span class="s1">&#39;M&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;AN&#39;</span><span class="p">],</span>
+        <span class="p">[</span><span class="s1">&#39;ediParm3&#39;</span><span class="p">,</span> <span class="s1">&#39;M&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;AN&#39;</span><span class="p">],</span>
+        <span class="p">[</span><span class="s1">&#39;ediReference&#39;</span><span class="p">,</span> <span class="s1">&#39;M&#39;</span><span class="p">,</span> <span class="mi">35</span><span class="p">,</span> <span class="s1">&#39;AN&#39;</span><span class="p">],</span>
+        <span class="p">[</span><span class="s1">&#39;ediFunction1&#39;</span><span class="p">,</span> <span class="s1">&#39;M&#39;</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="s1">&#39;AN&#39;</span><span class="p">],</span>
+        <span class="p">[</span><span class="s1">&#39;ediCustomerSearchName&#39;</span><span class="p">,</span> <span class="s1">&#39;M&#39;</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="s1">&#39;AN&#39;</span><span class="p">],</span>
+        <span class="p">],</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Example Mapping</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># xmlns tag for shipment</span>
+<span class="n">out</span><span class="o">.</span><span class="n">put</span><span class="p">({</span><span class="s1">&#39;BOTSID&#39;</span><span class="p">:</span><span class="s1">&#39;shipment&#39;</span><span class="p">,</span><span class="s1">&#39;shipment__xmlns&#39;</span><span class="p">:</span><span class="s1">&#39;http://www.company.com/logistics/shipment&#39;</span><span class="p">})</span>
+</pre></div>
+</div>
+<p>Example Output</p>
+<div class="highlight-xml"><div class="highlight"><pre><span></span><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot; ?&gt;</span>
+<span class="nt">&lt;shipment</span> <span class="na">xmlns=</span><span class="s">&quot;http://www.company.com/logistics/shipment&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;ediCustomerNumber&gt;</span>191<span class="nt">&lt;/ediCustomerNumber&gt;</span>
+    <span class="nt">&lt;ediParm1&gt;</span>4<span class="nt">&lt;/ediParm1&gt;</span>
+    <span class="nt">&lt;ediParm2&gt;</span>s<span class="nt">&lt;/ediParm2&gt;</span>
+    <span class="nt">&lt;ediParm3&gt;</span>d<span class="nt">&lt;/ediParm3&gt;</span>
+    <span class="nt">&lt;ediReference&gt;</span>SCN1022164911<span class="nt">&lt;/ediReference&gt;</span>
+    <span class="nt">&lt;ediFunction1&gt;</span>9<span class="nt">&lt;/ediFunction1&gt;</span>
+    <span class="nt">&lt;ediCustomerSearchName&gt;</span>SCHA<span class="nt">&lt;/ediCustomerSearchName&gt;</span>
+<span class="nt">&lt;/shipment&gt;</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p class="first"><strong>Outgoing XML with default namespace prefixes (ns0, ns1, etc)</strong></p>
+<blockquote>
+<div><p><strong>This is the default behaviour of the python elementtree module used in Bots</strong>.The actual prefix used is not important to XML meaning, so in theory your EDI partners should not care what prefixes you use.</p>
+<p>Example Grammar:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">xmlns_env</span><span class="o">=</span><span class="s1">&#39;{schemas-hiwg-org-au:EnvelopeV1.0}&#39;</span>
+<span class="n">xmlns</span><span class="o">=</span><span class="s1">&#39;{schemas-hiwg-org-au:InvoiceV3.0}&#39;</span>
+
+<span class="n">syntax</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s1">&#39;xmlns_env&#39;</span><span class="p">:</span><span class="n">xmlns_env</span><span class="p">,</span>
+        <span class="s1">&#39;xmlns&#39;</span><span class="p">:</span><span class="n">xmlns</span><span class="p">,</span>
+        <span class="s1">&#39;merge&#39;</span><span class="p">:</span><span class="bp">False</span><span class="p">,</span>
+        <span class="s1">&#39;indented&#39;</span><span class="p">:</span><span class="bp">True</span><span class="p">,</span>
+<span class="p">}</span>
+
+<span class="n">nextmessage</span> <span class="o">=</span> <span class="p">({</span><span class="s1">&#39;BOTSID&#39;</span><span class="p">:</span><span class="n">xmlns_env</span><span class="o">+</span><span class="s1">&#39;Envelope&#39;</span><span class="p">},{</span><span class="s1">&#39;BOTSID&#39;</span><span class="p">:</span><span class="s1">&#39;Documents&#39;</span><span class="p">},{</span><span class="s1">&#39;BOTSID&#39;</span><span class="p">:</span><span class="n">xmlns</span><span class="o">+</span><span class="s1">&#39;Invoice&#39;</span><span class="p">})</span>
+
+<span class="n">structure</span> <span class="o">=</span> <span class="p">[</span>
+<span class="p">{</span><span class="n">ID</span><span class="p">:</span><span class="n">xmlns_env</span><span class="o">+</span><span class="s1">&#39;Envelope&#39;</span><span class="p">,</span><span class="n">MIN</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="n">MAX</span><span class="p">:</span><span class="mi">99999</span><span class="p">,</span>
+    <span class="n">QUERIES</span><span class="p">:{</span>
+        <span class="s1">&#39;frompartner&#39;</span><span class="p">:{</span><span class="s1">&#39;BOTSID&#39;</span><span class="p">:</span><span class="n">xmlns_env</span><span class="o">+</span><span class="s1">&#39;Envelope&#39;</span><span class="p">,</span><span class="n">xmlns_env</span><span class="o">+</span><span class="s1">&#39;SenderID&#39;</span><span class="p">:</span><span class="bp">None</span><span class="p">},</span>
+        <span class="s1">&#39;topartner&#39;</span><span class="p">:{</span><span class="s1">&#39;BOTSID&#39;</span><span class="p">:</span><span class="n">xmlns_env</span><span class="o">+</span><span class="s1">&#39;Envelope&#39;</span><span class="p">,</span><span class="n">xmlns_env</span><span class="o">+</span><span class="s1">&#39;RecipientID&#39;</span><span class="p">:</span><span class="bp">None</span><span class="p">},</span>
+        <span class="p">},</span>
+    <span class="n">LEVEL</span><span class="p">:[</span>
+    <span class="p">{</span><span class="n">ID</span><span class="p">:</span><span class="s1">&#39;Documents&#39;</span><span class="p">,</span><span class="n">MIN</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="n">MAX</span><span class="p">:</span><span class="mi">99999</span><span class="p">,</span><span class="n">LEVEL</span><span class="p">:[</span>
+        <span class="p">{</span><span class="n">ID</span><span class="p">:</span><span class="n">xmlns</span><span class="o">+</span><span class="s1">&#39;Invoice&#39;</span><span class="p">,</span><span class="n">MIN</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="n">MAX</span><span class="p">:</span><span class="mi">99999</span><span class="p">,</span>
+            <span class="n">QUERIES</span><span class="p">:{</span>
+                <span class="s1">&#39;botskey&#39;</span><span class="p">:({</span><span class="s1">&#39;BOTSID&#39;</span><span class="p">:</span><span class="n">xmlns</span><span class="o">+</span><span class="s1">&#39;Invoice&#39;</span><span class="p">,</span><span class="n">xmlns</span><span class="o">+</span><span class="s1">&#39;DocumentNo&#39;</span><span class="p">:</span><span class="bp">None</span><span class="p">}),</span>
+                <span class="p">},</span>
+            <span class="n">LEVEL</span><span class="p">:[</span>
+            <span class="p">{</span><span class="n">ID</span><span class="p">:</span><span class="n">xmlns</span><span class="o">+</span><span class="s1">&#39;Supplier&#39;</span><span class="p">,</span><span class="n">MIN</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="n">MAX</span><span class="p">:</span><span class="mi">99999</span><span class="p">},</span>
+            <span class="p">{</span><span class="n">ID</span><span class="p">:</span><span class="n">xmlns</span><span class="o">+</span><span class="s1">&#39;Buyer&#39;</span><span class="p">,</span><span class="n">MIN</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="n">MAX</span><span class="p">:</span><span class="mi">99999</span><span class="p">},</span>
+            <span class="p">{</span><span class="n">ID</span><span class="p">:</span><span class="n">xmlns</span><span class="o">+</span><span class="s1">&#39;Delivery&#39;</span><span class="p">,</span><span class="n">MIN</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="n">MAX</span><span class="p">:</span><span class="mi">99999</span><span class="p">},</span>
+            <span class="p">{</span><span class="n">ID</span><span class="p">:</span><span class="n">xmlns</span><span class="o">+</span><span class="s1">&#39;Line&#39;</span><span class="p">,</span><span class="n">MIN</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="n">MAX</span><span class="p">:</span><span class="mi">99999</span><span class="p">},</span>
+            <span class="p">{</span><span class="n">ID</span><span class="p">:</span><span class="n">xmlns</span><span class="o">+</span><span class="s1">&#39;Trailer&#39;</span><span class="p">,</span><span class="n">MIN</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="n">MAX</span><span class="p">:</span><span class="mi">99999</span><span class="p">},</span>
+        <span class="p">]},</span>
+    <span class="p">]},</span>
+<span class="p">]},</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+<p>Example Output</p>
+<div class="highlight-xml"><div class="highlight"><pre><span></span><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot; ?&gt;</span>
+<span class="nt">&lt;ns0:Envelope</span> <span class="na">xmlns:ns0=</span><span class="s">&quot;schemas-hiwg-org-au:EnvelopeV1.0&quot;</span> <span class="na">xmlns:ns1=</span><span class="s">&quot;schemas-hiwg-org-au:InvoiceV3.0&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;ns0:SenderID&gt;</span>sender<span class="nt">&lt;/ns0:SenderID&gt;</span>
+    <span class="nt">&lt;ns0:RecipientID&gt;</span>recipient<span class="nt">&lt;/ns0:RecipientID&gt;</span>
+    <span class="nt">&lt;ns0:DocumentCount&gt;</span>1<span class="nt">&lt;/ns0:DocumentCount&gt;</span>
+    <span class="nt">&lt;Documents&gt;</span>
+        <span class="nt">&lt;ns1:Invoice&gt;</span>
+            <span class="nt">&lt;ns1:TradingPartnerID&gt;</span>ID1<span class="nt">&lt;/ns1:TradingPartnerID&gt;</span>
+            <span class="nt">&lt;ns1:MessageType&gt;</span>INVOIC<span class="nt">&lt;/ns1:MessageType&gt;</span>
+            <span class="nt">&lt;ns1:VersionControlNo&gt;</span>3.0<span class="nt">&lt;/ns1:VersionControlNo&gt;</span>
+            <span class="nt">&lt;ns1:DocumentType&gt;</span>TAX INVOICE<span class="nt">&lt;/ns1:DocumentType&gt;</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p class="first"><strong>Outgoing XML with specific namespace prefixes</strong></p>
+<blockquote>
+<div><p>Your EDI partner may request a specific namespace prefix be used; This is technically un-necessary and bad design, but they may insist on it anyway!</p>
+<p>Example Grammar</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">xmlns_env</span><span class="o">=</span><span class="s1">&#39;{schemas-hiwg-org-au:EnvelopeV1.0}&#39;</span>
+<span class="n">xmlns</span><span class="o">=</span><span class="s1">&#39;{schemas-hiwg-org-au:InvoiceV3.0}&#39;</span>
+
+<span class="n">syntax</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s1">&#39;xmlns_env&#39;</span><span class="p">:</span><span class="n">xmlns_env</span><span class="p">,</span>
+        <span class="s1">&#39;xmlns&#39;</span><span class="p">:</span><span class="n">xmlns</span><span class="p">,</span>
+        <span class="s1">&#39;namespace_prefixes&#39;</span><span class="p">:[(</span><span class="s1">&#39;ENV&#39;</span><span class="p">,</span><span class="n">xmlns_env</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s1">&#39;{}&#39;</span><span class="p">)),(</span><span class="s1">&#39;INV&#39;</span><span class="p">,</span><span class="n">xmlns</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s1">&#39;{}&#39;</span><span class="p">))],</span> <span class="c1"># use ENV, INV instead of ns0, ns1</span>
+        <span class="s1">&#39;merge&#39;</span><span class="p">:</span><span class="bp">False</span><span class="p">,</span>
+        <span class="s1">&#39;indented&#39;</span><span class="p">:</span><span class="bp">True</span><span class="p">,</span>
+<span class="p">}</span>
+
+<span class="n">structure</span> <span class="o">=</span> <span class="p">[</span>
+<span class="p">{</span><span class="n">ID</span><span class="p">:</span><span class="n">xmlns_env</span><span class="o">+</span><span class="s1">&#39;Envelope&#39;</span><span class="p">,</span><span class="n">MIN</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="n">MAX</span><span class="p">:</span><span class="mi">99999</span><span class="p">,</span>
+    <span class="n">QUERIES</span><span class="p">:{</span>
+        <span class="s1">&#39;frompartner&#39;</span><span class="p">:{</span><span class="s1">&#39;BOTSID&#39;</span><span class="p">:</span><span class="n">xmlns_env</span><span class="o">+</span><span class="s1">&#39;Envelope&#39;</span><span class="p">,</span><span class="n">xmlns_env</span><span class="o">+</span><span class="s1">&#39;SenderID&#39;</span><span class="p">:</span><span class="bp">None</span><span class="p">},</span>
+        <span class="s1">&#39;topartner&#39;</span><span class="p">:{</span><span class="s1">&#39;BOTSID&#39;</span><span class="p">:</span><span class="n">xmlns_env</span><span class="o">+</span><span class="s1">&#39;Envelope&#39;</span><span class="p">,</span><span class="n">xmlns_env</span><span class="o">+</span><span class="s1">&#39;RecipientID&#39;</span><span class="p">:</span><span class="bp">None</span><span class="p">},</span>
+        <span class="p">},</span>
+    <span class="n">LEVEL</span><span class="p">:[</span>
+    <span class="p">{</span><span class="n">ID</span><span class="p">:</span><span class="s1">&#39;Documents&#39;</span><span class="p">,</span><span class="n">MIN</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="n">MAX</span><span class="p">:</span><span class="mi">99999</span><span class="p">,</span><span class="n">LEVEL</span><span class="p">:[</span>
+        <span class="p">{</span><span class="n">ID</span><span class="p">:</span><span class="n">xmlns</span><span class="o">+</span><span class="s1">&#39;Invoice&#39;</span><span class="p">,</span><span class="n">MIN</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="n">MAX</span><span class="p">:</span><span class="mi">99999</span><span class="p">,</span>
+            <span class="n">QUERIES</span><span class="p">:{</span>
+                <span class="s1">&#39;botskey&#39;</span><span class="p">:({</span><span class="s1">&#39;BOTSID&#39;</span><span class="p">:</span><span class="n">xmlns</span><span class="o">+</span><span class="s1">&#39;Invoice&#39;</span><span class="p">,</span><span class="n">xmlns</span><span class="o">+</span><span class="s1">&#39;DocumentNo&#39;</span><span class="p">:</span><span class="bp">None</span><span class="p">}),</span>
+                <span class="p">},</span>
+            <span class="n">LEVEL</span><span class="p">:[</span>
+            <span class="p">{</span><span class="n">ID</span><span class="p">:</span><span class="n">xmlns</span><span class="o">+</span><span class="s1">&#39;Supplier&#39;</span><span class="p">,</span><span class="n">MIN</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="n">MAX</span><span class="p">:</span><span class="mi">99999</span><span class="p">},</span>
+            <span class="p">{</span><span class="n">ID</span><span class="p">:</span><span class="n">xmlns</span><span class="o">+</span><span class="s1">&#39;Buyer&#39;</span><span class="p">,</span><span class="n">MIN</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="n">MAX</span><span class="p">:</span><span class="mi">99999</span><span class="p">},</span>
+            <span class="p">{</span><span class="n">ID</span><span class="p">:</span><span class="n">xmlns</span><span class="o">+</span><span class="s1">&#39;Delivery&#39;</span><span class="p">,</span><span class="n">MIN</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="n">MAX</span><span class="p">:</span><span class="mi">99999</span><span class="p">},</span>
+            <span class="p">{</span><span class="n">ID</span><span class="p">:</span><span class="n">xmlns</span><span class="o">+</span><span class="s1">&#39;Line&#39;</span><span class="p">,</span><span class="n">MIN</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="n">MAX</span><span class="p">:</span><span class="mi">99999</span><span class="p">},</span>
+            <span class="p">{</span><span class="n">ID</span><span class="p">:</span><span class="n">xmlns</span><span class="o">+</span><span class="s1">&#39;Trailer&#39;</span><span class="p">,</span><span class="n">MIN</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="n">MAX</span><span class="p">:</span><span class="mi">99999</span><span class="p">},</span>
+        <span class="p">]},</span>
+    <span class="p">]},</span>
+<span class="p">]},</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+<p>Example Output</p>
+<div class="highlight-xml"><div class="highlight"><pre><span></span><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot; ?&gt;</span>
+<span class="nt">&lt;ENV:Envelope</span> <span class="na">xmlns:ENV=</span><span class="s">&quot;schemas-hiwg-org-au:EnvelopeV1.0&quot;</span> <span class="na">xmlns:INV=</span><span class="s">&quot;schemas-hiwg-org-au:InvoiceV3.0&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;ENV:SenderID&gt;</span>sender<span class="nt">&lt;/ENV:SenderID&gt;</span>
+    <span class="nt">&lt;ENV:RecipientID&gt;</span>recipient<span class="nt">&lt;/ENV:RecipientID&gt;</span>
+    <span class="nt">&lt;ENV:DocumentCount&gt;</span>1<span class="nt">&lt;/ENV:DocumentCount&gt;</span>
+    <span class="nt">&lt;Documents&gt;</span>
+        <span class="nt">&lt;INV:Invoice&gt;</span>
+            <span class="nt">&lt;INV:TradingPartnerID&gt;</span>ID1<span class="nt">&lt;/INV:TradingPartnerID&gt;</span>
+            <span class="nt">&lt;INV:MessageType&gt;</span>INVOIC<span class="nt">&lt;/INV:MessageType&gt;</span>
+            <span class="nt">&lt;INV:VersionControlNo&gt;</span>3.0<span class="nt">&lt;/INV:VersionControlNo&gt;</span>
+            <span class="nt">&lt;INV:DocumentType&gt;</span>TAX INVOICE<span class="nt">&lt;/INV:DocumentType&gt;</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+</ol>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../document-view.html" class="btn btn-neutral float-right" title="Document View" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="edifact-charsets.html" class="btn btn-neutral" title="EDIFACT Character-Sets" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, henk-jan ebbers.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'3.2.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

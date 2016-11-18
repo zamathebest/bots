@@ -1,0 +1,319 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Next Message Block &mdash; Bots EDI Translator 3.2.0 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../genindex.html"/>
+        <link rel="search" title="Search" href="../../search.html"/>
+    <link rel="top" title="Bots EDI Translator 3.2.0 documentation" href="../../index.html"/>
+        <link rel="up" title="Grammars" href="index.html"/>
+        <link rel="next" title="EDIFACT Character-Sets" href="edifact-charsets.html"/>
+        <link rel="prev" title="Next Message" href="nextmessage.html"/> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Bots EDI Translator
+          
+
+          
+            
+            <img src="../../_static/botslogo_square2.png" class="logo" />
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                3.2.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../readme.html">Welcome to <code class="docutils literal"><span class="pre">Bots</span></code>&#8216;s documentation!</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../get-bots-running.html">Get Bots Running</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quick-start-guide/index.html">Quick Start Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../guide-for-botsmonitor/index.html">Guide For Bots-Monitor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../overview/index.html">Overview</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Configuration</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../how-to-configuration.html">How to do configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../route/index.html">Routes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../channel/index.html">Channels</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../translation/index.html">Translation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../mapping-scripts/index.html">Mapping Scripts</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Grammars</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="get-grammars.html">How to Get Grammars</a></li>
+<li class="toctree-l3"><a class="reference internal" href="syntax-params.html">Syntax Parameters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="structure.html">Structure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="recorddefs.html">Recorddefs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="nextmessage.html">Next Message</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Next Message Block</a></li>
+<li class="toctree-l3"><a class="reference internal" href="edifact-charsets.html">EDIFACT Character-Sets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="xml-namespaces.html">XML Namespaces</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../document-view.html">Document View</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../user-scripting.html">User Scripting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../acknowledgements.html">Confirmations/Acknowledgements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../split-merge.html">Split, Merge and Envelope</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../partner/index.html">EDI Partners</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../charsets.html">Characters Sets</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../deployment/index.html">Deployment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../advanced-deployment/index.html">Advanced Deployment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../plugins/index.html">Plugins</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorials/index.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../debugging.html">Debugging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../troubleshooting.html">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../change-migrate/index.html">Changes and Migrate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../new-to-python.html">New to python?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../external-reference.html">External reference links</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../useful-tools.html">Useful Tools</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">Bots EDI Translator</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../index.html">Configuration</a> &raquo;</li>
+      
+          <li><a href="index.html">Grammars</a> &raquo;</li>
+      
+    <li>Next Message Block</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../_sources/configuration/grammars/nextmessageblock.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="next-message-block">
+<h1>Next Message Block<a class="headerlink" href="#next-message-block" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li>The <code class="docutils literal"><span class="pre">nextmessageblock</span></code> section in a grammar is mostly used for csv-files consisting of one record-type.</li>
+<li>Think of excel, where every row has the same layout.</li>
+<li>Via nextmessageblock all subsequent records with eg the same ordernumber are passed as one message to the mapping script.</li>
+<li>This is best understood by an example, consider the below CSV file:</li>
+</ul>
+<div class="code highlight-default"><div class="highlight"><pre><span></span><span class="n">ordernumber1</span><span class="p">,</span><span class="n">buyer1</span><span class="p">,</span><span class="mi">20120524</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">article1</span><span class="p">,</span><span class="mi">24</span>
+<span class="n">ordernumber1</span><span class="p">,</span><span class="n">buyer1</span><span class="p">,</span><span class="mi">20120524</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="n">article2</span><span class="p">,</span><span class="mi">288</span>
+<span class="n">ordernumber1</span><span class="p">,</span><span class="n">buyer1</span><span class="p">,</span><span class="mi">20120524</span><span class="p">,</span><span class="mf">3.</span><span class="n">article3</span><span class="p">,</span><span class="mi">6</span>
+<span class="n">ordernumber2</span><span class="p">,</span><span class="n">buyer2</span><span class="p">,</span><span class="mi">20120524</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">article5</span><span class="p">,</span><span class="mi">124</span>
+<span class="n">ordernumber3</span><span class="p">,</span><span class="n">buyer1</span><span class="p">,</span><span class="mi">20120524</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">article1</span><span class="p">,</span><span class="mi">24</span>
+<span class="n">ordernumber3</span><span class="p">,</span><span class="n">buyer1</span><span class="p">,</span><span class="mi">20120524</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="n">article4</span><span class="p">,</span><span class="mi">48</span>
+</pre></div>
+</div>
+<p>which will have the grammer:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">bots.botsconfig</span> <span class="kn">import</span> <span class="o">*</span>
+
+<span class="n">syntax</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;field_sep&#39;</span> <span class="p">:</span> <span class="s1">&#39;,&#39;</span><span class="p">,</span>               <span class="c1">#specify field separator</span>
+    <span class="s1">&#39;noBOTSID&#39;</span>   <span class="p">:</span> <span class="bp">True</span><span class="p">,</span>             <span class="c1">#does not have record-ID&#39;s</span>
+    <span class="p">}</span>
+
+<span class="n">nextmessageblock</span> <span class="o">=</span> <span class="p">({</span><span class="s1">&#39;BOTSID&#39;</span><span class="p">:</span><span class="s1">&#39;HEADER&#39;</span><span class="p">,</span><span class="s1">&#39;order number&#39;</span><span class="p">:</span><span class="bp">None</span><span class="p">})</span>   <span class="c1">#feed mapping script with separate orders (where ordernumber is different)</span>
+
+<span class="n">structure</span> <span class="o">=</span> <span class="p">[</span>
+<span class="p">{</span><span class="n">ID</span><span class="p">:</span><span class="s1">&#39;HEADER&#39;</span><span class="p">,</span><span class="n">MIN</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="n">MAX</span><span class="p">:</span><span class="mi">9999</span><span class="p">}</span>         <span class="c1">#only 1 record-type</span>
+<span class="p">]</span>
+
+<span class="n">recorddefs</span> <span class="o">=</span> <span class="p">{</span>
+<span class="s1">&#39;HEADER&#39;</span><span class="p">:[</span>
+    <span class="p">[</span><span class="s1">&#39;BOTSID&#39;</span><span class="p">,</span><span class="s1">&#39;M&#39;</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="s1">&#39;A&#39;</span><span class="p">],</span>            <span class="c1">#Note: BOTSID is ALWAYS needed!</span>
+    <span class="p">[</span><span class="s1">&#39;order number&#39;</span><span class="p">,</span> <span class="s1">&#39;M&#39;</span><span class="p">,</span> <span class="mi">17</span><span class="p">,</span> <span class="s1">&#39;AN&#39;</span><span class="p">],</span>
+    <span class="p">[</span><span class="s1">&#39;buyer ID&#39;</span><span class="p">,</span> <span class="s1">&#39;M&#39;</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="s1">&#39;AN&#39;</span><span class="p">],</span>
+    <span class="p">[</span><span class="s1">&#39;delivery date&#39;</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="s1">&#39;AN&#39;</span><span class="p">],</span>
+    <span class="p">[</span><span class="s1">&#39;line number&#39;</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="s1">&#39;N&#39;</span><span class="p">],</span>
+    <span class="p">[</span><span class="s1">&#39;article number&#39;</span><span class="p">,</span> <span class="s1">&#39;M&#39;</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="s1">&#39;AN&#39;</span><span class="p">],</span>
+    <span class="p">[</span><span class="s1">&#39;quantity&#39;</span><span class="p">,</span> <span class="s1">&#39;M&#39;</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="s1">&#39;R&#39;</span><span class="p">],</span>
+    <span class="p">],</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>The mapping script in the translation receives 3 separate orders (so mapping script will run 3 times):</p>
+<div class="code highlight-default"><div class="highlight"><pre><span></span><span class="n">order</span> <span class="k">with</span> <span class="n">number</span> <span class="mi">1</span><span class="p">:</span>
+<span class="n">ordernumber1</span><span class="p">,</span><span class="n">buyer1</span><span class="p">,</span><span class="mi">20120524</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">article1</span><span class="p">,</span><span class="mi">24</span>
+<span class="n">ordernumber1</span><span class="p">,</span><span class="n">buyer1</span><span class="p">,</span><span class="mi">20120524</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="n">article2</span><span class="p">,</span><span class="mi">288</span>
+<span class="n">ordernumber1</span><span class="p">,</span><span class="n">buyer1</span><span class="p">,</span><span class="mi">20120524</span><span class="p">,</span><span class="mf">3.</span><span class="n">article3</span><span class="p">,</span><span class="mi">6</span>
+
+<span class="n">order</span> <span class="k">with</span> <span class="n">number</span> <span class="mi">2</span><span class="p">:</span>
+<span class="n">ordernumber2</span><span class="p">,</span><span class="n">buyer2</span><span class="p">,</span><span class="mi">20120524</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">article5</span><span class="p">,</span><span class="mi">124</span>
+
+<span class="n">order</span> <span class="k">with</span> <span class="n">number</span> <span class="mi">3</span><span class="p">:</span>
+<span class="n">ordernumber3</span><span class="p">,</span><span class="n">buyer1</span><span class="p">,</span><span class="mi">20120524</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">article1</span><span class="p">,</span><span class="mi">24</span>
+<span class="n">ordernumber3</span><span class="p">,</span><span class="n">buyer1</span><span class="p">,</span><span class="mi">20120524</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="n">article4</span><span class="p">,</span><span class="mi">48</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Use multiple fields for splitting up (bots &gt; 3.1); Example:
+<code class="docutils literal"><span class="pre">nextmessageblock</span> <span class="pre">=</span> <span class="pre">([{'BOTSID':'HEADER','order</span> <span class="pre">number':None},{'BOTSID':'HEADER','buyer</span> <span class="pre">ID':None}])</span></code></p>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last"><code class="docutils literal"><span class="pre">nextmessageblock</span></code> works for fixed files with one type of records (bots &gt; 3.1)</p>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="edifact-charsets.html" class="btn btn-neutral float-right" title="EDIFACT Character-Sets" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="nextmessage.html" class="btn btn-neutral" title="Next Message" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, henk-jan ebbers.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'3.2.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

@@ -1,0 +1,460 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Syntax Parameters &mdash; Bots EDI Translator 3.2.0 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../genindex.html"/>
+        <link rel="search" title="Search" href="../../search.html"/>
+    <link rel="top" title="Bots EDI Translator 3.2.0 documentation" href="../../index.html"/>
+        <link rel="up" title="Grammars" href="index.html"/>
+        <link rel="next" title="Structure" href="structure.html"/>
+        <link rel="prev" title="How to Get Grammars" href="get-grammars.html"/> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Bots EDI Translator
+          
+
+          
+            
+            <img src="../../_static/botslogo_square2.png" class="logo" />
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                3.2.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../readme.html">Welcome to <code class="docutils literal"><span class="pre">Bots</span></code>&#8216;s documentation!</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../get-bots-running.html">Get Bots Running</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quick-start-guide/index.html">Quick Start Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../guide-for-botsmonitor/index.html">Guide For Bots-Monitor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../overview/index.html">Overview</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Configuration</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../how-to-configuration.html">How to do configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../route/index.html">Routes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../channel/index.html">Channels</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../translation/index.html">Translation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../mapping-scripts/index.html">Mapping Scripts</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Grammars</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="get-grammars.html">How to Get Grammars</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Syntax Parameters</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#usage-and-overriding">Usage and Overriding</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#list-of-most-useful-syntax-parameters">List of most useful Syntax Parameters</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="structure.html">Structure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="recorddefs.html">Recorddefs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="nextmessage.html">Next Message</a></li>
+<li class="toctree-l3"><a class="reference internal" href="nextmessageblock.html">Next Message Block</a></li>
+<li class="toctree-l3"><a class="reference internal" href="edifact-charsets.html">EDIFACT Character-Sets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="xml-namespaces.html">XML Namespaces</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../document-view.html">Document View</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../user-scripting.html">User Scripting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../acknowledgements.html">Confirmations/Acknowledgements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../split-merge.html">Split, Merge and Envelope</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../partner/index.html">EDI Partners</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../charsets.html">Characters Sets</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../deployment/index.html">Deployment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../advanced-deployment/index.html">Advanced Deployment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../plugins/index.html">Plugins</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorials/index.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../debugging.html">Debugging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../troubleshooting.html">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../change-migrate/index.html">Changes and Migrate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../new-to-python.html">New to python?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../external-reference.html">External reference links</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../useful-tools.html">Useful Tools</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">Bots EDI Translator</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../index.html">Configuration</a> &raquo;</li>
+      
+          <li><a href="index.html">Grammars</a> &raquo;</li>
+      
+    <li>Syntax Parameters</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../_sources/configuration/grammars/syntax-params.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="syntax-parameters">
+<h1>Syntax Parameters<a class="headerlink" href="#syntax-parameters" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li>Syntax contains parameters that are used in reading or writing edi-files.</li>
+<li>The complete list of syntax parameters including default values is in bots/grammars.py (in the classes of the editypes).</li>
+<li>Syntax is a python dict (dictionary).</li>
+</ul>
+<p>Example of syntax parameters:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">syntax</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s1">&#39;charset&#39;</span>                  <span class="p">:</span> <span class="s1">&#39;uft-8&#39;</span><span class="p">,</span> <span class="c1">#character set is utf-8</span>
+        <span class="s1">&#39;checkfixedrecordtooshort&#39;</span> <span class="p">:</span> <span class="bp">True</span><span class="p">,</span>    <span class="c1">#check if fixed record is to short</span>
+        <span class="s1">&#39;indented&#39;</span>                 <span class="p">:</span> <span class="bp">True</span><span class="p">,</span>    <span class="c1">#xml: produced indented output</span>
+        <span class="s1">&#39;decimaal&#39;</span>                 <span class="p">:</span> <span class="s1">&#39;,&#39;</span><span class="p">,</span>     <span class="c1">#decimal sign is &#39;, &#39;</span>
+        <span class="p">}</span>
+</pre></div>
+</div>
+<div class="section" id="usage-and-overriding">
+<h2>Usage and Overriding<a class="headerlink" href="#usage-and-overriding" title="Permalink to this headline">¶</a></h2>
+<p>Syntax parameters can be set at different places; these settings override (somewhat luke CSS).
+The order in which overriding is done:</p>
+<ul class="simple">
+<li>default values are in <code class="docutils literal"><span class="pre">bots/grammars.py</span></code> (per editype). <strong>Do not change these values!</strong></li>
+<li>envelope grammar (eg for x12: <code class="docutils literal"><span class="pre">bots/usersys/grammars/x12/x12.py</span></code>, for edifact: <code class="docutils literal"><span class="pre">bots/usersys/grammars/edifact/edifact.py</span></code>)</li>
+<li>message grammar</li>
+<li>frompartner grammar (eg in <code class="docutils literal"><span class="pre">bots/usersys/partners/x12/partnerID.py</span></code>)</li>
+<li>topartner grammar (eg in <code class="docutils literal"><span class="pre">bots/usersys/partners/x12/partnerID.py</span></code>)</li>
+</ul>
+<p class="rubric">Example 1: edifact charset</p>
+<ul class="simple">
+<li>default value is UNOA</li>
+<li>value in envelope (<code class="docutils literal"><span class="pre">edifact.py</span></code>) is UNOA</li>
+<li>for invoices: a description is used so the message grammar for invoices has charset UNOC</li>
+<li>retailer ABC insists on receiving invoices as UNOA, so this is indicated in the topartner grammar.</li>
+</ul>
+<p class="rubric">Example 2: x12 element separator</p>
+<ul class="simple">
+<li>in grammar.py: <code class="docutils literal"><span class="pre">'field_sep':'*'</span></code> (bots default value)</li>
+<li>in x12.py: <code class="docutils literal"><span class="pre">'field_sep':'|'</span></code> (default value company uses when sending x12)</li>
+<li>retailer ABC insists: <code class="docutils literal"><span class="pre">'field_sep':'\x07'</span></code> (that is <code class="docutils literal"><span class="pre">\a</span></code>, or BEL)</li>
+</ul>
+</div>
+<div class="section" id="list-of-most-useful-syntax-parameters">
+<h2>List of most useful Syntax Parameters<a class="headerlink" href="#list-of-most-useful-syntax-parameters" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="docutils">
+<colgroup>
+<col width="33%" />
+<col width="33%" />
+<col width="33%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Parameter</th>
+<th class="head">Direction</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>add_crlfafterrecord_sep</td>
+<td>Out</td>
+<td>put <strong>extra</strong> character after a record/segment separator. Value: string, typically <code class="docutils literal"><span class="pre">\n</span></code> or <code class="docutils literal"><span class="pre">\r\n</span></code>. I use this for x12/edifact while testing: output is better to read. Most partenrs can handles these file, but they are slightly bigger. See also parameter <code class="docutils literal"><span class="pre">indent</span></code>.</td>
+</tr>
+<tr class="row-odd"><td>acceptspaceinnumfield</td>
+<td>In</td>
+<td>Do not raise error when numeric field contains only spaces but assume value is 0</td>
+</tr>
+<tr class="row-even"><td>allow_lastrecordnotclosedproperly</td>
+<td>In</td>
+<td>(csv) allows last record not to have record separator</td>
+</tr>
+<tr class="row-odd"><td>charset</td>
+<td>In</td>
+<td>charset to use; (edifact, xml) is overridden by charset-declaration in content.</td>
+</tr>
+<tr class="row-even"><td>&nbsp;</td>
+<td>Out</td>
+<td>charset to use in output. Bots is quite strict in this.</td>
+</tr>
+<tr class="row-odd"><td>checkcharsetin</td>
+<td>In</td>
+<td>what to do for chars not in charset. Possible values &#8216;strict&#8217; (gives error) or &#8216;ignore&#8217; (skip the characters not in the charset) or &#8216;botsreplace&#8217; (replace with char as set in bots.ini; default is space)</td>
+</tr>
+<tr class="row-even"><td>checkcharsetout</td>
+<td>Out</td>
+<td>what to do for chars not in charset. Possible values &#8216;strict&#8217; (gives error), &#8216;ignore&#8217; (skip the characters not in the charset) or &#8216;botsreplace&#8217; (replace with char as set in bots.ini; default is space)</td>
+</tr>
+<tr class="row-odd"><td>checkfixedrecordtoolong</td>
+<td>In</td>
+<td>(fixed): warn if record too long. Possible values: True/False, default: True</td>
+</tr>
+<tr class="row-even"><td>checkfixedrecordtooshort</td>
+<td>In</td>
+<td>fixed): warn if record too short. Possible values: True/False, default: False</td>
+</tr>
+<tr class="row-odd"><td>checkunknownentities</td>
+<td>In/Out</td>
+<td>(xml,JSON) skip unknown attributes/elements (instead of raising an error)</td>
+</tr>
+<tr class="row-even"><td>contenttype</td>
+<td>Out</td>
+<td>content-type of translated file; used as mime-envelope of email</td>
+</tr>
+<tr class="row-odd"><td>decimaal</td>
+<td>In/Out</td>
+<td>decimal point; default is &#8216;.&#8217;. For edifact: read from UNA-string if present.</td>
+</tr>
+<tr class="row-even"><td>endrecordID</td>
+<td>In</td>
+<td>(fixed) end position of record ID; value: number, default 3. See startrecordID</td>
+</tr>
+<tr class="row-odd"><td>envelope</td>
+<td>Out</td>
+<td>envelope to use; if nothing specified: no envelope - files are just copied/appended. For csv output, use the value &#8216;csvheader&#8217; to include a header line with field names.</td>
+</tr>
+<tr class="row-even"><td>envelope-template</td>
+<td>Out</td>
+<td>(template/html) the template for the envelope.</td>
+</tr>
+<tr class="row-odd"><td>escape</td>
+<td>In/Out</td>
+<td>escape character used. Default: edifact: &#8216;?&#8217;.</td>
+</tr>
+<tr class="row-even"><td>field_sep</td>
+<td>In/Out</td>
+<td>field separator. Default: edifact: &#8216;+&#8217;; csv: &#8216;:&#8217; x12: &#8216;&#8217;)</td>
+</tr>
+<tr class="row-odd"><td>forcequote</td>
+<td>Out</td>
+<td>(csv) Possible values: 1 (quote only if necessary); 1 (always quote), 2 (quote only alfanum). Default is 1</td>
+</tr>
+<tr class="row-even"><td>forceUNA</td>
+<td>Out</td>
+<td>(edifact) Always use UNA-segment in header, even if not needed. Possible values: True, False. Default: False.</td>
+</tr>
+<tr class="row-odd"><td>indented</td>
+<td>Out</td>
+<td>(xml, json) Indent message for human readability. Nice while testing. Indented messages are syntactically OK, but are much bigger. Possible values: True, False. Default: False. See also add_crlfafterrecord_sep</td>
+</tr>
+<tr class="row-even"><td>merge</td>
+<td>Out</td>
+<td>if merge is True: merge translated messages to one file (for same sender, receiver, messagetype, channel, etc). Related: envelope. Possible values: True, False.</td>
+</tr>
+<tr class="row-odd"><td>namespace_prefixes</td>
+<td>Out</td>
+<td>(xml) to over-ride default namespace prefixes (ns0, ns1 etc) for outgoing xml. is a list, consisting of tuples, each tuple consists of prefix and uri. Example: <code class="docutils literal"><span class="pre">'namespace_prefixes':[('orders','http://www.company.com/EDIOrders'),]</span></code></td>
+</tr>
+<tr class="row-even"><td>noBOTSID</td>
+<td>In/Out</td>
+<td>(csv) use if records contain no real record ID.</td>
+</tr>
+<tr class="row-odd"><td>output</td>
+<td>Out</td>
+<td>(template) values: &#8216;xhtml-strict&#8217;</td>
+</tr>
+<tr class="row-even"><td>pass_all</td>
+<td>In</td>
+<td>(csv, fixed) if only one recordtype and no nextmessageblock; False: pass record for record to mapping; True: Pass all records to mapping.</td>
+</tr>
+<tr class="row-odd"><td>quote_char</td>
+<td>In/Out</td>
+<td>(csv) char used as quote symbol</td>
+</tr>
+<tr class="row-even"><td>record_sep</td>
+<td>In/Out</td>
+<td>char used as record separator. Defaults: edifact: &#8216;&#8217;&#8217; (single quote); fixed: &#8216;n&#8217;; x12: &#8216;~&#8217;</td>
+</tr>
+<tr class="row-odd"><td>record_tag_sep</td>
+<td>Out</td>
+<td>(tradacoms) separator used after segment tag. Defaults: &#8216;=&#8217;</td>
+</tr>
+<tr class="row-even"><td>replacechar</td>
+<td>Out</td>
+<td>(x12) if a separator value is found in the data, replace with this character. Default: &#8216;&#8217; (raise error when separator value in data).</td>
+</tr>
+<tr class="row-odd"><td>skip_char</td>
+<td>In</td>
+<td>char(s) to skip, not interpreted when reading file. Typically &#8216;n&#8217; in edifact.</td>
+</tr>
+<tr class="row-even"><td>skip_firstline</td>
+<td>In</td>
+<td>(csv) skip first line (often contains field names). Possible values: True/False/Integer number of lines to skip, default: False. True skips 1 line.</td>
+</tr>
+<tr class="row-odd"><td>startrecordID</td>
+<td>In</td>
+<td>(fixed) start position of record ID; value: number, default 0. See endrecordID</td>
+</tr>
+<tr class="row-even"><td>template</td>
+<td>Out</td>
+<td>(template) Template to use for HTML-output.</td>
+</tr>
+<tr class="row-odd"><td>triad</td>
+<td>In</td>
+<td>triad (thousands) symbol used (e.g. &#8216;1,000,048.35&#8217;). If specified, this symbol is skipped when parsing numbers. By default numbers are expected to come without thousands separators.</td>
+</tr>
+<tr class="row-even"><td>version</td>
+<td>Out</td>
+<td>(edifact,x12) version of standard generate. Value: string, typically: &#8216;3&#8217; in edifact or &#8216;004010&#8217; for x12.</td>
+</tr>
+<tr class="row-odd"><td>wrap_length</td>
+<td>Out</td>
+<td>Wraps the output to a new line when it exceeds this length. value: number, default 0. Typically used in conjunction with &#8216;add_crlfafterrecord_sep&#8217;:&#8217;&#8217; (blank). Note: does not affect envelope of message.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="structure.html" class="btn btn-neutral float-right" title="Structure" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="get-grammars.html" class="btn btn-neutral" title="How to Get Grammars" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, henk-jan ebbers.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'3.2.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

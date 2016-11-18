@@ -1,0 +1,316 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>User Scripting &mdash; Bots EDI Translator 3.2.0 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="Bots EDI Translator 3.2.0 documentation" href="../index.html"/>
+        <link rel="up" title="Configuration" href="index.html"/>
+        <link rel="next" title="Confirmations/Acknowledgements" href="acknowledgements.html"/>
+        <link rel="prev" title="Document View" href="document-view.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Bots EDI Translator
+          
+
+          
+            
+            <img src="../_static/botslogo_square2.png" class="logo" />
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                3.2.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../readme.html">Welcome to <code class="docutils literal"><span class="pre">Bots</span></code>&#8216;s documentation!</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../get-bots-running.html">Get Bots Running</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quick-start-guide/index.html">Quick Start Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guide-for-botsmonitor/index.html">Guide For Bots-Monitor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview/index.html">Overview</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Configuration</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="how-to-configuration.html">How to do configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="route/index.html">Routes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="channel/index.html">Channels</a></li>
+<li class="toctree-l2"><a class="reference internal" href="translation/index.html">Translation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mapping-scripts/index.html">Mapping Scripts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="grammars/index.html">Grammars</a></li>
+<li class="toctree-l2"><a class="reference internal" href="document-view.html">Document View</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">User Scripting</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#route-script-for-bots-engine">Route Script for Bots-engine</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="acknowledgements.html">Confirmations/Acknowledgements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="split-merge.html">Split, Merge and Envelope</a></li>
+<li class="toctree-l2"><a class="reference internal" href="partner/index.html">EDI Partners</a></li>
+<li class="toctree-l2"><a class="reference internal" href="charsets.html">Characters Sets</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../deployment/index.html">Deployment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../advanced-deployment/index.html">Advanced Deployment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../plugins/index.html">Plugins</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/index.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../debugging.html">Debugging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../troubleshooting.html">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../change-migrate/index.html">Changes and Migrate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../new-to-python.html">New to python?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../external-reference.html">External reference links</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../useful-tools.html">Useful Tools</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">Bots EDI Translator</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="index.html">Configuration</a> &raquo;</li>
+      
+    <li>User Scripting</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/configuration/user-scripting.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="user-scripting">
+<h1>User Scripting<a class="headerlink" href="#user-scripting" title="Permalink to this headline">¶</a></h1>
+<p>Bots has many places (exit points) where user scripting can be used. These user scripts are optional; bots will work without them but they provide great control over functionality for advanced users.</p>
+<ul class="simple">
+<li>Channels can have a <a class="reference internal" href="channel/channel-scripting.html"><span class="doc">communicationscript</span></a></li>
+<li>Routes can have a <a class="reference internal" href="route/route-scripting.html"><span class="doc">routescript</span></a></li>
+<li>Bots-engine can also have <a class="reference external" href="#route-script-for-bots-engine">it&#8217;s own routescript</a>.</li>
+<li>Enveloping can be modified with an <a class="reference external" href="split-merge.html#envelope-scripting">envelopescript</a>.</li>
+</ul>
+<div class="section" id="route-script-for-bots-engine">
+<h2>Route Script for Bots-engine<a class="headerlink" href="#route-script-for-bots-engine" title="Permalink to this headline">¶</a></h2>
+<p>A special routescript called botsengine.py can be added. This is called by the bots-engine at various points. You may wish to use this for your own logging, reporting or cleanup routines.</p>
+<p>In Bots v3.2+ There are <strong>pre</strong> and <strong>post</strong> exit points for all runs, and for each type of run (command).</p>
+<ul class="simple">
+<li>pre (before any run)</li>
+<li>prenew</li>
+<li>preresend</li>
+<li>prerereceive</li>
+<li>preautomaticretrycommunicationcommunication</li>
+<li>precleanup</li>
+<li>postnew</li>
+<li>postresend</li>
+<li>postrereceive</li>
+<li>postautomaticretrycommunicationcommunication</li>
+<li>postcleanup</li>
+<li>post (after any run)</li>
+</ul>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># user script example for some bots-engine exit points,</span>
+<span class="c1"># showing the passed args.</span>
+
+<span class="c1"># before any run</span>
+<span class="k">def</span> <span class="nf">pre</span><span class="p">(</span><span class="n">commandstorun</span><span class="p">,</span><span class="n">routestorun</span><span class="p">):</span>
+    <span class="k">print</span> <span class="s1">&#39;pre&#39;</span><span class="p">,</span><span class="n">commandstorun</span><span class="p">,</span><span class="n">routestorun</span>
+
+<span class="c1"># before &quot;new&quot; run</span>
+<span class="k">def</span> <span class="nf">prenew</span><span class="p">(</span><span class="n">routestorun</span><span class="p">):</span>
+    <span class="k">print</span> <span class="s1">&#39;prenew&#39;</span><span class="p">,</span><span class="n">routestorun</span>
+
+<span class="c1"># after &quot;cleanup&quot; run</span>
+<span class="k">def</span> <span class="nf">postcleanup</span><span class="p">(</span><span class="n">routestorun</span><span class="p">):</span>
+    <span class="k">print</span> <span class="s1">&#39;postcleanup&#39;</span><span class="p">,</span><span class="n">routestorun</span>
+
+<span class="c1"># after any run</span>
+<span class="k">def</span> <span class="nf">post</span><span class="p">(</span><span class="n">commandstorun</span><span class="p">,</span><span class="n">routestorun</span><span class="p">):</span>
+    <span class="k">print</span> <span class="s1">&#39;post&#39;</span><span class="p">,</span><span class="n">commandstorun</span><span class="p">,</span><span class="n">routestorun</span>
+</pre></div>
+</div>
+<p class="rubric">Example of doing something useful with exit points</p>
+<p>The <strong>postcleanup</strong> exit point can be used to add your own daily tasks (eg. cleanup, backup or reporting capabilities).
+By default, bots runs a cleanup <strong>once per day</strong> at the end of the first run that day. (setting whencleanup=daily in bots.ini)</p>
+<p>This example automatically activates or deactivates partners on the dates you configure for the partner (startdate, enddate)</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">bots.botslib</span> <span class="kn">as</span> <span class="nn">botslib</span>
+<span class="kn">import</span> <span class="nn">datetime</span>
+
+<span class="k">def</span> <span class="nf">postcleanup</span><span class="p">(</span><span class="n">routestorun</span><span class="p">):</span>
+
+        <span class="c1"># activate any partners with a &quot;start date&quot; of today</span>
+        <span class="n">botslib</span><span class="o">.</span><span class="n">changeq</span><span class="p">(</span><span class="s1">u&#39;&#39;&#39;UPDATE partner</span>
+<span class="s1">                            SET active = 1</span>
+<span class="s1">                            WHERE startdate = </span><span class="si">%(today)s</span><span class="s1">&#39;&#39;&#39;</span><span class="p">,</span>
+                            <span class="p">{</span><span class="s1">&#39;today&#39;</span><span class="p">:</span><span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">today</span><span class="p">()</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s1">&#39;%Y-%m-</span><span class="si">%d</span><span class="s1">&#39;</span><span class="p">)})</span>
+
+        <span class="c1"># deactivate any active partners with an &quot;end date&quot; before today</span>
+        <span class="n">botslib</span><span class="o">.</span><span class="n">changeq</span><span class="p">(</span><span class="s1">u&#39;&#39;&#39;UPDATE partner</span>
+<span class="s1">                            SET active = 0</span>
+<span class="s1">                            WHERE active = 1</span>
+<span class="s1">                            AND  enddate is not null</span>
+<span class="s1">                            AND enddate &lt; </span><span class="si">%(today)s</span><span class="s1">&#39;&#39;&#39;</span><span class="p">,</span>
+                            <span class="p">{</span><span class="s1">&#39;today&#39;</span><span class="p">:</span><span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">today</span><span class="p">()</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s1">&#39;%Y-%m-</span><span class="si">%d</span><span class="s1">&#39;</span><span class="p">)})</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="acknowledgements.html" class="btn btn-neutral float-right" title="Confirmations/Acknowledgements" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="document-view.html" class="btn btn-neutral" title="Document View" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, henk-jan ebbers.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'3.2.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

@@ -1,0 +1,421 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Configuration Change Management &mdash; Bots EDI Translator 3.2.0 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="Bots EDI Translator 3.2.0 documentation" href="../index.html"/>
+        <link rel="up" title="Advanced Deployment" href="index.html"/>
+        <link rel="next" title="Performance" href="performance.html"/>
+        <link rel="prev" title="Using AS2 with Bots" href="use-as2.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Bots EDI Translator
+          
+
+          
+            
+            <img src="../_static/botslogo_square2.png" class="logo" />
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                3.2.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../readme.html">Welcome to <code class="docutils literal"><span class="pre">Bots</span></code>&#8216;s documentation!</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../get-bots-running.html">Get Bots Running</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quick-start-guide/index.html">Quick Start Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guide-for-botsmonitor/index.html">Guide For Bots-Monitor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview/index.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../configuration/index.html">Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../deployment/index.html">Deployment</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Advanced Deployment</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="user-rights.html">User Rights</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bots-https.html">Bots-Monitor over HTTPS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="use-apache2.html">Use Apache2 as Webserver</a></li>
+<li class="toctree-l2"><a class="reference internal" href="use-mysql.html">Use MySQL or PostgreSQL as Database</a></li>
+<li class="toctree-l2"><a class="reference internal" href="use-as2.html">Using AS2 with Bots</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Configuration Change Management</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#isolated-acceptance-testing">Isolated Acceptance Testing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#recipe-to-push-test-production">Recipe to push <em>test-&gt;production</em></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#build-a-good-test-set">Build a good test-set</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="performance.html">Performance</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../plugins/index.html">Plugins</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/index.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../debugging.html">Debugging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../troubleshooting.html">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../change-migrate/index.html">Changes and Migrate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../new-to-python.html">New to python?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../external-reference.html">External reference links</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../useful-tools.html">Useful Tools</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">Bots EDI Translator</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="index.html">Advanced Deployment</a> &raquo;</li>
+      
+    <li>Configuration Change Management</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/advanced-deployment/change-management.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="configuration-change-management">
+<h1>Configuration Change Management<a class="headerlink" href="#configuration-change-management" title="Permalink to this headline">¶</a></h1>
+<p>Having different environments for at least test and production is a sound IT practice.
+But having different environments also brings problems:</p>
+<ul class="simple">
+<li>push changes in a controlled way to production-environment</li>
+<li>are changes done right, and does the existing configuration still run right?</li>
+<li>keep test-environment in line with production-environment</li>
+</ul>
+<p>To handle these problems bots has some features called <em>configuration change management</em>.</p>
+<p><strong>Bots configuration change management</strong></p>
+<p>Configuration change management in bots has 2 aspects:</p>
+<ol class="arabic">
+<li><dl class="first docutils">
+<dt>Use <a class="reference external" href="../useful-tools.html#compare-and-merge">tools</a> for:</dt>
+<dd><ul class="first last simple">
+<li>Comparing differences in configuration of environments</li>
+<li>Pushing the changes from test-&gt;production environment in a controlled, automated way</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Use of <a class="reference external" href="#isolated-acceptance-testing">isolated acceptance test</a> to:</dt>
+<dd><ul class="first last simple">
+<li>check if acceptance test runs OK in test</li>
+<li>check if acceptance test runs OK in production</li>
+<li>make the test-environment (very) equal to production-environment</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ol>
+<p>Configuration change management works best if both aspects are combined!. See <a class="reference external" href="#recipe-to-push-test-production">recipe</a> for this.</p>
+<div class="section" id="isolated-acceptance-testing">
+<h2>Isolated Acceptance Testing<a class="headerlink" href="#isolated-acceptance-testing" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><p>This is a <em>mode</em> for testing which is <strong>isolated</strong>:</p>
+<blockquote>
+<div><ul class="simple">
+<li>No external communication: all I/O is from/to file system</li>
+<li>System state does not change (eg no increased counters, no test runs in system, etc)</li>
+</ul>
+</div></blockquote>
+<p>Idea is to run an acceptance test without affecting your system (or the system of your edi-partner).</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">all plugins since 20130101 are suited for isolated acceptances tests.</p>
+</div>
+<p><strong>Advantages</strong></p>
+<ol class="arabic simple">
+<li>Isolated acceptance tests are &#8216;repeatable&#8217; (because same counters are used, same time is used etc). This is great for testing: each run of a test gives the same results. This makes it easy to compared the results automatically.</li>
+<li>By using isolated acceptance tests your test-environment can be equal to production-environment. So you can use standard directory comparison tools to push changes test-&gt;production.</li>
+<li>As the acceptance tests are isolated, this means an acceptance test can be run in a production-environment without affecting this environment. This way you can verify that after a change, all still runs as before in your production environment.</li>
+</ol>
+<p><strong>Running isolated acceptance tests</strong></p>
+<ul class="simple">
+<li>In all channels set <code class="docutils literal"><span class="pre">testpath</span></code>. Testpath should point to a directory with test-files.</li>
+<li>Set option <code class="docutils literal"><span class="pre">runacceptancetest</span></code> in bots.ini to <code class="docutils literal"><span class="pre">True</span></code>.</li>
+<li>Run <code class="docutils literal"><span class="pre">new</span></code></li>
+<li>Check results of run with what you expect</li>
+<li>Delete runs/files from acceptance test (menu: <code class="docutils literal"><span class="pre">Systasks-&gt;Bulk</span> <span class="pre">delete</span></code>; select <strong>only</strong> <code class="docutils literal"><span class="pre">Delete</span> <span class="pre">transactions</span> <span class="pre">in</span> <span class="pre">acceptance</span> <span class="pre">testing</span></code>.)</li>
+</ul>
+<p><strong>Acceptance tests in plugins</strong></p>
+<p>Plugins since 20130101 can be run as acceptance tests.
+About the plugins with build-in acceptance test:</p>
+<ul>
+<li><p class="first"><code class="docutils literal"><span class="pre">testpath</span></code> for incoming files are in <code class="docutils literal"><span class="pre">botssys\infile</span></code></p>
+</li>
+<li><p class="first"><code class="docutils literal"><span class="pre">testpath</span></code> for outgoing files go to <code class="docutils literal"><span class="pre">botssys\outfile</span></code></p>
+</li>
+<li><p class="first">Each plugin also contains the the expected outgoing files (<code class="docutils literal"><span class="pre">botssys\infile\outfile</span></code>); these are used to compare the results.</p>
+</li>
+<li><dl class="first docutils">
+<dt>Included is a route script (<code class="docutils literal"><span class="pre">bots/usersys/routescripts/bots_acceptancetest.py</span></code>):</dt>
+<dd><ul class="first last simple">
+<li><strong>before run</strong>: discard directory <code class="docutils literal"><span class="pre">botssys\outfile</span></code>.</li>
+<li><strong>after run</strong>: global run results are compared with expectation (#in, #out. #errors, etc)</li>
+<li><strong>after run</strong>: compare files in <code class="docutils literal"><span class="pre">botssys\outfile</span></code> with expected files in <code class="docutils literal"><span class="pre">botssys\infile\outfile</span></code></li>
+<li>the output of these comparisons can be seen in terminal (<code class="docutils literal"><span class="pre">dos-box</span></code>)</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<p><strong>Implementation Details</strong></p>
+<ul>
+<li><p class="first">channel-type is set to <code class="docutils literal"><span class="pre">file</span></code>.</p>
+</li>
+<li><p class="first">channel-path is set to the value in <code class="docutils literal"><span class="pre">testpath</span></code>. if testpath is empty: use path.</p>
+</li>
+<li><p class="first">channel-remove is set to <code class="docutils literal"><span class="pre">off</span></code>: no deletion of incoming files.</p>
+</li>
+<li><p class="first">error-email: not send.</p>
+</li>
+<li><p class="first">Fixed date/time in envelopes and in mappings (if function transform.strftime() is used)</p>
+</li>
+<li><p class="first">Counters/references: fixed; counters are not incremented</p>
+</li>
+<li><p class="first">Incoming files are always read in same order.</p>
+</li>
+<li><p class="first">outgoing-filename options: date/time is fixed</p>
+</li>
+<li><p class="first">No archiving</p>
+</li>
+<li><dl class="first docutils">
+<dt>Additional user exits are run. User exits are in file <code class="docutils literal"><span class="pre">usersys/routescripts/botsacceptancetest.py</span></code>:</dt>
+<dd><ul class="first last simple">
+<li><strong>before run</strong>: function pretest. use eg to empty out-directories etc</li>
+<li><strong>after run</strong>: function post-test. This can be used to check results, compare files etc</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<p>After running an isolated acceptance test, the <code class="docutils literal"><span class="pre">reports/filereports/data-files/etc</span></code> generated during acceptance-testing can be deleted via: <code class="docutils literal"><span class="pre">menu:Systasks-&gt;Bulk</span> <span class="pre">delete</span></code>; select only <code class="docutils literal"><span class="pre">Delete</span> <span class="pre">transactions</span> <span class="pre">in</span> <span class="pre">acceptance</span> <span class="pre">testing</span></code>.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<ul class="last simple">
+<li>GUI does not have the results of post-test script (runs after automaticmaintanance); view this in terminal/dos-box.</li>
+<li>Communication scripts: script should check explicitly if in acceptance test and act accordingly.</li>
+<li>Database communication: script should check explicitly if in acceptance test and act accordingly.</li>
+</ul>
+</div>
+</div></blockquote>
+</div>
+<div class="section" id="recipe-to-push-test-production">
+<h2>Recipe to push <em>test-&gt;production</em><a class="headerlink" href="#recipe-to-push-test-production" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><p>Recipe to use a standard <a class="reference external" href="../useful-tools.html#compare-and-merge">directory comparison tool</a> to manage the differences in configuration between test and production:</p>
+<ol class="arabic">
+<li><p class="first">For both environments, make configuration index file (<code class="docutils literal"><span class="pre">menu-&gt;Systasks-&gt;Make</span> <span class="pre">configuration</span> <span class="pre">index</span></code>)</p>
+</li>
+<li><dl class="first docutils">
+<dt>Compare both environments using a <a class="reference external" href="../useful-tools.html#compare-and-merge">directory comparison tool</a>. What you should compare is:</dt>
+<dd><ul class="first last simple">
+<li>All files in <code class="docutils literal"><span class="pre">bots/usersys</span></code>.</li>
+<li>Note that the file <code class="docutils literal"><span class="pre">bots/usersys/index.py</span></code> contains the configuration as in the database (routes, channels, partners).</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p class="first">Push changes using the tool.</p>
+</li>
+<li><p class="first">And read the configuration index file (<code class="docutils literal"><span class="pre">menu-&gt;Systasks-&gt;Read</span> <span class="pre">configuration</span> <span class="pre">index</span></code>) to the database.</p>
+</li>
+</ol>
+<p><strong>Details</strong></p>
+<ol class="arabic simple">
+<li>If the configuration index file is generated all configuration is in usersys (routes, mappings, partners etc).</li>
+<li>By using the <em>isolated acceptance test</em> both environments can be <strong>very equal</strong>.</li>
+<li>The configuration index file can also be generated by command line tool but cannot be read by command line tool.</li>
+<li>Look like it is possible to use a version control system. I have not tried it, but recipes and experiences are welcome!</li>
+</ol>
+</div></blockquote>
+</div>
+<div class="section" id="build-a-good-test-set">
+<h2>Build a good test-set<a class="headerlink" href="#build-a-good-test-set" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><p>When you do changes in your edi environment, you want to know that every <em>ran as before</em>. What can be helpful for this is to use a <a class="reference external" href="#isolated-acceptance-testing">isolated acceptance test</a> for this.</p>
+<p>This is easy to demonstrate:</p>
+<ul class="simple">
+<li>Download a plugin from <a class="reference external" href="http://sourceforge.net/projects/bots/files/plugins/">bots sourceforge site</a> and install it (not on your production environment;-))</li>
+<li>In <code class="docutils literal"><span class="pre">config/bots.ini</span></code> set <code class="docutils literal"><span class="pre">runacceptancetest</span></code> to True</li>
+<li>Run bots-engine via command-line</li>
+</ul>
+<p><strong>How this works</strong>: in acceptance tests an extra script <code class="docutils literal"><span class="pre">usersys/routescripts/bots_acceptancetest.py</span></code> runs when all routes are finished. This script does 2 things:</p>
+<ul class="simple">
+<li>It compares the results (#files received, errors, send, etc) with the expected results. If results are different you&#8217;ll see this (on command-line window).</li>
+<li>The files in <code class="docutils literal"><span class="pre">botssys/infile/outfile</span></code> are compared with files as generated by the run in <code class="docutils literal"><span class="pre">botssys/outfile</span></code>. If results are different you&#8217;ll see this (on command-line window).</li>
+</ul>
+<p>Some things to look at when you build a test-set:</p>
+<ul class="simple">
+<li>Use the <code class="docutils literal"><span class="pre">acceptance</span> <span class="pre">test</span> <span class="pre">path</span></code> in the channels to point to your file system for incoming and outgoing channels (prevents using communication methods like pop3, ftp, etc).</li>
+<li>Test file in <code class="docutils literal"><span class="pre">botssys/infile</span></code> are added to plugins (I find this very convenient).</li>
+<li>Counters (for message numbers, file names etc (via unique()) are the same in every run, so results are the same every run.</li>
+<li>If date/times need to made, use <code class="docutils literal"><span class="pre">transform.strftime()</span></code> for this; it is like pythons <code class="docutils literal"><span class="pre">time.strftime()</span></code> but gives always the same date/time in acceptance testing.</li>
+</ul>
+</div></blockquote>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="performance.html" class="btn btn-neutral float-right" title="Performance" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="use-as2.html" class="btn btn-neutral" title="Using AS2 with Bots" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, henk-jan ebbers.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'3.2.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
