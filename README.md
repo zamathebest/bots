@@ -1,2 +1,2 @@
-# bots-edi.github.io
-Documentation for Bots
+# Bots Documentation 
+This work was started by @abhishek-ram at https://github.com/abhishek-ram/bots/tree/sphinx-docs/docs
