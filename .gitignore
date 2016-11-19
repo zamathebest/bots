@@ -8,6 +8,14 @@
 # - https://raw.githubusercontent.com/pypa/sampleproject/master/.gitignore
 # - https://stackoverflow.com/questions/tagged/gitignore
 
+# bots-specific
+bots/botssys/*
+bots/djangolink/
+bots/installwin/
+bots/profile.tmp
+bots-webserver_dev.pid
+bots/usersys/index.py
+copy*
 
 # vi swap-files
 *.swp
