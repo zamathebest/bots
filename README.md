@@ -1,6 +1,6 @@
 
 # Bots-Edi
-[![Gitter](https://badges.gitter.im/Join Chat.svg)](https://gitter.im/ark-lang?utm_source=share-link&utm_medium=link&utm_campaign=share-link)
+[![Gitter](https://badges.gitter.im/Join Chat.svg)](https://gitter.im/bots-edi/Lobby)
 
 Bots-Edi is a free, open-source EDI translator. It has the following features:
 * Supports all major EDI data formats: EDIFACT, x12, Tradacoms, XML.
