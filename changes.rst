@@ -5,7 +5,15 @@ Changelog
 3.3.1 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Move bots-code to ``src``-sub-directory. Why? Please see
+  https://blog.ionelmc.ro/2014/05/25/python-packaging/
+  [WouterVH]
+
+- Move unittests to ``tests``-subdirectory.
+  [WouterVH]
+
+- Move scripts to ``scripts``-subdirectory.
+  [WouterVH]
 
 
 3.3.0 (2016-11-23)
