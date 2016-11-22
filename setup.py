@@ -110,9 +110,9 @@ setuptools.setup(
     platforms = 'OS Independent (Written in an interpreted language)',
     license = 'GNU General Public License (GPL)',
     keywords='edi edifact x12 tradacoms xml fixedfile csv',
-    packages=setuptools.find_packages(exclude=['ez_setup', 'tests']),
-    #packages=setuptools.find_packages('src'),
-    #package_dir={'': 'src'},
+    #packages=setuptools.find_packages(exclude=['ez_setup', 'tests']),
+    packages=setuptools.find_packages('src'),
+    package_dir={'': 'src'},
     include_package_data=True,
     zip_safe=False,
 
