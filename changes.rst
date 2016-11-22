@@ -2,7 +2,7 @@ Changelog
 =========
 
 
-3.3.0 (unreleased)
+3.3.0 (2016-11-23)
 ------------------
 
 - Add ``License.rst``

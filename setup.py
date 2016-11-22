@@ -47,7 +47,7 @@ def read(*names, **kwargs):
         return fd.read()
 
 
-version = '3.3.0.dev0'
+version = '3.3.0'
 
 long_description = (
     read('readme.rst') +
