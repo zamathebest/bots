@@ -5,6 +5,10 @@ Changelog
 3.3.1 (unreleased)
 ------------------
 
+- Add ``setup.cfg`` with config-settings for several tools.
+  Also set ``bdist_wheel`` to ``universal``.
+  [WouterVH]
+
 - Move bots-code to ``src``-sub-directory. Why? Please see
   https://blog.ionelmc.ro/2014/05/25/python-packaging/
   [WouterVH]
