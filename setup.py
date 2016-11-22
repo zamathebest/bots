@@ -47,15 +47,15 @@ def read(*names, **kwargs):
         return fd.read()
 
 
-#version = '0.1.dev0'
+version = '3.3.0dev0'
 
-#long_description = (
-    #read('docs', 'readme.rst') +
-    #'\n\n' +
-    #read('docs', 'changes.rst') +
+long_description = (
+    read('readme.rst') +
+    '\n\n' +
+    read('changes.rst')
     #'\n\n' +
     #read('docs', 'contributors.rst')
-    #)
+    )
 
 
 
@@ -101,12 +101,12 @@ def read(*names, **kwargs):
 
 setuptools.setup(
     name = 'bots',
-    version = '3.2.0',
+    version = version,
     author = 'hjebbers',
     author_email = 'hjebbers@gmail.com',
-    url = 'http://bots.sourceforge.net/',
+    url = 'https://github.com/bots-edi/bots',
     description = 'Bots open source edi translator',
-    long_description = 'Bots is complete software for edi (Electronic Data Interchange): translate and communicate. All major edi data formats are supported: edifact, x12, tradacoms, xml',
+    long_description = long_description,
     platforms = 'OS Independent (Written in an interpreted language)',
     license = 'GNU General Public License (GPL)',
 
@@ -120,6 +120,10 @@ setuptools.setup(
         'Development Status :: 5 - Production/Stable',
         'Operating System :: OS Independent',
         'Programming Language :: Python',
+        'Programming Language :: Python :: 2',
+        'Programming Language :: Python :: 2.7',
+        'Programming Language :: Python :: 3.4',
+        'Programming Language :: Python :: 3.5',
         'License :: OSI Approved :: GNU General Public License (GPL)',
         'Topic :: Office/Business',
         'Topic :: Office/Business :: Financial',
