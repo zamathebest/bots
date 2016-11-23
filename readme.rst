@@ -5,6 +5,10 @@ Bots-Edi
    :alt: Join the chat at https://gitter.im/bots-edi/Lobby
    :target: https://gitter.im/bots-edi/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge
 
+.. image:: https://landscape.io/github/bots-edi/bots/master/landscape.svg?style=flat
+   :target: https://landscape.io/github/bots-edi/bots/master
+   :alt: Code Health
+
 .. image:: https://img.shields.io/pypi/v/bots.svg
    :target: https://pypi.python.org/pypi/bots
    :alt: Latest Version
@@ -20,6 +24,10 @@ Bots-Edi
 .. image:: https://img.shields.io/pypi/l/bots.svg
    :target: https://raw.githubusercontent.com/bots-edi/bots/master/license.rst
    :alt: License
+
+
+
+
 
 
 Bots is complete software for EDI (Electronic Data Interchange)

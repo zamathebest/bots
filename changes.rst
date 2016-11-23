@@ -5,6 +5,13 @@ Changelog
 3.3.1 (unreleased)
 ------------------
 
+- Add ``etc/requirements.txt``
+  [WouterVH]
+
+- Add ``.landscape.yml`` to configure code-quality checks at
+  https://landscape.io/github/bots-edi/bots
+  [WouterVH]
+
 - Add ``setup.cfg`` with config-settings for several tools.
   Also set ``bdist_wheel`` to ``universal``.
   [WouterVH]
