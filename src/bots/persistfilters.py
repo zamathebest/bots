@@ -29,17 +29,17 @@ class FilterPersistMiddleware(object):
         query_string = request.META['QUERY_STRING']
         session = request.session
 
-        if session.get('redirected', False):  #so that we dont loop once redirected
+        if session.get('redirected', False):  # so that we dont loop once redirected
             del session['redirected']
             return None
 
-        key = 'key'+path.replace('/','_')
+        key = 'key' + path.replace('/', '_')
         if popup:
-            key = 'popup'+key
+            key = 'popup' + key
 
         if path == referrer:
             # We are in the same page as before. We assume that filters were changed and update them.
-            if query_string == '':     #Filter is empty, delete it
+            if query_string == '':  # Filter is empty, delete it
                 if key in session:
                     del session[key]
                 return None

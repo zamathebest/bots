@@ -31,7 +31,9 @@ WSGIProcessGroup config
 </VirtualHost>
 '''
 
+
 def start(configdir):
-    botsinit.generalinit(configdir)     #find locating of bots, configfiles, init paths etc.
+    botsinit.generalinit(configdir)  # find locating of bots, configfiles, init paths etc.
     process_name = 'apache_webserver_' + configdir
-    botsglobal.logger = botsinit.initserverlogging(process_name)    #initialise file-logging for web-server. This logging only contains the logging from bots-webserver.
+    # initialise file-logging for web-server. This logging only contains the logging from bots-webserver.
+    botsglobal.logger = botsinit.initserverlogging(process_name)

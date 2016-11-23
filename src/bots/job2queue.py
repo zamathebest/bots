@@ -20,7 +20,7 @@ JOBQUEUEMESSAGE2TXT = {
     }
 
 
-def send_job_to_jobqueue(task_args,priority=5):
+def send_job_to_jobqueue(task_args, priority=5):
     ''' adds a new job to the bots-jobqueueserver.
         is an xmlrpc client.
         Import this function in eg views.py.
@@ -29,11 +29,12 @@ def send_job_to_jobqueue(task_args,priority=5):
         4 = job is a duplicate of job already in the queue
     '''
     try:
-        remote_server = xmlrpclib.ServerProxy('http://localhost:' + unicode(botsglobal.ini.getint('jobqueue','port',28082)))
-        return remote_server.addjob(task_args,priority)
+        remote_server = xmlrpclib.ServerProxy(
+            'http://localhost:' + unicode(botsglobal.ini.getint('jobqueue', 'port', 28082)))
+        return remote_server.addjob(task_args, priority)
     except socket.error as msg:
-        print('socket.error',msg)
-        return 1    #jobqueueserver server not active
+        print('socket.error', msg)
+        return 1  # jobqueueserver server not active
 
 
 def start():
@@ -41,7 +42,8 @@ def start():
     #***command line arguments**************************
     #if config (-c option) is before job argument, will be used as config-dir of job2queue it self and not for job
     #if config (-c option) is after job argument, use both as config-dir of job2queue and as -c option of job.
-    #if config (-c option) is before and after job argument, use only the after...could change that but seems not to be useful.
+    # if config (-c option) is before and after job argument, use only the
+    # after...could change that but seems not to be useful.
     usage = '''
     This is "%(name)s" version %(version)s, part of Bots open source edi translator (http://bots.sourceforge.net).
     Places a job in the bots jobqueue. Bots jobqueue takes care of correct processing of jobs.    
@@ -55,9 +57,9 @@ def start():
         %(name)s python2.7 /usr/local/bin/bots-engine.py
         %(name)s -p1 python2.7 /usr/local/bin/bots-engine.py -cconfig2 myroute
         
-    '''%{'name':os.path.basename(sys.argv[0]),'version':botsglobal.version}
-    configdir = 'config'    #default value
-    priority = 5            #default value
+    ''' % {'name': os.path.basename(sys.argv[0]), 'version': botsglobal.version}
+    configdir = 'config'  # default value
+    priority = 5  # default value
     task_args = []
     for arg in sys.argv[1:]:
         if arg.startswith('-c'):
@@ -69,22 +71,22 @@ def start():
                 task_args.append(arg)
         elif arg.startswith('-p'):
             try:
-                priority =  int(arg[2:])
+                priority = int(arg[2:])
             except:
                 print('Error: priority should be numeric (1=highest, 9=lowest).')
                 sys.exit(1)
-        elif arg in ['?', '/?','-h', '--help']:
+        elif arg in ['?', '/?', '-h', '--help']:
             print(usage)
             sys.exit(0)
         else:
             task_args.append(arg)
     #***end handling command line arguments**************************
-    botsinit.generalinit(configdir)         #needed to read config
-    if not botsglobal.ini.getboolean('jobqueue','enabled',False):
-        print('Error: bots jobqueue cannot start; not enabled in %s/bots.ini'%(configdir))
+    botsinit.generalinit(configdir)  # needed to read config
+    if not botsglobal.ini.getboolean('jobqueue', 'enabled', False):
+        print('Error: bots jobqueue cannot start; not enabled in %s/bots.ini' % (configdir))
         sys.exit(1)
-        
-    terug = send_job_to_jobqueue(task_args,priority)
+
+    terug = send_job_to_jobqueue(task_args, priority)
     print(JOBQUEUEMESSAGE2TXT[terug])
     sys.exit(terug)
 

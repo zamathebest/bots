@@ -57,6 +57,7 @@ WHERE NAME = 'routes';
 PRAGMA writable_schema = 0;
 '''
 
+
 def sqlite3():
     if sqlite_database_is_version3():
         print('Database sqlite3 is already bots version 3. No action is taken.')
@@ -111,7 +112,7 @@ def sqlite3():
         txt = botslib.txtexc()
         botsglobal.db.rollback()
         cursor.close()
-        print('Error in adding fields to sqlite3 database: "%s".'%(txt))
+        print('Error in adding fields to sqlite3 database: "%s".' % (txt))
         return 1
     else:
         botsglobal.db.commit()
@@ -124,15 +125,14 @@ def sqlite3():
         txt = botslib.txtexc()
         botsglobal.db.rollback()
         cursor.close()
-        print('Error in changing sqlite3 database-schema "routes": "%s".'%(txt))
+        print('Error in changing sqlite3 database-schema "routes": "%s".' % (txt))
         return 1
     else:
         botsglobal.db.commit()
         cursor.close()
-        
+
     print('Succesful changed sqlite3 database to bots version 3.')
     return 0
-            
 
 
 def postgresql_psycopg2():
@@ -149,12 +149,14 @@ def postgresql_psycopg2():
         cursor.execute('''ALTER TABLE "ccode" ALTER COLUMN "rightcode" TYPE VARCHAR(70)''')
         cursor.execute('''ALTER TABLE "ccode" ALTER COLUMN "attr1" TYPE VARCHAR(70)''')
         #filereport ****************************************
-        cursor.execute('''ALTER TABLE "filereport" DROP CONSTRAINT "filereport_pkey" ''')      #remove primary key
-        cursor.execute('''ALTER TABLE "filereport" DROP CONSTRAINT "filereport_idta_key" ''')  #drop contraint UNIQUE(idta, reportidta)
-        cursor.execute('''DROP INDEX "filereport_idta" ''')                                  #drop index on idta (will be primary key)
+        cursor.execute('''ALTER TABLE "filereport" DROP CONSTRAINT "filereport_pkey" ''')  # remove primary key
+        cursor.execute(
+            '''ALTER TABLE "filereport" DROP CONSTRAINT "filereport_idta_key" ''')  # drop contraint UNIQUE(idta, reportidta)
+        cursor.execute('''DROP INDEX "filereport_idta" ''')  # drop index on idta (will be primary key)
         cursor.execute('''DROP INDEX "filereport_reportidta" ''')
-        cursor.execute('''ALTER TABLE "filereport" DROP COLUMN "id" ''')     
-        cursor.execute('''ALTER TABLE "filereport" ADD CONSTRAINT "filereport_pkey" PRIMARY KEY("idta")''')    #idta is primary key
+        cursor.execute('''ALTER TABLE "filereport" DROP COLUMN "id" ''')
+        cursor.execute(
+            '''ALTER TABLE "filereport" ADD CONSTRAINT "filereport_pkey" PRIMARY KEY("idta")''')  # idta is primary key
         cursor.execute('''ALTER TABLE "filereport" ALTER COLUMN "errortext" TYPE TEXT''')
         cursor.execute('''ALTER TABLE "filereport" ADD COLUMN "filesize" INTEGER DEFAULT 0''')
         cursor.execute('''ALTER TABLE "filereport" ADD COLUMN "acceptance" INTEGER DEFAULT 0''')
@@ -185,13 +187,14 @@ def postgresql_psycopg2():
         cursor.execute('''CREATE INDEX "report_ts" ON "report" ("ts")''')
         cursor.execute('''ALTER TABLE "report" ADD COLUMN "filesize" INTEGER DEFAULT 0''')
         #routes ****************************************
-        cursor.execute('''ALTER TABLE "routes" ALTER COLUMN "translateind" TYPE integer USING CASE WHEN "translateind"=FALSE THEN 0 ELSE 1 END''')
+        cursor.execute(
+            '''ALTER TABLE "routes" ALTER COLUMN "translateind" TYPE integer USING CASE WHEN "translateind"=FALSE THEN 0 ELSE 1 END''')
         cursor.execute('''ALTER TABLE "routes" ADD COLUMN "zip_incoming" INTEGER DEFAULT 0''')
         cursor.execute('''ALTER TABLE "routes" ADD COLUMN "zip_outgoing" INTEGER DEFAULT 0''')
         #ta ****************************************
         cursor.execute('''DROP INDEX "ta_script" ''')
         cursor.execute('''CREATE INDEX "ta_reference" ON "ta" ("reference")''')
-        cursor.execute('''ALTER TABLE "ta" ALTER COLUMN "errortext" TYPE TEXT ''') 
+        cursor.execute('''ALTER TABLE "ta" ALTER COLUMN "errortext" TYPE TEXT ''')
         cursor.execute('''ALTER TABLE "ta" ADD COLUMN "filesize" INTEGER DEFAULT 0''')
         cursor.execute('''ALTER TABLE "ta" ADD COLUMN "numberofresends" INTEGER DEFAULT 0''')
         cursor.execute('''ALTER TABLE "ta" ADD COLUMN "rsrv5" VARCHAR(35) DEFAULT '' ''')
@@ -199,12 +202,12 @@ def postgresql_psycopg2():
         txt = botslib.txtexc()
         botsglobal.db.rollback()
         cursor.close()
-        print('Error in changing postgresql database: "%s".'%(txt))
+        print('Error in changing postgresql database: "%s".' % (txt))
         return 1
     else:
         botsglobal.db.commit()
         cursor.close()
-        
+
     print('Succesful changed postgresql database to bots version 3.')
     return 0
 
@@ -223,10 +226,10 @@ def mysql():
         cursor.execute('''ALTER TABLE `ccode` MODIFY `rightcode` VARCHAR(70)''')
         cursor.execute('''ALTER TABLE `ccode` MODIFY `attr1` VARCHAR(70)''')
         #filereport ****************************************
-        cursor.execute('''ALTER TABLE `filereport` CHANGE `id` `id` INTEGER ''')    #drop autoincrement
-        cursor.execute('''ALTER TABLE `filereport` DROP PRIMARY KEY ''')            #drop index on id
-        cursor.execute('''ALTER TABLE `filereport` DROP COLUMN `id` ''')            #drop id veld
-        cursor.execute('''ALTER TABLE `filereport` DROP KEY `idta` ''')             #remove UNIQUE constraint     
+        cursor.execute('''ALTER TABLE `filereport` CHANGE `id` `id` INTEGER ''')  # drop autoincrement
+        cursor.execute('''ALTER TABLE `filereport` DROP PRIMARY KEY ''')  # drop index on id
+        cursor.execute('''ALTER TABLE `filereport` DROP COLUMN `id` ''')  # drop id veld
+        cursor.execute('''ALTER TABLE `filereport` DROP KEY `idta` ''')  # remove UNIQUE constraint
         #~ cursor.execute('''ALTER TABLE `filereport` DROP INDEX `reportidta` ''')  #not possible as index name is not known
         cursor.execute('''ALTER TABLE `filereport` MODIFY `errortext` TEXT''')
         cursor.execute('''ALTER TABLE `filereport` ADD COLUMN `filesize` INTEGER DEFAULT 0''')
@@ -263,7 +266,7 @@ def mysql():
         cursor.execute('''ALTER TABLE `routes` MODIFY `translateind` integer NOT NULL''')
         #ta ****************************************
         #~ cursor.execute('''ALTER TABLE `ta` DROP INDEX `script` ''')   #not possible as index name is not known
-        cursor.execute('''CREATE INDEX `ta_reference` ON `ta` (`reference`)''') 
+        cursor.execute('''CREATE INDEX `ta_reference` ON `ta` (`reference`)''')
         cursor.execute('''ALTER TABLE `ta` ADD COLUMN `filesize` INTEGER DEFAULT 0''')
         cursor.execute('''ALTER TABLE `ta` ADD COLUMN `numberofresends` INTEGER DEFAULT 0''')
         cursor.execute('''ALTER TABLE `ta` ADD COLUMN `rsrv5` VARCHAR(35) DEFAULT '' ''')
@@ -272,12 +275,12 @@ def mysql():
         txt = botslib.txtexc()
         botsglobal.db.rollback()
         cursor.close()
-        print('Error in changing mysql database: "%s".'%(txt))
+        print('Error in changing mysql database: "%s".' % (txt))
         return 1
     else:
         botsglobal.db.commit()
         cursor.close()
-        
+
     print('Succesful changed mysql database to bots version 3.')
     return 0
 
@@ -293,7 +296,7 @@ def start():
     Options:
         -c<directory>        directory for configuration files (default: config).
 
-    '''%{'name':os.path.basename(sys.argv[0]),'version':botsglobal.version}
+    ''' % {'name': os.path.basename(sys.argv[0]), 'version': botsglobal.version}
     configdir = 'config'
     for arg in sys.argv[1:]:
         if arg.startswith('-c'):
@@ -301,11 +304,11 @@ def start():
             if not configdir:
                 print('Error: configuration directory indicated, but no directory name.')
                 sys.exit(3)
-        else:   #pick up names of routes to run
+        else:  # pick up names of routes to run
             print(usage)
             sys.exit(0)
     #***end handling command line arguments**************************
-    botsinit.generalinit(configdir)     #find locating of bots, configfiles, init paths etc.
+    botsinit.generalinit(configdir)  # find locating of bots, configfiles, init paths etc.
 
     #**************check if another instance of bots-engine is running/if port is free******************************
     try:
@@ -319,25 +322,27 @@ def start():
     process_name = 'updatedatabase'
     botsglobal.logger = botsinit.initenginelogging(process_name)
     atexit.register(logging.shutdown)
-    for key,value in botslib.botsinfo():    #log info about environement, versions, etc
-        botsglobal.logger.info('%(key)s: "%(value)s".',{'key':key,'value':value})
+    for key, value in botslib.botsinfo():  # log info about environement, versions, etc
+        botsglobal.logger.info('%(key)s: "%(value)s".', {'key': key, 'value': value})
 
     #**************connect to database**********************************
     try:
         botsinit.connect()
     except Exception as msg:
-        botsglobal.logger.exception(_('Could not connect to database. Database settings are in bots/config/settings.py. Error: "%(msg)s".'),{'msg':msg})
+        botsglobal.logger.exception(
+            _('Could not connect to database. Database settings are in bots/config/settings.py. Error: "%(msg)s".'), {'msg': msg})
         sys.exit(3)
     else:
         botsglobal.logger.info(_('Connected to database.'))
         atexit.register(botsglobal.db.close)
 
     #**************handle database lock****************************************
-    #set a lock on the database; if not possible, the database is locked: an earlier instance of bots-engine was terminated unexpectedly.
+    # set a lock on the database; if not possible, the database is locked: an
+    # earlier instance of bots-engine was terminated unexpectedly.
     if not botslib.set_database_lock():
-        warn =  _('!Bots database is locked!\n'\
-                    'Bots-engine has ended in an unexpected way during the last run.\n'\
-                    'Most likely causes: sudden power-down, system crash, problems with disk I/O, bots-engine terminated by user, etc.')
+        warn = _('!Bots database is locked!\n'
+                 'Bots-engine has ended in an unexpected way during the last run.\n'
+                 'Most likely causes: sudden power-down, system crash, problems with disk I/O, bots-engine terminated by user, etc.')
         botsglobal.logger.critical(warn)
         sys.exit(3)
     atexit.register(botslib.remove_database_lock)
@@ -348,10 +353,9 @@ def start():
         terug = mysql()
     elif botsglobal.settings.DATABASES['default']['ENGINE'] == 'django.db.backends.postgresql_psycopg2':
         terug = postgresql_psycopg2()
-    
+
     sys.exit(terug)
 
 
 if __name__ == '__main__':
     start()
-

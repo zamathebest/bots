@@ -22,17 +22,20 @@ import functools
 
 #### Analyze Python Source #################################
 
+
 def is_builtin(s):
     'Return True if s is the name of a builtin'
     return hasattr(builtins, s)
+
 
 def combine_range(lines, start, end):
     'Join content from a range of lines between start and end'
     (srow, scol), (erow, ecol) = start, end
     if srow == erow:
-        return lines[srow-1][scol:ecol], end
-    rows = [lines[srow-1][scol:]] + lines[srow: erow-1] + [lines[erow-1][:ecol]]
+        return lines[srow - 1][scol:ecol], end
+    rows = [lines[srow - 1][scol:]] + lines[srow: erow - 1] + [lines[erow - 1][:ecol]]
     return ''.join(rows), end
+
 
 def analyze_python(source):
     '''Generate and classify chunks of Python for syntax highlighting.
@@ -40,8 +43,8 @@ def analyze_python(source):
     '''
     lines = source.splitlines(True)
     lines.append('')
-    for i in range(0,len(lines)-1):
-        lines[i] = '%04d  %s' %(i+1,lines[i]) # add line numbers
+    for i in range(0, len(lines) - 1):
+        lines[i] = '%04d  %s' % (i + 1, lines[i])  # add line numbers
     readline = functools.partial(next, iter(lines), '')
     kind = tok_str = ''
     tok_type = tokenize.COMMENT
@@ -80,6 +83,7 @@ def analyze_python(source):
 
 #### HTML Output ###########################################
 
+
 def html_highlight(classified_text):
     'Convert classified text to an HTML fragment'
     result = []
@@ -90,4 +94,3 @@ def html_highlight(classified_text):
         if kind:
             result.append('</span>')
     return ''.join(result)
-
