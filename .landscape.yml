@@ -6,7 +6,7 @@
 doc-warnings: yes
 test-warnings: no
 strictness: high
-max-line-length: 120
+max-line-length: 160
 
 #uses:
 #    - Django 
