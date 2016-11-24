@@ -2,10 +2,6 @@
 
 from __future__ import print_function
 from __future__ import unicode_literals
-import filecmp
-import glob
-import shutil
-import os
 import sys
 import subprocess
 import logging

@@ -4,7 +4,6 @@ from __future__ import print_function
 # python2: gives problems; this module contains unicode strings; in function ccode ascii strings are needed (for field).
 from __future__ import unicode_literals
 import sys
-import pickle
 import unittest
 import utilsunit
 import time

@@ -6,7 +6,6 @@ import os
 import sys
 import unittest
 import shutil
-import filecmp
 import bots.inmessage as inmessage
 import bots.outmessage as outmessage
 import bots.botslib as botslib
@@ -176,7 +175,6 @@ class Testnode(unittest.TestCase):
 
 
 if __name__ == '__main__':
-    import datetime
     botsinit.generalinit('config')
     botsglobal.logger = botsinit.initenginelogging('engine')
     shutil.rmtree('bots/botssys/infile/unitnode/output', ignore_errors=True)  # remove whole output directory
