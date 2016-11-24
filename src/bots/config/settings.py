@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 from __future__ import unicode_literals
 import os
 import bots
@@ -98,7 +100,7 @@ SECRET_KEY = 'm@-u37qiujmeqfbu$daaaaz)sp^7an4u@h=wfx9dd$$$zl2i*x9#awojdc'
 
 #*******template handling and finding*************************************************************************
 # List of callables that know how to import templates from various sources.
-#disable because these used values are the default values 
+#disable because these used values are the default values
 #~ TEMPLATE_LOADERS = (
     #~ 'django.template.loaders.filesystem.Loader',
     #~ 'django.template.loaders.app_directories.Loader',
@@ -134,7 +136,7 @@ INSTALLED_APPS = (
     'bots',
     )
 TEMPLATE_CONTEXT_PROCESSORS = (
-    'django.contrib.auth.context_processors.auth', 
+    'django.contrib.auth.context_processors.auth',
     'django.core.context_processors.debug',
     'django.core.context_processors.i18n',
     'django.core.context_processors.request',
