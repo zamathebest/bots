@@ -16,9 +16,6 @@ import io
 import os
 import setuptools
 
-#from distutils.core import setup
-#from distutils.command.install import INSTALL_SCHEMES
-
 
 def read(*names, **kwargs):
     """Return the contents of a file.
@@ -58,66 +55,23 @@ long_description = (
     #read('docs', 'contributors.rst')
     )
 
-
-
-
-##install data file in the same way as *.py
-#for scheme in INSTALL_SCHEMES.values():
-    #scheme['data'] = scheme['purelib']
-
-
-#def fullsplit(path, result=None):
-#    '''
-#    Split a pathname into components (the opposite of os.path.join) in a
-#    platform-neutral way.
-#    '''
-#    if result is None:
-#        result = []
-#    head, tail = os.path.split(path)
-#    if head == '':
-#        return [tail] + result
-#    if head == path:
-#        return result
-#    return fullsplit(head, [tail] + result)
-
-
-## Compile the list of packages available, because distutils doesn't have
-## an easy way to do this.
-#packages, data_files = [], []
-#root_dir = os.path.dirname(__file__)
-#if root_dir != '':
-    #os.chdir(root_dir)
-
-#for dirpath, dirnames, filenames in os.walk('bots'):
-    ## Ignore dirnames that start with '.'
-    ##~ for i, dirname in enumerate(dirnames):
-        ##~ if dirname.startswith('.'): del dirnames[i]
-    #if '__init__.py' in filenames:
-        #packages.append('.'.join(fullsplit(dirpath)))
-        #if len(filenames) > 1:
-            #data_files.append([dirpath, [os.path.join(dirpath, f) for f in filenames if not f.endswith('.pyc') and not f.endswith('.py')]])
-    #elif filenames:
-        #data_files.append([dirpath, [os.path.join(dirpath, f) for f in filenames if not f.endswith('.pyc') and not f.endswith('.py')]])
-
-
 setuptools.setup(
-    name = 'bots',
-    version = version,
-    author = 'hjebbers',
-    author_email = 'hjebbers@gmail.com',
-    url = 'https://github.com/bots-edi/bots',
-    description = 'Bots open source edi translator',
-    long_description = long_description,
-    platforms = 'OS Independent (Written in an interpreted language)',
-    license = 'GNU General Public License (GPL)',
+    name='bots',
+    version=version,
+    author='hjebbers',
+    author_email='hjebbers@gmail.com',
+    url='https://github.com/bots-edi/bots',
+    description='Bots open source edi translator',
+    long_description=long_description,
+    platforms='OS Independent (Written in an interpreted language)',
+    license='GNU General Public License (GPL)',
     keywords='edi edifact x12 tradacoms xml fixedfile csv',
-    #packages=setuptools.find_packages(exclude=['ez_setup', 'tests']),
     packages=setuptools.find_packages('src'),
     package_dir={'': 'src'},
     include_package_data=True,
     zip_safe=False,
 
-    classifiers = [
+    classifiers=[
         'Development Status :: 5 - Production/Stable',
         'Operating System :: OS Independent',
         'Programming Language :: Python',
@@ -133,7 +87,7 @@ setuptools.setup(
         'Environment :: Console',
         'Environment :: Web Environment',
         ],
-    scripts = [
+    scripts=[
         'scripts/bots-webserver.py',
         'scripts/bots-engine.py',
         'scripts/bots-grammarcheck.py',
