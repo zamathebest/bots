@@ -5,6 +5,11 @@ Bots-Edi
    :alt: Join the chat at https://gitter.im/bots-edi/Lobby
    :target: https://gitter.im/bots-edi/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge
 
+.. image:: https://readthedocs.org/projects/bots/badge/?version=latest
+    :alt: Documentation Status
+    :scale: 100%
+    :target: https://bots.readthedocs.io/en/latest/?badge=latest
+
 .. image:: https://landscape.io/github/bots-edi/bots/master/landscape.svg?style=flat
    :target: https://landscape.io/github/bots-edi/bots/master
    :alt: Code Health
