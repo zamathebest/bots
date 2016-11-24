@@ -3,17 +3,23 @@
 
 from __future__ import print_function
 from __future__ import unicode_literals
-import sys
-if sys.version_info[0] > 2:
-    basestring = unicode = str
-    import xmlrpc.client as xmlrpclib
-else:
-    import xmlrpclib
+
 import os
 import socket
+import sys
+
+try:  # python3
+    import xmlrpc.client as xmlrpclib
+except ImportError:  # python2
+    import xmlrpclib
+
 #Bots-modules
 from . import botsinit
 from . import botsglobal
+
+if sys.version_info[0] > 2:
+    basestring = unicode = str
+
 
 JOBQUEUEMESSAGE2TXT = {
     0: 'OK, job is added to queue',
@@ -23,13 +29,13 @@ JOBQUEUEMESSAGE2TXT = {
 
 
 def send_job_to_jobqueue(task_args, priority=5):
-    ''' adds a new job to the bots-jobqueueserver.
-        is an xmlrpc client.
-        Import this function in eg views.py.
-        Received return codes  from jobqueueserver:
-        0 = OK, job added to job queue.
-        4 = job is a duplicate of job already in the queue
-    '''
+    """Adds a new job to the bots-jobqueueserver.
+    is an xmlrpc client.
+    Import this function in eg views.py.
+    Received return codes  from jobqueueserver:
+    0 = OK, job added to job queue.
+    4 = job is a duplicate of job already in the queue
+    """
     try:
         remote_server = xmlrpclib.ServerProxy(
             'http://localhost:' + unicode(botsglobal.ini.getint('jobqueue', 'port', 28082)))
@@ -46,7 +52,7 @@ def start():
     #if config (-c option) is after job argument, use both as config-dir of job2queue and as -c option of job.
     # if config (-c option) is before and after job argument, use only the
     # after...could change that but seems not to be useful.
-    usage = '''
+    usage = """
     This is "%(name)s" version %(version)s, part of Bots open source edi translator (http://bots.sourceforge.net).
     Places a job in the bots jobqueue. Bots jobqueue takes care of correct processing of jobs.
     Usage:
@@ -59,7 +65,8 @@ def start():
         %(name)s python2.7 /usr/local/bin/bots-engine.py
         %(name)s -p1 python2.7 /usr/local/bin/bots-engine.py -cconfig2 myroute
 
-    ''' % {'name': os.path.basename(sys.argv[0]), 'version': botsglobal.version}
+    """ % {'name': os.path.basename(sys.argv[0]), 'version': botsglobal.version}
+
     configdir = 'config'  # default value
     priority = 5  # default value
     task_args = []
@@ -82,7 +89,8 @@ def start():
             sys.exit(0)
         else:
             task_args.append(arg)
-    #***end handling command line arguments**************************
+    # end handling command line arguments
+
     botsinit.generalinit(configdir)  # needed to read config
     if not botsglobal.ini.getboolean('jobqueue', 'enabled', False):
         print('Error: bots jobqueue cannot start; not enabled in %s/bots.ini' % (configdir))

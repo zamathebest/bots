@@ -1,47 +1,53 @@
 # -*- coding: utf-8 -*-
 
+"""Converts xml file to a bots grammar.
+   Usage: c:\python27\python  bots-xml2botsgrammar.py  botssys/infile/test.xml botssys/infile/resultgrammar.py  -cconfig
+   Try to have a 'completely filled' xml file.
+"""
 from __future__ import print_function
 from __future__ import unicode_literals
-import os
-import sys
+
 import atexit
 import copy
 import logging
+import os
+import sys
+
 try:
     from xml.etree import cElementTree as ET
 except ImportError:
     from xml.etree import ElementTree as ET
+
 try:
     from collections import OrderedDict
 except:
     from .bots_ordereddict import OrderedDict
-#bots-modules
+
 from . import botslib
 from . import botsinit
 from . import botsglobal
 from . import inmessage
 from . import outmessage
 from . import node
-from .botsconfig import *
-''' converts xml file to a bots grammar.
-    Usage: c:\python27\python  bots-xml2botsgrammar.py  botssys/infile/test.xml   botssys/infile/resultgrammar.py  -cconfig
-    Try to have a 'completely filled' xml file.
-'''
+from .botsconfig import ID, LEVEL, MAX, MIN
 
-#**************************************************************************************
+
+#****************************************************
 #***classes used in inmessage for xml2botsgrammar.
 #***These classes are dynamically added to inmessage
-#**************************************************************************************
+#****************************************************
 
 
 class xmlforgrammar(inmessage.Inmessage):
-    ''' class for ediobjects in XML. Uses ElementTree'''
+    """class for ediobjects in XML. Uses ElementTree"""
 
     def initfromfile(self):
         filename = botslib.abspathdata(self.ta_info['filename'])
         self.ta_info['attributemarker'] = '__'
         parser = ET.XMLParser()
-        etree = ET.ElementTree()  # ElementTree: lexes, parses, makes etree; etree is quite similar to bots-node trees but conversion is needed
+        # ElementTree: lexes, parses, makes etree; etree is quite similar
+        # to bots-node trees but conversion is needed
+        etree = ET.ElementTree()
         etreeroot = etree.parse(filename, parser)
         self.root = self._etree2botstree(etreeroot)  # convert etree to bots-nodes-tree
 
@@ -60,16 +66,17 @@ class xmlforgrammar(inmessage.Inmessage):
             if self._is_record(xmlchildnode):
                 newnode.append(self._etree2botstree(xmlchildnode))  # add as a node/record
             else:
-                ## remark for generating grammars: empty strings should generate a field here
+                # remark for generating grammars: empty strings should generate a field here
                 if self._use_botscontent(xmlchildnode):
                     newnode.record[xmlchildnode.tag] = '1'  # add as a field
                 #convert the xml-attributes of this 'xml-field' to fields in dict with attributemarker.
-                newnode.record.update(
-                    (xmlchildnode.tag + self.ta_info['attributemarker'] + key, value) for key, value in xmlchildnode.items())
+                newnode.record.update((xmlchildnode.tag + self.ta_info['attributemarker'] + key, value)
+                                      for key, value in xmlchildnode.items())
         return newnode
 
     def _etreenode2botstreenode(self, xmlnode):
-        ''' build a OrderedDict from xml-node. Add BOTSID, xml-attributes (of 'record'), xmlnode.text as BOTSCONTENT.'''
+        """Build a OrderedDict from xml-node.
+        Add BOTSID, xml-attributes (of 'record'), xmlnode.text as BOTSCONTENT."""
         build = OrderedDict((xmlnode.tag + self.ta_info['attributemarker'] + key, value)
                             for key, value in xmlnode.items())  # convert xml attributes to fields.
         build['BOTSID'] = xmlnode.tag
@@ -82,13 +89,14 @@ class xmlforgrammar(inmessage.Inmessage):
 
 
 class xmlforgrammar_allrecords(inmessage.Inmessage):
-    ''' class for ediobjects in XML. Uses ElementTree'''
+    """Class for ediobjects in XML. Uses ElementTree"""
 
     def initfromfile(self):
         filename = botslib.abspathdata(self.ta_info['filename'])
         self.ta_info['attributemarker'] = '__'
         parser = ET.XMLParser()
-        etree = ET.ElementTree()  # ElementTree: lexes, parses, makes etree; etree is quite similar to bots-node trees but conversion is needed
+        # ElementTree: lexes, parses, makes etree; etree is quite similar to bots-node trees but conversion is needed
+        etree = ET.ElementTree()
         etreeroot = etree.parse(filename, parser)
         self.root = self._etree2botstree(etreeroot)  # convert etree to bots-nodes-tree
 
@@ -99,7 +107,7 @@ class xmlforgrammar_allrecords(inmessage.Inmessage):
         return newnode
 
     def _etreenode2botstreenode(self, xmlnode):
-        ''' build a OrderedDict from xml-node. Add BOTSID, xml-attributes (of 'record'), xmlnode.text as BOTSCONTENT.'''
+        """ build a OrderedDict from xml-node. Add BOTSID, xml-attributes (of 'record'), xmlnode.text as BOTSCONTENT."""
         build = OrderedDict((xmlnode.tag + self.ta_info['attributemarker'] + key, value)
                             for key, value in xmlnode.items())  # convert xml attributes to fields.
         build['BOTSID'] = xmlnode.tag
@@ -110,13 +118,12 @@ class xmlforgrammar_allrecords(inmessage.Inmessage):
     def _is_record(self, xmlchildnode):
         return bool(len(xmlchildnode))
 
-#******************************************************************
-#***functions for mapping******************************************
 
+#***functions for mapping****
 
 def map_treewalker(node_instance, mpath):
-    ''' Generator function.
-    '''
+    """ Generator function.
+    """
     mpath.append(OrderedDict({'BOTSID': node_instance.record['BOTSID']}))
     for childnode in node_instance.children:
         yield childnode, mpath[:]
@@ -126,8 +133,8 @@ def map_treewalker(node_instance, mpath):
 
 
 def map_writefields(node_out, node_in, mpath):
-    ''' als fields of this level are written to node_out.
-    '''
+    """ als fields of this level are written to node_out.
+    """
     mpath_with_all_fields = copy.deepcopy(mpath)  # use a copy of mpath (do not want to change it)
     for key in node_in.record.keys():
         if key in ['BOTSID', 'BOTSIDnr']:  # skip these
@@ -135,8 +142,7 @@ def map_writefields(node_out, node_in, mpath):
         mpath_with_all_fields[-1][key] = 'dummy'  # add key to the mpath
     node_out.put(*mpath_with_all_fields)  # write all fields.
 
-#******************************************************************
-#***functions to convert out-tree to grammar*********************
+#***functions to convert out-tree to grammar****
 
 
 def tree2grammar(node_instance, structure, recorddefs):
@@ -160,8 +166,7 @@ def removedoublesfromlist(orglist):
             list2return.append(member)
     return list2return
 
-#******************************************************************
-#***functions to write grammar to file*****************************
+#***functions to write grammar to file***
 
 
 def recorddefs2string(recorddefs, targetNamespace):
@@ -220,8 +225,8 @@ def grammar2file(botsgrammarfilename, structure, recorddefs, targetNamespace):
 
 
 def start():
-    #********command line arguments**************************
-    usage = '''
+    #***command line arguments***
+    usage = """
     This is "%(name)s" version %(version)s, part of Bots open source edi translator (http://bots.sourceforge.net).
     Creates a grammar from an xml file.'
     Usage:'
@@ -232,7 +237,7 @@ def start():
         <xml_file>         name of the xml file to read
         <xml_grammar_file> name of the grammar file to write
 
-    ''' % {'name': os.path.basename(sys.argv[0]), 'version': botsglobal.version}
+    """ % {'name': os.path.basename(sys.argv[0]), 'version': botsglobal.version}
     configdir = 'config'
     edifile = ''
     botsgrammarfilename = ''
@@ -263,9 +268,9 @@ def start():
     atexit.register(logging.shutdown)
 
     targetNamespace = ''
-    #*******************************************************************
+    #*****************************************************
     #***add classes for handling editype xml to inmessage
-    #*******************************************************************
+    #*****************************************************
     if allrecords:
         #~ editype = 'xmlforgrammar_allrecords'
         inmessage.xmlforgrammar = xmlforgrammar_allrecords
