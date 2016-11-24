@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+# -*- coding: utf-8 -*-
 
 if __name__ == '__main__':
     import cProfile
@@ -11,4 +12,4 @@ if __name__ == '__main__':
     p.print_callees('mydeepcopy')
     #~ p.sort_stats('time').print_stats('grammar.py',50)
 
-        
+

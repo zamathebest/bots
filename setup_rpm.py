@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 import os
 import sys
 from distutils.core import setup
@@ -5,7 +6,7 @@ from distutils.command.install import INSTALL_SCHEMES
 
 #install data file in the same way as *.py
 for scheme in INSTALL_SCHEMES.values():
-    scheme['data'] = scheme['purelib'] 
+    scheme['data'] = scheme['purelib']
 
 
 def fullsplit(path, result=None):
@@ -79,7 +80,7 @@ setup(
             'bots-jobqueueserver.py',
             'bots-plugoutindex.py',
             'bots-job2queue.py',
-            
+
             ],
     packages = packages,
     data_files = data_files,

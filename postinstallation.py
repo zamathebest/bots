@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 import sys
 import os
 import tarfile
@@ -27,7 +28,7 @@ def start():
         pass
     else:
         raise Exception('Wrong python version, use python 2.6.* or 2.7.*')
-        
+
     botsdir = os.path.dirname(botsglobal.__file__)
     print '    Installed bots in "%s".'%(botsdir)
 
@@ -43,7 +44,7 @@ def start():
         shutil.copy(join(botsdir,'install','bots.ini'),join(botsdir,'config','bots.ini'))
         shutil.copy(join(botsdir,'install','settings.py'),join(botsdir,'config','settings.py'))
         print '    Installed configuration files'
-        
+
 #******************************************************************************
 #***    install database; upgrade existing db *********************************
 #******************************************************************************
@@ -91,20 +92,20 @@ def start():
     shortcutdir = join(get_special_folder_path('CSIDL_COMMON_PROGRAMS'),'Bots3.2rc2')
     try:
         os.mkdir(shortcutdir)
-    except: 
+    except:
         pass
     else:
         directory_created(shortcutdir)
-        
+
     try:
         #~ create_shortcut(join(scriptpath,'botswebserver'),'Bots open source EDI translator',join(shortcutdir,'Bots-webserver.lnk'))
         create_shortcut(join(sys.prefix,'python.exe'),'bots open source edi translator',join(shortcutdir,'bots-webserver.lnk'),join(scriptpath,'bots-webserver.py'))
         file_created(join(shortcutdir,'bots-webserver.lnk'))
-    except: 
+    except:
         print '    Failed to install shortcut/link for bots in your menu.'
     else:
         print '    Installed shortcut in "Program Files".'
-    
+
 #******************************************************************************
 #******************************************************************************
 
@@ -119,7 +120,7 @@ if __name__ == '__main__':
         else:
             print
             print 'Bots installation succeeded.'
-    #avoid strange errors when UAC is off. 
+    #avoid strange errors when UAC is off.
     try:
         sys.stdout.flush()
     except IOError:
