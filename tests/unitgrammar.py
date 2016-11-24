@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from __future__ import print_function
 from __future__ import unicode_literals
 import unittest
@@ -12,7 +13,7 @@ import utilsunit
 if sys.version_info[0] > 2:
     basestring = unicode = str
 
-''' plugin unitgrammar.zip 
+''' plugin unitgrammar.zip
     not an acceptance test.
 '''
 

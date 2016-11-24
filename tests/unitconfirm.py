@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from __future__ import print_function
 from __future__ import unicode_literals
 import unittest
@@ -25,7 +26,7 @@ before each run: clear transactions!
 tested is:
 - seperate unit tests
 - total expectation of whole run
-- seperate unit-tests to check confirm-rules 
+- seperate unit-tests to check confirm-rules
 '''
 
 botssys = 'bots/botssys'

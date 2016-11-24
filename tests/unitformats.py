@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from __future__ import print_function
 from __future__ import unicode_literals
 import unittest
@@ -14,7 +15,7 @@ import utilsunit
 if sys.version_info[0] > 2:
     basestring = unicode = str
 
-''' plugin unitformats 
+''' plugin unitformats
     set bots.ini: max_number_errors = 1
     not an acceptance-test.
     need special code in message.py and inmessage.py; search for UNITTEST_CORRECTION

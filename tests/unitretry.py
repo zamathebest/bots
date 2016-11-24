@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from __future__ import print_function
 from __future__ import unicode_literals
 import filecmp
@@ -22,12 +23,12 @@ if sys.version_info[0] > 2:
 #before running: delete all transactions.!!!
 ''' input: mime (complex structure); 2 different edi attachments, and ' tekst' attachemnt
     some user scripts are written in this unit test; so one runs errors will occur; write user script which prevents error in next run
-    runs OK if no errors in unit tests; that is : no exceptions are raised. The bots-engine runs do give errors, but this is needed for retries 
+    runs OK if no errors in unit tests; that is : no exceptions are raised. The bots-engine runs do give errors, but this is needed for retries
 '''
 
 
 def change_communication_type(idchannel, to_type):
-    botslib.changeq(u'''UPDATE channel 
+    botslib.changeq(u'''UPDATE channel
                         SET type = %(to_type)s
                         WHERE idchannel = %(idchannel)s
                         ''', {'to_type': to_type, 'idchannel': idchannel})

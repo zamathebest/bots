@@ -14,7 +14,7 @@ import bots.validate_email as validate_email
 if sys.version_info[0] > 2:
     basestring = unicode = str
 
-'''plugin unittranslateutils.zip 
+'''plugin unittranslateutils.zip
 in bots.ini:  runacceptancetest = False
 '''
 

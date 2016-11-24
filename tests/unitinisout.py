@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from __future__ import print_function
 from __future__ import unicode_literals
 import os
@@ -28,7 +29,7 @@ import bots.outmessage as outmessage
 if sys.version_info[0] > 2:
     basestring = unicode = str
 
-''' 
+'''
 pluging unitinisout.zip
     in bots.ini: max_number_errors = 1
     activate UNITTEST_CORRECTION code
