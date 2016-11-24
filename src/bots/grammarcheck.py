@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 from __future__ import print_function
 from __future__ import unicode_literals
 import sys
@@ -16,7 +18,7 @@ from .botsconfig import *
 
 
 def startmulti(grammardir, editype):
-    ''' specialized tool for bulk checking of grammars while developing botsgrammars 
+    ''' specialized tool for bulk checking of grammars while developing botsgrammars
         grammardir: directory with gramars (eg bots/usersys/grammars/edifact)
         editype: eg edifact
     '''
@@ -48,9 +50,9 @@ def start():
     #********command line arguments**************************
     usage = '''
     This is "%(name)s" version %(version)s, part of Bots open source edi translator (http://bots.sourceforge.net).
-    Checks a Bots grammar. Same checks are used as in translations with bots-engine. Searches for grammar in 
+    Checks a Bots grammar. Same checks are used as in translations with bots-engine. Searches for grammar in
     regular place: bots/usersys/grammars/<editype>/<messagetype>.py  (even if a path is passed).
-    
+
     Usage:  %(name)s  -c<directory> <editype> <messagetype>
        or   %(name)s  -c<directory> <path to grammar>
     Options:
@@ -58,7 +60,7 @@ def start():
     Examples:
         %(name)s -cconfig  edifact  ORDERSD96AUNEAN008
         %(name)s -cconfig  C:/python27/lib/site-packages/bots/usersys/grammars/edifact/ORDERSD96AUNEAN008.py
-        
+
     ''' % {'name': os.path.basename(sys.argv[0]), 'version': botsglobal.version}
     configdir = 'config'
     editype = ''

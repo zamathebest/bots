@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+
 from __future__ import print_function
 # python2: gives problems; this module contains unicode strings; in function ccode ascii strings are needed (for field).
 from __future__ import unicode_literals
@@ -16,7 +17,7 @@ import bots.validate_email as validate_email
 if sys.version_info[0] > 2:
     basestring = unicode = str
 
-'''plugin unittranslateutils.zip 
+'''plugin unittranslateutils.zip
 in bots.ini:  runacceptancetest = False
 '''
 

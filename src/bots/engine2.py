@@ -1,4 +1,6 @@
 #!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
 from __future__ import print_function
 from __future__ import unicode_literals
 import sys
@@ -531,7 +533,7 @@ for d in l:
         continue
     if (d['alt']!='' and d['alt']!=alt) or (d['frompartner'] is not None and d['frompartner']!=frompartner) or (d['frompartner'] is not None and d['frompartner']!=frompartner):
         continue
-        
+
     if first:
         bestchoice = d
         continue
@@ -539,7 +541,7 @@ for d in l:
     #alt: either '' or value as in message
     if d['alt']
     #best choice: alt,frompartner and topartner
-    #d: alt, 
-    #if 
+    #d: alt,
+    #if
 
 '''

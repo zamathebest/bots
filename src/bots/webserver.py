@@ -1,4 +1,6 @@
 #!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
 from __future__ import print_function
 from __future__ import unicode_literals
 import sys
@@ -19,13 +21,13 @@ def start():
     #***command line arguments**************************
     usage = '''
     This is "%(name)s" version %(version)s, part of Bots open source edi translator (http://bots.sourceforge.net).
-    The %(name)s is the web server for bots; the interface (bots-monitor) can be accessed in a 
+    The %(name)s is the web server for bots; the interface (bots-monitor) can be accessed in a
     browser, eg 'http://localhost:8080'.
     Usage:
         %(name)s  -c<directory>
     Options:
         -c<directory>   directory for configuration files (default: config).
-    
+
     ''' % {'name': os.path.basename(sys.argv[0]), 'version': botsglobal.version}
     configdir = 'config'
     for arg in sys.argv[1:]:

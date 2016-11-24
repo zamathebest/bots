@@ -1,4 +1,6 @@
 #!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
 from __future__ import print_function
 from __future__ import unicode_literals
 import sys
@@ -46,7 +48,7 @@ def start():
     # after...could change that but seems not to be useful.
     usage = '''
     This is "%(name)s" version %(version)s, part of Bots open source edi translator (http://bots.sourceforge.net).
-    Places a job in the bots jobqueue. Bots jobqueue takes care of correct processing of jobs.    
+    Places a job in the bots jobqueue. Bots jobqueue takes care of correct processing of jobs.
     Usage:
         %(name)s  [-c<directory>] [-p<priority>] job [job-parameters]
     Options:
@@ -56,7 +58,7 @@ def start():
         %(name)s bots-engine.py
         %(name)s python2.7 /usr/local/bin/bots-engine.py
         %(name)s -p1 python2.7 /usr/local/bin/bots-engine.py -cconfig2 myroute
-        
+
     ''' % {'name': os.path.basename(sys.argv[0]), 'version': botsglobal.version}
     configdir = 'config'  # default value
     priority = 5  # default value

@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 from __future__ import unicode_literals
 import sys
 if sys.version_info[0] > 2:
@@ -118,7 +120,7 @@ def envelope(ta_info, ta_list):
 
         How is enveloping determined:
         1.  no enveloping: ta_info['envelope'] is '' (or None)
-            -   file(s) is/are just copied. 
+            -   file(s) is/are just copied.
             -   no user scripting for envelope.
         2.  user scripted: there is a file in bots/envelopescripts/ta_info['editype']/ta_info['envelope'].py (and has to have a class ta_info['envelope'])
             -   user exits extends/replaces default enveloping.

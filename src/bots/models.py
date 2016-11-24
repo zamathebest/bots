@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 from __future__ import unicode_literals
 import sys
 if sys.version_info[0] > 2:
@@ -15,8 +17,8 @@ from django.core.exceptions import ValidationError
 from django.utils.encoding import python_2_unicode_compatible
 from . import botsglobal
 from . import validate_email
-''' Declare database tabels. 
-    Django is not always perfect in generating db - but improving ;-)). 
+''' Declare database tabels.
+    Django is not always perfect in generating db - but improving ;-)).
     The generated database can be manipulated SQL. see bots/sql/*.
 '''
 #***Declare constants, mostly codelists.**********************************************

@@ -1,4 +1,6 @@
 #!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
 from __future__ import print_function
 from __future__ import unicode_literals
 import sys
@@ -18,7 +20,7 @@ def start():
         %(name)s  -c<directory>
     Options:
         -c<directory>   directory for configuration files (default: config).
-        
+
     ''' % {'name': os.path.basename(sys.argv[0]), 'version': botsglobal.version}
     configdir = 'config'
     for arg in sys.argv[1:]:

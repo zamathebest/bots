@@ -5,6 +5,10 @@ Changelog
 3.3.1 (unreleased)
 ------------------
 
+- Add explicit ``UTF-8``-file-encoding to each python-file.
+  Cfr. https://www.python.org/dev/peps/pep-0263/
+  [WouterVH]
+
 - Add ``etc/requirements.txt``
   [WouterVH]
 

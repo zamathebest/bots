@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 from __future__ import unicode_literals
 import sys
 if sys.version_info[0] > 2:
@@ -517,7 +519,7 @@ def partnerlookup(value, field, field_where_value_is_searched=str('idpartner'), 
     ''' lookup via table partner.
         lookup value is returned, exception if not there.
         when using 'field_where_value_is_searched' with other values as ='idpartner',
-        partner tabel is only indexed on idpartner (so uniqueness is not guaranteerd). 
+        partner tabel is only indexed on idpartner (so uniqueness is not guaranteerd).
         should work OK if not too many partners.
         parameter safe can be:
         - True: if not found, return value
@@ -563,7 +565,7 @@ def dropdiacritics(content, charset='ascii'):
 
 
 def chunk(sequence, size):
-    ''' return generator for chunks 
+    ''' return generator for chunks
         input: string, list, tuple.
         uses cases:
         print list(chunk([1,2,3,4,5,6,7,8,9,10],3))     #[[1, 2, 3], [4, 5, 6], [7, 8, 9], [10]]

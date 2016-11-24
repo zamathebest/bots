@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 from __future__ import print_function
 from __future__ import unicode_literals
 import sys
@@ -38,7 +40,7 @@ class Message(object):
             pass
 
     def checkforerrorlist(self):
-        ''' examine the message-object for errors; 
+        ''' examine the message-object for errors;
         '''
         if self.errorfatal:  # for fatal errors: (try to) get information like partners for edi file
             self.try_to_retrieve_info()
@@ -146,7 +148,7 @@ class Message(object):
 
     def _checkiffieldsingrammar(self, node_instance, record_definition):
         ''' checks for every field in record if field exists in record_definition (from grammar).
-            for inmessage of type (var,fixed,??) this is not needed 
+            for inmessage of type (var,fixed,??) this is not needed
         '''
         for field in list(node_instance.record.keys()):  # check every field in the record
             if field == 'BOTSIDnr':  # BOTSIDnr is not in grammar, so skip check

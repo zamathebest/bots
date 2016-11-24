@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 from __future__ import unicode_literals
 from __future__ import print_function
 import sys
@@ -1714,7 +1716,7 @@ class jsonnocheck(json):
 
 class db(Inmessage):
     ''' For database connector: reading from database.
-        Communication script delivers a file with a pickled object; 
+        Communication script delivers a file with a pickled object;
         File is read, object is unpickled, object is passed to the mapping script as inn.root.
     '''
 

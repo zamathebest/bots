@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 from __future__ import unicode_literals
 from __future__ import print_function
 import sys
@@ -703,7 +705,7 @@ class _comsession(object):
               eg. {botskey}, {alt}, {editype}, {messagetype}, {topartner}
             Next to the value in ta you can use:
             -   * : an unique number (per outchannel) using an asterisk; since bots3.3: {unique}
-            -   {datetime}  use datetime with a valid strftime format: 
+            -   {datetime}  use datetime with a valid strftime format:
                 eg. {datetime:%Y%m%d}, {datetime:%H%M%S}
             -   {infile} use the original incoming filename; use name and extension, or either part separately:
                 eg. {infile}, {infile:name}, {infile:ext}
@@ -1815,7 +1817,7 @@ class db(_comsession):
 
 
 class communicationscript(_comsession):
-    ''' 
+    '''
     For running an userscript for communication.
     Examples of use:
     - call external communication program

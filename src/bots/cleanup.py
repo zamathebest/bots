@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 from __future__ import unicode_literals
 import sys
 if sys.version_info[0] > 2:
@@ -151,6 +153,6 @@ def _cleanrunsnothingreceived():
                         WHERE ts < %(vanaf)s
                         AND ts >= %(onlycheckrunsofoneday)s
                         AND type = 'new'
-                        AND lastreceived=0 
+                        AND lastreceived=0
                         AND processerrors=0 ''',
                     {'vanaf': vanaf, 'onlycheckrunsofoneday': onlycheckrunsofoneday})

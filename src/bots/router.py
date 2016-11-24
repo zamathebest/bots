@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 from __future__ import unicode_literals
 import sys
 if sys.version_info[0] > 2:
@@ -279,7 +281,7 @@ class crashrecovery(new):
                         {'rootofcrashedrun': rootofcrashedrun.idta})
         #delete ta's after ERROR and OK for crashed merges
         mergedidtatodelete = set()
-        for row in botslib.query('''SELECT child  FROM ta 
+        for row in botslib.query('''SELECT child  FROM ta
                                     WHERE idta > %(rootofcrashedrun)s
                                     AND statust = %(statust)s
                                     AND status != %(status)s
@@ -290,7 +292,7 @@ class crashrecovery(new):
             ta_object = botslib.OldTransaction(idta)
             ta_object.delete()
         #delete ta's after ERROR and OK for other
-        for row in botslib.query('''SELECT idta  FROM ta 
+        for row in botslib.query('''SELECT idta  FROM ta
                                     WHERE idta > %(rootofcrashedrun)s
                                     AND ( statust = %(statust1)s OR statust = %(statust2)s )
                                     AND status != %(status)s

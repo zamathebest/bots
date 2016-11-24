@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 from __future__ import unicode_literals
 import sys
 if sys.version_info[0] > 2:
@@ -726,7 +728,7 @@ class xmlnocheck(xml):
 
     def _node2xmlfields(self, noderecord):
         ''' write record as xml-record-entity plus xml-field-entities within the xml-record-entity.
-            output is sorted alfabetically, attributes alfabetically. 
+            output is sorted alfabetically, attributes alfabetically.
         '''
         recordtag = noderecord.pop('BOTSID')
         del noderecord['BOTSIDnr']
@@ -916,7 +918,7 @@ class db(Outmessage):
     ''' For database connector: writing to database.
         Mapping script delevers an object (class, dict) in out.root.
         Object is pickled and saved.
-        Communication script picks up the pickle, 
+        Communication script picks up the pickle,
     '''
 
     def __init__(self, ta_info):

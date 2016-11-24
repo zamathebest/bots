@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 from __future__ import print_function
 from __future__ import unicode_literals
 import sys
@@ -26,7 +28,7 @@ def sqlite_database_is_version3():
 
 QUERYSTRING = '''
 PRAGMA writable_schema = 1;
-UPDATE SQLITE_MASTER SET SQL = 
+UPDATE SQLITE_MASTER SET SQL =
 'CREATE TABLE "routes" (
     "id" integer NOT NULL PRIMARY KEY,
     "idroute" varchar(35) NOT NULL,
@@ -52,7 +54,7 @@ UPDATE SQLITE_MASTER SET SQL =
     "defer" bool NOT NULL,
     "zip_incoming" integer,
     "zip_outgoing" integer,
-    UNIQUE ("idroute", "seq"))' 
+    UNIQUE ("idroute", "seq"))'
 WHERE NAME = 'routes';
 PRAGMA writable_schema = 0;
 '''

@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 from __future__ import print_function
 from __future__ import unicode_literals
 import sys
@@ -85,14 +87,14 @@ else:
         raise ImportError('Dependency failure: bots directory monitoring requires python library "pyinotify" on linux.')
 
     class LinuxEventHandler(pyinotify.ProcessEvent):
-        ''' 
+        '''
         incoming event contains:
             dir=<bool>    check? - looks like the mask does nover contains dirs.
             mask=0x80
-            maskname=eg IN_MOVED_TO 
+            maskname=eg IN_MOVED_TO
             name=<filename>
             path=<path>
-            pathname=<path>/<filename> 
+            pathname=<path>/<filename>
             wd=<int>     #the watch
         '''
 
@@ -142,7 +144,7 @@ def start():
         %(name)s  -c<directory>
     Options:
         -c<directory>   directory for configuration files (default: config).
-        
+
     ''' % {'name': os.path.basename(sys.argv[0]), 'version': botsglobal.version}
     configdir = 'config'
     for arg in sys.argv[1:]:

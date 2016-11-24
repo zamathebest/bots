@@ -1,4 +1,6 @@
 #!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
 from __future__ import print_function
 from __future__ import unicode_literals
 import sys
@@ -102,14 +104,14 @@ def start():
     #***command line arguments**************************
     usage = '''
     This is "%(name)s" version %(version)s, part of Bots open source edi translator (http://bots.sourceforge.net).
-    Server program that ensures only a single bots-engine runs at any time, and no engine run requests are 
-    lost/discarded. Each request goes to a queue and is run in sequence when the previous run completes. 
+    Server program that ensures only a single bots-engine runs at any time, and no engine run requests are
+    lost/discarded. Each request goes to a queue and is run in sequence when the previous run completes.
     Use of the job queue is optional and must be configured in bots.ini (jobqueue section, enabled = True).
     Usage:
         %(name)s  -c<directory>
     Options:
         -c<directory>   directory for configuration files (default: config).
-        
+
     ''' % {'name': os.path.basename(sys.argv[0]), 'version': 3.3}
     configdir = 'config'
     for arg in sys.argv[1:]:

@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 from __future__ import print_function
 from __future__ import unicode_literals
 import sys
@@ -404,7 +406,7 @@ class Node(object):
 
     def getdecimal(self, *mpaths):
         ''' like get, but return a decimal value. If value to return is None or not numeric, zero is returned.
-            warning: this function might 'mask' errors, because when input is not-valid, it aalwyas return a decimal 0. 
+            warning: this function might 'mask' errors, because when input is not-valid, it aalwyas return a decimal 0.
             useful eg for when math calculations are needed in mapping.
         '''
         terug = self.get(*mpaths)
@@ -511,7 +513,7 @@ class Node(object):
             return True
 
     def sort(self, *mpaths):
-        ''' sort nodes. eg in mappingscript:     
+        ''' sort nodes. eg in mappingscript:
             1a. inn.sort({'BOTSID':'UNH'},{'BOTSID':'LIN','C212.7140':None})    -> sorts the LIN segments by article number.
             1b. inn.sort(sortfrom=({'BOTSID':'UNH'},),compare=({'BOTSID':'LIN','C212.7140':None},))    -> sorts the LIN segments by article number.
             2a. inn.sort({'BOTSID':'envelope'},{'BOTSID':'message'},{'BOTSID':'lines'},{'BOTSID':'line','gtin':None}) -> sorts lines by GTIN

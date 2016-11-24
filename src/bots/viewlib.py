@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 from __future__ import unicode_literals
 import sys
 import copy
@@ -177,7 +179,7 @@ def delete_from_ta(ta_object):
     ''' try to delete in ta table as much as possible.
         until a MERGE, this is easy.
         but a MERGE can contain messages from other infiles...
-        in that case, just leave the MERGE 
+        in that case, just leave the MERGE
     '''
     def gather_tas_before_merge(ta_object):
         ''' loop over ta tree untill MERGE.

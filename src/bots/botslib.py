@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 from __future__ import unicode_literals
 import sys
 if sys.version_info[0] > 2:
@@ -76,7 +78,7 @@ class _Transaction(object):
         self.deleteonlychildren_core(self.idta)
 
     def deleteonlychildren_core(self, idta):
-        for row in query('''SELECT idta 
+        for row in query('''SELECT idta
                             FROM ta
                             WHERE parent=%(idta)s''',
                          {'idta': idta}):
@@ -135,7 +137,7 @@ class NewTransaction(_Transaction):
 
 class NewProcess(NewTransaction):
     ''' Create a new process (which is very much like a transaction).
-        Used in logging of processes. 
+        Used in logging of processes.
         Each process is placed on stack processlist
     '''
 
@@ -641,7 +643,7 @@ def prepare_confirmrules():
         additional notes:
         - there are only a few confirmrules (10 would be a lot I guess).
         - indexing is not helpfull for confirmrules, this means that each time the whole confirmrule-tabel is scanned.
-        - as confirmrules are used for incoming and outgoing (x12, edifact, email) this will almost always lead to better performance. 
+        - as confirmrules are used for incoming and outgoing (x12, edifact, email) this will almost always lead to better performance.
     '''
     for confirmdict in query('''SELECT confirmtype,ruletype,idroute,idchannel_id as idchannel,frompartner_id as frompartner,topartner_id as topartner,messagetype,negativerule
                         FROM confirmrule
@@ -682,7 +684,7 @@ def set_asked_confirmrules(routedict, rootidta):
 
 
 def globalcheckconfirmrules(confirmtype):
-    ''' global check if confirmrules with this confirmtype is uberhaupt used. 
+    ''' global check if confirmrules with this confirmtype is uberhaupt used.
     '''
     for confirmdict in botsglobal.confirmrules:
         if confirmdict['confirmtype'] == confirmtype:

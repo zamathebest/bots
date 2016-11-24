@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 #this module is not longer used; django 1.6 does same thing by default.
 #keep for complatibility
 from django import http

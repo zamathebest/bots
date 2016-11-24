@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 from __future__ import print_function
 from __future__ import unicode_literals
 import os
@@ -229,7 +231,7 @@ def start():
         -a                 all xml elements as records
         <xml_file>         name of the xml file to read
         <xml_grammar_file> name of the grammar file to write
-    
+
     ''' % {'name': os.path.basename(sys.argv[0]), 'version': botsglobal.version}
     configdir = 'config'
     edifile = ''
