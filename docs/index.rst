@@ -11,6 +11,7 @@ Table of Contents
    :maxdepth: 2
     
    readme
+   introduction
    installation
    get-bots-running
    quick-start-guide/index
