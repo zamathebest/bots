@@ -14,6 +14,7 @@ from __future__ import absolute_import, division, print_function
 
 import io
 import os
+import platform
 import setuptools
 
 
@@ -47,6 +48,7 @@ def read(*names, **kwargs):
 
 version = '3.3.1.dev0'
 
+
 long_description = (
     read('docs', 'readme.rst') +
     '\n\n' +
@@ -54,6 +56,52 @@ long_description = (
     #'\n\n' +
     #read('docs', 'contributors.rst')
     )
+
+install_requires = [
+    'Cherrypy>3.1.0',
+    'Django>=1.4.0',
+    'setuptools',
+    'six',
+    ]
+
+extras_require = {
+    'docs': [
+        'sphinx',
+        'sphinx_rtd_theme',
+        ],
+    'tools': [
+        'ecdsa',     # dep of paramiko
+        'Genshi',    # for using templates/mapping to HTML)
+        'paramiko',  # SFTP
+        'pdfminer',  # parse pdf-files
+        'pycrypto',  # SFTP
+        'xlrd',      # parse excel-files
+        ],
+    }
+
+# Add OS-specific dependencies
+operating_system = platform.system()
+if operating_system == 'Linux':
+    install_requires.append('pyinotify')
+elif operating_system == 'Windows':
+    install_requires.append('pywin32')
+
+classifiers = [
+    'Development Status :: 5 - Production/Stable',
+    'Operating System :: OS Independent',
+    'Programming Language :: Python',
+    'Programming Language :: Python :: 2',
+    'Programming Language :: Python :: 2.7',
+    'Programming Language :: Python :: 3.4',
+    'Programming Language :: Python :: 3.5',
+    'License :: OSI Approved :: GNU General Public License (GPL)',
+    'Topic :: Office/Business',
+    'Topic :: Office/Business :: Financial',
+    'Topic :: Other/Nonlisted Topic',
+    'Topic :: Communications',
+    'Environment :: Console',
+    'Environment :: Web Environment',
+    ]
 
 setuptools.setup(
     name='bots',
@@ -70,23 +118,10 @@ setuptools.setup(
     package_dir={'': 'src'},
     include_package_data=True,
     zip_safe=False,
+    classifiers=classifiers,
+    install_requires=install_requires,
+    extras_require=extras_require,
 
-    classifiers=[
-        'Development Status :: 5 - Production/Stable',
-        'Operating System :: OS Independent',
-        'Programming Language :: Python',
-        'Programming Language :: Python :: 2',
-        'Programming Language :: Python :: 2.7',
-        'Programming Language :: Python :: 3.4',
-        'Programming Language :: Python :: 3.5',
-        'License :: OSI Approved :: GNU General Public License (GPL)',
-        'Topic :: Office/Business',
-        'Topic :: Office/Business :: Financial',
-        'Topic :: Other/Nonlisted Topic',
-        'Topic :: Communications',
-        'Environment :: Console',
-        'Environment :: Web Environment',
-        ],
     scripts=[
         'scripts/bots-webserver.py',
         'scripts/bots-engine.py',
@@ -98,6 +133,4 @@ setuptools.setup(
         'scripts/bots-plugoutindex.py',
         'scripts/bots-job2queue.py',
         ],
-    #packages = packages,
-    #data_files = data_files,
     )
