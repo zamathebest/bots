@@ -27,3 +27,4 @@ Table of Contents
    new-to-python
    external-reference
    useful-tools
+   documentation
