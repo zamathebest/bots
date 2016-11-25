@@ -1,54 +1,67 @@
-Welcome to ``Bots``'s documentation!
-====================================
+Bots-Edi
+========
 
-* ``Bots`` is fully functional software for `EDI (Electronic Data Interchange) <https://en.wikipedia.org/wiki/Electronic_data_interchange>`_. 
-* All major EDI data formats are supported: EDIFACT, X12, TRADACOMS, XML. 
-* Runs on Windows, Linux, OSX and Unix. 
-* ``Bots`` is very stable. 
-* ``Bots`` handles high volumes of edi transactions.
-* ``Bots`` is very flexible and can be configurated for your specific EDI needs. 
-* Read about the `features of bots <http://bots.sourceforge.net/en/about_features.shtml>`_ and `the latest news <http://bots.sourceforge.net/en/news.shtml>`_
+.. image:: https://badges.gitter.im/Join Chat.svg
+   :alt: Join the chat at https://gitter.im/bots-edi/Lobby
+   :target: https://gitter.im/bots-edi/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge
 
-First steps
------------
+.. image:: https://readthedocs.org/projects/bots/badge/?version=latest
+    :alt: Documentation Status
+    :scale: 100%
+    :target: https://bots.readthedocs.io/en/latest/?badge=latest
 
-#. Install ``bots``: :doc:`Installation <installation>`
-#. Get ``bots`` running: Get ``bots`` :doc:`running <get-bots-running>`
-#. Get your first configuration running: :doc:`Tutorial <quick-start-guide/index>`
+.. image:: https://landscape.io/github/bots-edi/bots/master/landscape.svg?style=flat
+   :target: https://landscape.io/github/bots-edi/bots/master
+   :alt: Code Health
 
-After that: check out some :doc:`plugins <plugins/index>`.
+.. image:: https://img.shields.io/pypi/v/bots.svg
+   :target: https://pypi.python.org/pypi/bots
+   :alt: Latest Version
 
-Other info on ``bots``
-----------------------
+.. image:: https://img.shields.io/pypi/status/bots.svg
+   :target: https://pypi.python.org/pypi/bots
+   :alt: Development Status
 
-* `Website <http://bots.sourceforge.net/>`_ is on sourceforge.
-* There is an active `mailing list <http://groups.google.com/group/botsmail>`_.
+.. image:: https://img.shields.io/pypi/pyversions/bots.svg
+   :target: https://pypi.python.org/pypi/bots
+   :alt: Python Versions
 
-About this wiki
+.. image:: https://img.shields.io/pypi/l/bots.svg
+   :target: https://raw.githubusercontent.com/bots-edi/bots/master/license.rst
+   :alt: License
+
+
+
+
+
+
+Bots is complete software for EDI (Electronic Data Interchange)
+Bots-Edi is a free, open-source EDI translator. It has the following features:
+
+::
+
+    - Supports all major EDI data formats: EDIFACT, x12, Tradacoms, XML.
+    - Runs on Windows, Linux, OSX and Unix.
+    - Bots is very stable.
+    - Bots handles high volumes of EDI transactions.
+    - Bots is very flexible and can be configurated for your specific EDI needs.
+
+This is a fork of Bots, which was created by `Henk-Jan
+Ebbers`_. This fork was
+created in an effort to build a more collaborative community around this
+project.
+
+Getting Started
 ---------------
 
-* If you want to ask questions please use the ``bots`` `mailing list <http://groups.google.com/group/botsmail>`_.
-* It is very much appreciated if you want to contribute to this wiki. Just let me know via the mailing list and you'll get the rights.
+The documentation_ is a great place to get
+started.
 
-It's hard to get started
-------------------------
+License
+-------
 
-Often people experience a steep learning curve when starting with edi.
-One reason is that of lot of knowledge is involved:
+Bots is licenced under GNU GENERAL PUBLIC LICENSE Version 3; for full
+text: http://www.gnu.org/copyleft/gpl.html
 
-* edi standards (edifact, x12, tradacoms, EANCOM etc)
-* business processes between you and your edi-partner (logistics!), changes in the business processes
-* understand what your edi-partner wants/requires
-* edi communication methods (x400, VAN's, AS2 etc)
-* imports and exports of your ERP system
-* specifics of the edi software.
-* etc
-
-It is hard to find good information about edi: standards are not always free (eg x12 is not free), decent example messages are hard to get and often if is hard to find good information on Internet.
-Edi is traditionally 'closed' and sparse with information.
-Partly this seems to be a 'cultural thing', partly because edi existed before Internet, partly because it is all about business data that is not for the general public.
-
-
-Don't give up! ;-))
-I think everybody who started with edi has gone through this.
-
+.. _Henk-Jan Ebbers: http://bots.sourceforge.net/en/index.shtml
+.. _documentation: https://bots-edi.github.io/

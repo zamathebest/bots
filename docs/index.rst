@@ -11,6 +11,7 @@ Table of Contents
    :maxdepth: 2
     
    readme
+   introduction
    installation
    get-bots-running
    quick-start-guide/index
@@ -27,3 +28,4 @@ Table of Contents
    new-to-python
    external-reference
    useful-tools
+   documentation
