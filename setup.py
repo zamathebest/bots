@@ -50,7 +50,7 @@ version = '3.3.1.dev0'
 long_description = (
     read('readme.rst') +
     '\n\n' +
-    read('changes.rst')
+    read('docs', 'changes.rst')
     #'\n\n' +
     #read('docs', 'contributors.rst')
     )
