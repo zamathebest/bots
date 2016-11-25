@@ -5,6 +5,12 @@ Changelog
 3.3.1 (unreleased)
 ------------------
 
+- Add dependencies in ``setup.py``.
+  [WouterVH]
+
+- Update ``MANIFEST.in``.
+  [WouterVH]
+
 - Add explicit ``UTF-8``-file-encoding to each python-file.
   Cfr. https://www.python.org/dev/peps/pep-0263/
   [WouterVH]
