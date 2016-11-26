@@ -88,7 +88,7 @@ master_doc = 'index'
 
 # General information about the project.
 
-current_year = datetime.now().year
+current_year = datetime.datetime.now().year
 short_name = 'bots'
 author = u'Henk-Jan Ebbers'
 project = u'Bots EDI Translator'
