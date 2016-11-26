@@ -5,6 +5,10 @@ Changelog
 3.3.1 (unreleased)
 ------------------
 
+- Add rst-version of GPL3-license.
+  Thanks to https://github.com/shibukawa/rest-licenses/
+  [WouterVH]
+
 - Add dependencies in ``setup.py``.
   [WouterVH]
 
