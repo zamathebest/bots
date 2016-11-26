@@ -1,0 +1,586 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Route Scripting &mdash; Bots EDI Translator 3.3.1.dev0 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="Bots EDI Translator 3.3.1.dev0 documentation" href="../../index.html"/>
+        <link rel="up" title="Routes" href="index.html"/>
+        <link rel="next" title="Channels" href="../channel/index.html"/>
+        <link rel="prev" title="PassThrough (no translation)" href="passthrough.html"/> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Bots EDI Translator
+          
+
+          
+            
+            <img src="../../_static/botslogo_square2.png" class="logo" />
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                3.3.1.dev0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../readme.html">Bots-Edi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../introduction.html">Welcome to <code class="docutils literal"><span class="pre">Bots</span></code>&#8216;s documentation!</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../get-bots-running.html">Get Bots Running</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quick-start-guide/index.html">Quick Start Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../guide-for-botsmonitor/index.html">Guide For Bots-Monitor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../overview/index.html">Overview</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Configuration</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../how-to-configuration.html">How to do configuration</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Routes</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="composite-routes.html">Composite routes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="passthrough.html">PassThrough (no translation)</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Route Scripting</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#overview-exit-points">Overview Exit Points</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#preprocessing-and-postprocessing-recipies">Preprocessing and Postprocessing Recipies</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#take-over-whole-route">Take Over Whole Route</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../channel/index.html">Channels</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../translation/index.html">Translation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../mapping-scripts/index.html">Mapping Scripts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../grammars/index.html">Grammars</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../document-view.html">Document View</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../user-scripting.html">User Scripting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../acknowledgements.html">Confirmations/Acknowledgements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../split-merge.html">Split, Merge and Envelope</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../partner/index.html">EDI Partners</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../charsets.html">Characters Sets</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../deployment/index.html">Deployment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../advanced-deployment/index.html">Advanced Deployment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../plugins/index.html">Plugins</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorials/index.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../debugging.html">Debugging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../troubleshooting.html">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../change-migrate/index.html">Changes and Migrate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../new-to-python.html">New to python?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../external-reference.html">External reference links</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../useful-tools.html">Useful Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../documentation.html">Bots Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../documentation.html#credits">Credits</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">Bots EDI Translator</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../index.html">Configuration</a> &raquo;</li>
+      
+          <li><a href="index.html">Routes</a> &raquo;</li>
+      
+    <li>Route Scripting</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../_sources/configuration/route/route-scripting.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="route-scripting">
+<h1>Route Scripting<a class="headerlink" href="#route-scripting" title="Permalink to this headline">¶</a></h1>
+<p>When the standard routing of bots does not fit your needs, use routescripts.
+Routescripts are python programs.</p>
+<p>There are 2 types of routescripts:</p>
+<ol class="arabic simple">
+<li>User exits: at certain points in a route, bots calls your user exit. See <a class="reference external" href="#overview-exit-points">overview of exit points</a>. Most common usage is <code class="docutils literal"><span class="pre">pre-processing</span></code> an edi file, see <a class="reference external" href="#preprocessing-and-postprocessing-recipies">recipes</a>.</li>
+<li>Your script takes over the whole route. This is done by using function <code class="docutils literal"><span class="pre">main()</span></code> in your routescript. See <a class="reference external" href="#take-over-whole-route">Example</a>.</li>
+</ol>
+<p><strong>How to set up a route-script</strong></p>
+<ol class="arabic simple">
+<li>Use bots-monitor to add a new route.</li>
+<li>Make a routescript with the same name as the routeID in <code class="docutils literal"><span class="pre">bots/usersys/routescripts/&lt;routeid&gt;.py</span></code></li>
+</ol>
+<div class="section" id="overview-exit-points">
+<h2>Overview Exit Points<a class="headerlink" href="#overview-exit-points" title="Permalink to this headline">¶</a></h2>
+<p>These examples show all of the available exit points for route-scripts</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">start</span><span class="p">(</span><span class="n">routedict</span><span class="p">,</span><span class="o">*</span><span class="n">args</span><span class="p">,</span><span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="c1"># run before anything is done is route.</span>
+    <span class="k">print</span> <span class="n">routedict</span><span class="p">[</span><span class="s1">&#39;idroute&#39;</span><span class="p">],</span><span class="s1">&#39;start&#39;</span>
+
+<span class="k">def</span> <span class="nf">preincommunication</span><span class="p">(</span><span class="n">routedict</span><span class="p">,</span><span class="o">*</span><span class="n">args</span><span class="p">,</span><span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="c1"># if there is a fromchannel: run before fromchannel communication.</span>
+    <span class="k">print</span> <span class="n">routedict</span><span class="p">[</span><span class="s1">&#39;idroute&#39;</span><span class="p">],</span><span class="s1">&#39;preincommunication&#39;</span>
+
+<span class="k">def</span> <span class="nf">postincommunication</span><span class="p">(</span><span class="n">routedict</span><span class="p">,</span><span class="o">*</span><span class="n">args</span><span class="p">,</span><span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="c1"># if there is a fromchannel: run after fromchannel communication.</span>
+    <span class="k">print</span> <span class="n">routedict</span><span class="p">[</span><span class="s1">&#39;idroute&#39;</span><span class="p">],</span><span class="s1">&#39;postincommunication&#39;</span>
+
+<span class="k">def</span> <span class="nf">pretranslation</span><span class="p">(</span><span class="n">routedict</span><span class="p">,</span><span class="o">*</span><span class="n">args</span><span class="p">,</span><span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="c1"># if translation is done in route: run before translation.</span>
+    <span class="k">print</span> <span class="n">routedict</span><span class="p">[</span><span class="s1">&#39;idroute&#39;</span><span class="p">],</span><span class="s1">&#39;pretranslation&#39;</span>
+
+<span class="k">def</span> <span class="nf">posttranslation</span><span class="p">(</span><span class="n">routedict</span><span class="p">,</span><span class="o">*</span><span class="n">args</span><span class="p">,</span><span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="c1"># if translation is done in route: run after translation.</span>
+    <span class="k">print</span> <span class="n">routedict</span><span class="p">[</span><span class="s1">&#39;idroute&#39;</span><span class="p">],</span><span class="s1">&#39;posttranslation&#39;</span>
+
+<span class="k">def</span> <span class="nf">premerge</span><span class="p">(</span><span class="n">routedict</span><span class="p">,</span><span class="o">*</span><span class="n">args</span><span class="p">,</span><span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="c1"># if there is a outchannel: run before merging.</span>
+    <span class="k">print</span> <span class="n">routedict</span><span class="p">[</span><span class="s1">&#39;idroute&#39;</span><span class="p">],</span><span class="s1">&#39;premerge&#39;</span>
+
+<span class="k">def</span> <span class="nf">postmerge</span><span class="p">(</span><span class="n">routedict</span><span class="p">,</span><span class="o">*</span><span class="n">args</span><span class="p">,</span><span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="c1"># if there is a outchannel: run after merging.</span>
+    <span class="k">print</span> <span class="n">routedict</span><span class="p">[</span><span class="s1">&#39;idroute&#39;</span><span class="p">],</span><span class="s1">&#39;postmerge&#39;</span>
+
+<span class="k">def</span> <span class="nf">preoutcommunication</span><span class="p">(</span><span class="n">routedict</span><span class="p">,</span><span class="o">*</span><span class="n">args</span><span class="p">,</span><span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="c1"># if there is a outchannel: run before outchannel communication.</span>
+    <span class="k">print</span> <span class="n">routedict</span><span class="p">[</span><span class="s1">&#39;idroute&#39;</span><span class="p">],</span><span class="s1">&#39;preoutcommunication&#39;</span>
+
+<span class="k">def</span> <span class="nf">postoutcommunication</span><span class="p">(</span><span class="n">routedict</span><span class="p">,</span><span class="o">*</span><span class="n">args</span><span class="p">,</span><span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="c1"># if there is a outchannel: run after outchannel communication.</span>
+    <span class="c1"># eg. call an external program to process files just sent into ERP system</span>
+    <span class="k">print</span> <span class="n">routedict</span><span class="p">[</span><span class="s1">&#39;idroute&#39;</span><span class="p">],</span><span class="s1">&#39;postoutcommunication&#39;</span>
+
+<span class="k">def</span> <span class="nf">end</span><span class="p">(</span><span class="n">routedict</span><span class="p">,</span><span class="o">*</span><span class="n">args</span><span class="p">,</span><span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="c1"># after everything is done in route</span>
+    <span class="k">print</span> <span class="n">routedict</span><span class="p">[</span><span class="s1">&#39;idroute&#39;</span><span class="p">],</span><span class="s1">&#39;end&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="preprocessing-and-postprocessing-recipies">
+<h2>Preprocessing and Postprocessing Recipies<a class="headerlink" href="#preprocessing-and-postprocessing-recipies" title="Permalink to this headline">¶</a></h2>
+<p>Some recipes for preprocessing edi files. Plugin <strong>demo_preprocessing</strong> at <a class="reference external" href="http://sourceforge.net/projects/bots/files/plugins/">the bots sourceforge site</a> demonstrates preprocessing.</p>
+<p><strong>Example 1: Discard input files that are too small</strong></p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">bots.preprocess</span> <span class="kn">as</span> <span class="nn">preprocess</span>
+<span class="kn">from</span> <span class="nn">bots.botsconfig</span> <span class="kn">import</span> <span class="o">*</span>
+
+<span class="k">def</span> <span class="nf">postincommunication</span><span class="p">(</span><span class="n">routedict</span><span class="p">,</span><span class="o">*</span><span class="n">args</span><span class="p">,</span><span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39; function is called after the communication in the route.&#39;&#39;&#39;</span>
+    <span class="n">preprocess</span><span class="o">.</span><span class="n">preprocess</span><span class="p">(</span><span class="n">routedict</span><span class="o">=</span><span class="n">routedict</span><span class="p">,</span><span class="n">function</span><span class="o">=</span><span class="n">discard_file</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">discard_file</span><span class="p">(</span><span class="n">ta_from</span><span class="p">,</span><span class="n">endstatus</span><span class="p">,</span><span class="o">*</span><span class="n">args</span><span class="p">,</span><span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39; discard files that are to small (zero files)&#39;&#39;&#39;</span>
+    <span class="n">ta_from</span><span class="o">.</span><span class="n">synall</span><span class="p">()</span>
+    <span class="n">filesize</span> <span class="o">=</span> <span class="n">ta_from</span><span class="o">.</span><span class="n">filesize</span>
+    <span class="k">if</span> <span class="n">filesize</span> <span class="o">&lt;</span> <span class="mi">100</span><span class="p">:</span>    <span class="c1">#filesize in bytes</span>
+        <span class="n">ta_from</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">statust</span><span class="o">=</span><span class="n">DONE</span><span class="p">)</span>                       <span class="c1">#statust=DONE: bots discards file, gives no errors.</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">ta_to</span> <span class="o">=</span> <span class="n">ta_from</span><span class="o">.</span><span class="n">copyta</span><span class="p">(</span><span class="n">status</span><span class="o">=</span><span class="n">endstatus</span><span class="p">)</span>           <span class="c1">#make new transaction for bots database</span>
+        <span class="n">ta_to</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">statust</span><span class="o">=</span><span class="n">OK</span><span class="p">,</span><span class="n">filename</span><span class="o">=</span><span class="n">ta_from</span><span class="o">.</span><span class="n">filename</span><span class="p">)</span> <span class="c1">#update outmessage transaction (same) filename</span>
+</pre></div>
+</div>
+<p><strong>Example 2: Extract data from PDF file (to csv)</strong></p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># Extract data from PDF file (to csv)</span>
+<span class="c1"># x_group: group text closer than this as one field (default 10)</span>
+<span class="c1"># y_group: group lines closer than this as one line (default 5)</span>
+<span class="c1"># password: if required</span>
+
+<span class="kn">import</span> <span class="nn">bots.preprocess</span> <span class="kn">as</span> <span class="nn">preprocess</span>
+
+<span class="k">def</span> <span class="nf">postincommunication</span><span class="p">(</span><span class="n">routedict</span><span class="p">,</span><span class="o">*</span><span class="n">args</span><span class="p">,</span><span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="n">preprocess</span><span class="o">.</span><span class="n">preprocess</span><span class="p">(</span><span class="n">routedict</span><span class="p">,</span><span class="n">preprocess</span><span class="o">.</span><span class="n">extractpdf</span><span class="p">,</span><span class="n">x_group</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span><span class="n">y_group</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span><span class="n">password</span><span class="o">=</span><span class="s1">&#39;secret&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Example 3: Manipulate records without BOTSID</strong></p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">bots.preprocess</span> <span class="kn">as</span> <span class="nn">preprocess</span>
+<span class="kn">import</span> <span class="nn">bots.botslib</span> <span class="kn">as</span> <span class="nn">botslib</span>
+<span class="kn">import</span> <span class="nn">bots.botsglobal</span> <span class="kn">as</span> <span class="nn">botsglobal</span>
+<span class="kn">from</span> <span class="nn">bots.botsconfig</span> <span class="kn">import</span> <span class="o">*</span>
+
+<span class="k">def</span> <span class="nf">postincommunication</span><span class="p">(</span><span class="n">routedict</span><span class="p">,</span><span class="o">*</span><span class="n">args</span><span class="p">,</span><span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="n">preprocess</span><span class="o">.</span><span class="n">preprocess</span><span class="p">(</span><span class="n">routedict</span><span class="p">,</span><span class="n">custom_preprocess</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">custom_preprocess</span><span class="p">(</span><span class="n">ta_from</span><span class="p">,</span><span class="n">endstatus</span><span class="p">,</span><span class="o">*</span><span class="n">args</span><span class="p">,</span><span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="c1"># copy ta for preprocessing</span>
+        <span class="n">ta_to</span> <span class="o">=</span> <span class="n">ta_from</span><span class="o">.</span><span class="n">copyta</span><span class="p">(</span><span class="n">status</span><span class="o">=</span><span class="n">endstatus</span><span class="p">)</span>
+
+        <span class="c1"># open the files</span>
+        <span class="n">infile</span> <span class="o">=</span> <span class="n">botslib</span><span class="o">.</span><span class="n">opendata</span><span class="p">(</span><span class="n">ta_from</span><span class="o">.</span><span class="n">filename</span><span class="p">,</span><span class="s1">&#39;r&#39;</span><span class="p">)</span>
+        <span class="n">tofile</span> <span class="o">=</span> <span class="n">botslib</span><span class="o">.</span><span class="n">opendata</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">ta_to</span><span class="o">.</span><span class="n">idta</span><span class="p">),</span><span class="s1">&#39;wb&#39;</span><span class="p">)</span>
+
+        <span class="c1"># preprocessing: read infile, write tofile</span>
+        <span class="c1"># This file has headers and lines, but no field that can be used for BOTSID!</span>
+        <span class="c1"># Determine the line type from the data, and add HDR or LIN in first column</span>
+        <span class="c1"># Text heading lines and blank lines are omitted</span>
+        <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">infile</span><span class="p">:</span>
+            <span class="k">if</span> <span class="s1">&#39;</span><span class="se">\t</span><span class="s1">AU&#39;</span> <span class="ow">in</span> <span class="n">line</span><span class="p">:</span>
+                <span class="n">tofile</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;HDR</span><span class="se">\t</span><span class="s1">&#39;</span> <span class="o">+</span> <span class="n">line</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="p">(</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">WAIT&#39;</span> <span class="ow">in</span> <span class="n">line</span> <span class="ow">or</span>
+                  <span class="s1">&#39;</span><span class="se">\t</span><span class="s1">FULL&#39;</span> <span class="ow">in</span> <span class="n">line</span> <span class="ow">or</span>
+                  <span class="s1">&#39;</span><span class="se">\t</span><span class="s1">EMPTY&#39;</span> <span class="ow">in</span> <span class="n">line</span><span class="p">):</span>
+                <span class="n">tofile</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;LIN</span><span class="se">\t</span><span class="s1">&#39;</span> <span class="o">+</span> <span class="n">line</span><span class="p">)</span>
+
+        <span class="n">infile</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+        <span class="n">tofile</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+        <span class="n">ta_to</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">statust</span><span class="o">=</span><span class="n">OK</span><span class="p">,</span><span class="n">filename</span><span class="o">=</span><span class="nb">str</span><span class="p">(</span><span class="n">ta_to</span><span class="o">.</span><span class="n">idta</span><span class="p">))</span> <span class="c1">#update outmessage transaction with ta_info;</span>
+    <span class="k">except</span><span class="p">:</span>
+        <span class="n">txt</span><span class="o">=</span><span class="n">botslib</span><span class="o">.</span><span class="n">txtexc</span><span class="p">()</span>
+        <span class="n">botsglobal</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s1">u&#39;Custom preprocess failed. Error:</span><span class="se">\n</span><span class="si">%s</span><span class="s1">&#39;</span><span class="p">,</span><span class="n">txt</span><span class="p">)</span>
+        <span class="k">raise</span> <span class="n">botslib</span><span class="o">.</span><span class="n">InMessageError</span><span class="p">(</span><span class="s1">u&#39;Custom preprocess failed. Error:</span><span class="se">\n</span><span class="s1">$error&#39;</span><span class="p">,</span><span class="n">error</span><span class="o">=</span><span class="n">txt</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Example 4: Sort input file</strong></p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">bots.preprocess</span> <span class="kn">as</span> <span class="nn">preprocess</span>
+<span class="kn">import</span> <span class="nn">bots.botslib</span> <span class="kn">as</span> <span class="nn">botslib</span>
+<span class="kn">import</span> <span class="nn">bots.botsglobal</span> <span class="kn">as</span> <span class="nn">botsglobal</span>
+<span class="kn">from</span> <span class="nn">bots.botsconfig</span> <span class="kn">import</span> <span class="o">*</span>
+
+<span class="k">def</span> <span class="nf">postincommunication</span><span class="p">(</span><span class="n">routedict</span><span class="p">,</span><span class="o">*</span><span class="n">args</span><span class="p">,</span><span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="n">preprocess</span><span class="o">.</span><span class="n">preprocess</span><span class="p">(</span><span class="n">routedict</span><span class="p">,</span><span class="n">sort_file</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">sort_file</span><span class="p">(</span><span class="n">ta_from</span><span class="p">,</span><span class="n">endstatus</span><span class="p">,</span><span class="o">*</span><span class="n">args</span><span class="p">,</span><span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="c1"># copy ta for preprocessing</span>
+        <span class="n">ta_to</span> <span class="o">=</span> <span class="n">ta_from</span><span class="o">.</span><span class="n">copyta</span><span class="p">(</span><span class="n">status</span><span class="o">=</span><span class="n">endstatus</span><span class="p">)</span>
+
+        <span class="c1"># open the files</span>
+        <span class="n">infile</span> <span class="o">=</span> <span class="n">botslib</span><span class="o">.</span><span class="n">opendata</span><span class="p">(</span><span class="n">ta_from</span><span class="o">.</span><span class="n">filename</span><span class="p">,</span><span class="s1">&#39;r&#39;</span><span class="p">)</span>
+        <span class="n">tofile</span> <span class="o">=</span> <span class="n">botslib</span><span class="o">.</span><span class="n">opendata</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">ta_to</span><span class="o">.</span><span class="n">idta</span><span class="p">),</span><span class="s1">&#39;wb&#39;</span><span class="p">)</span>
+
+        <span class="c1"># sort output</span>
+        <span class="n">lines</span> <span class="o">=</span> <span class="n">infile</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span>
+        <span class="n">lines</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">lines</span><span class="p">:</span>
+            <span class="n">tofile</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
+
+        <span class="n">infile</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+        <span class="n">tofile</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+        <span class="n">ta_to</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">statust</span><span class="o">=</span><span class="n">OK</span><span class="p">,</span><span class="n">filename</span><span class="o">=</span><span class="nb">str</span><span class="p">(</span><span class="n">ta_to</span><span class="o">.</span><span class="n">idta</span><span class="p">))</span> <span class="c1">#update outmessage transaction with ta_info;</span>
+    <span class="k">except</span><span class="p">:</span>
+        <span class="n">txt</span><span class="o">=</span><span class="n">botslib</span><span class="o">.</span><span class="n">txtexc</span><span class="p">()</span>
+        <span class="n">botsglobal</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s1">u&#39;Sort preprocess failed. Error:</span><span class="se">\n</span><span class="si">%s</span><span class="s1">&#39;</span><span class="p">,</span><span class="n">txt</span><span class="p">)</span>
+        <span class="k">raise</span> <span class="n">botslib</span><span class="o">.</span><span class="n">InMessageError</span><span class="p">(</span><span class="s1">u&#39;Sort preprocess failed. Error:</span><span class="se">\n</span><span class="s1">$error&#39;</span><span class="p">,</span><span class="n">error</span><span class="o">=</span><span class="n">txt</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Example 5: Postprocessing;</strong>
+Post processing works the same way as pre processing, except it is done before out communication.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">bots.preprocess</span> <span class="kn">as</span> <span class="nn">preprocess</span>
+<span class="kn">import</span> <span class="nn">bots.botslib</span> <span class="kn">as</span> <span class="nn">botslib</span>
+<span class="kn">import</span> <span class="nn">bots.botsglobal</span> <span class="kn">as</span> <span class="nn">botsglobal</span>
+<span class="kn">from</span> <span class="nn">bots.botsconfig</span> <span class="kn">import</span> <span class="o">*</span>
+
+<span class="k">def</span> <span class="nf">preoutcommunication</span><span class="p">(</span><span class="n">routedict</span><span class="p">,</span><span class="o">*</span><span class="n">args</span><span class="p">,</span><span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="n">preprocess</span><span class="o">.</span><span class="n">postprocess</span><span class="p">(</span><span class="n">routedict</span><span class="p">,</span><span class="n">split_lines</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">split_lines</span><span class="p">(</span><span class="n">ta_from</span><span class="p">,</span><span class="n">endstatus</span><span class="p">,,</span><span class="o">*</span><span class="n">args</span><span class="p">,</span><span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="c1"># copy ta for postprocessing, open the files</span>
+        <span class="n">ta_to</span> <span class="o">=</span> <span class="n">ta_from</span><span class="o">.</span><span class="n">copyta</span><span class="p">(</span><span class="n">status</span><span class="o">=</span><span class="n">endstatus</span><span class="p">)</span>
+        <span class="n">infile</span> <span class="o">=</span> <span class="n">botslib</span><span class="o">.</span><span class="n">opendata</span><span class="p">(</span><span class="n">ta_from</span><span class="o">.</span><span class="n">filename</span><span class="p">,</span><span class="s1">&#39;r&#39;</span><span class="p">)</span>
+        <span class="n">tofile</span> <span class="o">=</span> <span class="n">botslib</span><span class="o">.</span><span class="n">opendata</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">ta_to</span><span class="o">.</span><span class="n">idta</span><span class="p">),</span><span class="s1">&#39;wb&#39;</span><span class="p">)</span>
+
+        <span class="c1"># split every line at the first separator (space)</span>
+        <span class="c1"># output the two parts on separate lines</span>
+        <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">infile</span><span class="p">:</span>
+            <span class="n">part</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">partition</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">)</span>
+            <span class="n">tofile</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">part</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span> <span class="o">+</span> <span class="n">part</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+
+        <span class="c1"># close files and update outmessage transaction with ta_info</span>
+        <span class="n">infile</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+        <span class="n">tofile</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+        <span class="n">ta_to</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">statust</span><span class="o">=</span><span class="n">OK</span><span class="p">,</span><span class="n">filename</span><span class="o">=</span><span class="nb">str</span><span class="p">(</span><span class="n">ta_to</span><span class="o">.</span><span class="n">idta</span><span class="p">))</span>
+
+    <span class="k">except</span><span class="p">:</span>
+        <span class="n">txt</span><span class="o">=</span><span class="n">botslib</span><span class="o">.</span><span class="n">txtexc</span><span class="p">()</span>
+        <span class="n">botsglobal</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="n">_</span><span class="p">(</span><span class="s1">u&#39;split_lines postprocess failed. Error:</span><span class="se">\n</span><span class="si">%s</span><span class="s1">&#39;</span><span class="p">),</span><span class="n">txt</span><span class="p">)</span>
+        <span class="k">raise</span> <span class="n">botslib</span><span class="o">.</span><span class="n">OutMessageError</span><span class="p">(</span><span class="n">_</span><span class="p">(</span><span class="s1">u&#39;split_lines postprocess failed. Error:</span><span class="se">\n</span><span class="s1">$error&#39;</span><span class="p">),</span><span class="n">error</span><span class="o">=</span><span class="n">txt</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Example 6: Preprocessing an encrypted file</strong></p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">bots.preprocess</span> <span class="kn">as</span> <span class="nn">preprocess</span>
+<span class="kn">import</span> <span class="nn">bots.botslib</span> <span class="kn">as</span> <span class="nn">botslib</span>
+<span class="kn">import</span> <span class="nn">gnupg</span>
+
+<span class="c1"># Preprocessing - Decrypt infile using GPG</span>
+<span class="c1"># Dependencies: python-gnupg-0.3.0</span>
+<span class="c1">#   botssys/gnugpghome directory, containing:</span>
+<span class="c1">#     gpg binary files (gpg.exe and iconv.dll)</span>
+<span class="c1">#     keys (pubring.gpg, secring.gpg, trustdb.gpg)</span>
+<span class="c1">#     passphrase.txt</span>
+
+<span class="k">def</span> <span class="nf">postincommunication</span><span class="p">(</span><span class="n">routedict</span><span class="p">,</span><span class="o">*</span><span class="n">args</span><span class="p">,</span><span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="c1"># preprocess to decrypt, then passthrough (no translation)</span>
+    <span class="n">preprocess</span><span class="o">.</span><span class="n">preprocess</span><span class="p">(</span><span class="n">routedict</span><span class="p">,</span><span class="n">decrypt_GPG</span><span class="p">)</span>
+    <span class="n">transform</span><span class="o">.</span><span class="n">addinfo</span><span class="p">(</span><span class="n">change</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;status&#39;</span><span class="p">:</span><span class="n">MERGED</span><span class="p">},</span><span class="n">where</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;status&#39;</span><span class="p">:</span><span class="n">FILEIN</span><span class="p">,</span><span class="s1">&#39;idroute&#39;</span><span class="p">:</span><span class="n">routedict</span><span class="p">[</span><span class="s1">&#39;idroute&#39;</span><span class="p">]})</span>
+
+<span class="k">def</span> <span class="nf">decrypt_GPG</span><span class="p">(</span><span class="n">ta_from</span><span class="p">,</span><span class="n">endstatus</span><span class="p">,</span><span class="o">*</span><span class="n">args</span><span class="p">,</span><span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+
+    <span class="c1"># copy ta for preprocessing</span>
+    <span class="n">ta_to</span> <span class="o">=</span> <span class="n">ta_from</span><span class="o">.</span><span class="n">copyta</span><span class="p">(</span><span class="n">status</span><span class="o">=</span><span class="n">endstatus</span><span class="p">)</span>
+
+    <span class="c1"># gnupghome contains the gpg binary files, public/private keys, and passphrase</span>
+    <span class="n">gnupghome</span> <span class="o">=</span> <span class="n">botslib</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">botsglobal</span><span class="o">.</span><span class="n">ini</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;directories&#39;</span><span class="p">,</span><span class="s1">&#39;botssys&#39;</span><span class="p">),</span><span class="s1">&#39;gnupghome&#39;</span><span class="p">)</span>
+    <span class="n">passphrase</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">botslib</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">gnupghome</span><span class="p">,</span><span class="s1">&#39;passphrase.txt&#39;</span><span class="p">),</span><span class="s1">&#39;r&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+    <span class="n">gpgbinary</span> <span class="o">=</span> <span class="n">botslib</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">gnupghome</span><span class="p">,</span><span class="s1">&#39;gpg.exe&#39;</span><span class="p">)</span>
+
+    <span class="c1"># Here is where we do the actual decryption</span>
+    <span class="n">gpg</span> <span class="o">=</span> <span class="n">gnupg</span><span class="o">.</span><span class="n">GPG</span><span class="p">(</span><span class="n">gnupghome</span><span class="o">=</span><span class="n">gnupghome</span><span class="p">,</span><span class="n">gpgbinary</span><span class="o">=</span><span class="n">gpgbinary</span><span class="p">)</span>
+    <span class="k">with</span> <span class="n">botslib</span><span class="o">.</span><span class="n">opendata</span><span class="p">(</span><span class="n">ta_from</span><span class="o">.</span><span class="n">filename</span><span class="p">,</span><span class="s1">&#39;rb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="nb">input</span><span class="p">:</span>
+        <span class="n">status</span> <span class="o">=</span> <span class="n">gpg</span><span class="o">.</span><span class="n">decrypt_file</span><span class="p">(</span><span class="nb">input</span><span class="p">,</span> <span class="n">passphrase</span><span class="o">=</span><span class="n">passphrase</span><span class="p">,</span><span class="n">output</span><span class="o">=</span><span class="n">botslib</span><span class="o">.</span><span class="n">abspathdata</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">ta_to</span><span class="o">.</span><span class="n">idta</span><span class="p">)))</span>
+
+    <span class="c1"># log the results and finish</span>
+    <span class="n">botsglobal</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="n">status</span><span class="o">.</span><span class="n">stderr</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">status</span><span class="o">.</span><span class="n">ok</span><span class="p">:</span>
+        <span class="n">botsglobal</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="n">status</span><span class="o">.</span><span class="n">status</span><span class="p">)</span>
+        <span class="n">ta_to</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">statust</span><span class="o">=</span><span class="n">OK</span><span class="p">,</span><span class="n">filename</span><span class="o">=</span><span class="nb">str</span><span class="p">(</span><span class="n">ta_to</span><span class="o">.</span><span class="n">idta</span><span class="p">))</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">botsglobal</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="n">status</span><span class="o">.</span><span class="n">status</span><span class="p">)</span>
+        <span class="n">ta_to</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">statust</span><span class="o">=</span><span class="n">ERROR</span><span class="p">,</span><span class="n">filename</span><span class="o">=</span><span class="nb">str</span><span class="p">(</span><span class="n">ta_to</span><span class="o">.</span><span class="n">idta</span><span class="p">))</span>
+        <span class="k">raise</span> <span class="n">PreprocessError</span><span class="p">(</span><span class="n">status</span><span class="o">.</span><span class="n">status</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span> <span class="o">+</span> <span class="n">status</span><span class="o">.</span><span class="n">stderr</span><span class="p">)</span>
+
+<span class="k">class</span> <span class="nc">PreprocessError</span><span class="p">(</span><span class="n">botslib</span><span class="o">.</span><span class="n">BotsError</span><span class="p">):</span>
+    <span class="k">pass</span>
+</pre></div>
+</div>
+<p><strong>Example 7: Preprocessing to ignore/remove XML namespaces;</strong>
+This example changes the default namespace to a namespace prefix (so it is ignored). It also removes a namespace prefix (ENV). You may need to use either or both of these methods, depending on the content of your XML file.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1">#-------------------------------------------------------------------------------</span>
+<span class="c1"># preprocess - Remove XML namespaces to simplify grammar and mapping</span>
+<span class="c1"># Generally Bots does not need to use the xmlns for incoming files</span>
+<span class="c1"># This example handles both default and prefix namespaces</span>
+
+<span class="k">def</span> <span class="nf">postincommunication</span><span class="p">(</span><span class="n">routedict</span><span class="p">):</span>
+
+    <span class="k">def</span> <span class="nf">_preprocess</span><span class="p">(</span><span class="n">ta_from</span><span class="p">,</span><span class="n">endstatus</span><span class="p">,</span><span class="o">**</span><span class="n">argv</span><span class="p">):</span>
+
+        <span class="c1"># copy ta for preprocessing</span>
+        <span class="n">ta_to</span> <span class="o">=</span> <span class="n">ta_from</span><span class="o">.</span><span class="n">copyta</span><span class="p">(</span><span class="n">status</span><span class="o">=</span><span class="n">endstatus</span><span class="p">)</span>
+
+        <span class="c1"># open the files</span>
+        <span class="n">infile</span> <span class="o">=</span> <span class="n">botslib</span><span class="o">.</span><span class="n">opendata</span><span class="p">(</span><span class="n">ta_from</span><span class="o">.</span><span class="n">filename</span><span class="p">,</span><span class="s1">&#39;r&#39;</span><span class="p">)</span>
+        <span class="n">tofile</span> <span class="o">=</span> <span class="n">botslib</span><span class="o">.</span><span class="n">opendata</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">ta_to</span><span class="o">.</span><span class="n">idta</span><span class="p">),</span><span class="s1">&#39;wb&#39;</span><span class="p">)</span>
+
+        <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">infile</span><span class="p">:</span>
+            <span class="n">tofile</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">line</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;xmlns=&#39;</span><span class="p">,</span><span class="s1">&#39;xmlns:NOTUSED=&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;&lt;ENV:&#39;</span><span class="p">,</span><span class="s1">&#39;&lt;&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;&lt;/ENV:&#39;</span><span class="p">,</span><span class="s1">&#39;&lt;/&#39;</span><span class="p">))</span>
+
+        <span class="c1"># close files and update outmessage transaction</span>
+        <span class="n">infile</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+        <span class="n">tofile</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+        <span class="n">ta_to</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">statust</span><span class="o">=</span><span class="n">OK</span><span class="p">,</span><span class="n">filename</span><span class="o">=</span><span class="nb">str</span><span class="p">(</span><span class="n">ta_to</span><span class="o">.</span><span class="n">idta</span><span class="p">))</span>
+
+    <span class="n">preprocess</span><span class="o">.</span><span class="n">preprocess</span><span class="p">(</span><span class="n">routedict</span><span class="p">,</span><span class="n">_preprocess</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="take-over-whole-route">
+<h2>Take Over Whole Route<a class="headerlink" href="#take-over-whole-route" title="Permalink to this headline">¶</a></h2>
+<p>The below example takes oves the the whole route such that only the <code class="docutils literal"><span class="pre">main()</span></code> function defined here will be executed as part of the route.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># imports needed for some functions below</span>
+<span class="kn">from</span> <span class="nn">bots.botsconfig</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">import</span> <span class="nn">bots.transform</span> <span class="kn">as</span> <span class="nn">transform</span>
+<span class="kn">import</span> <span class="nn">bots.botsglobal</span> <span class="kn">as</span> <span class="nn">botsglobal</span>
+<span class="kn">import</span> <span class="nn">bots.botslib</span> <span class="kn">as</span> <span class="nn">botslib</span>
+<span class="kn">import</span> <span class="nn">bots.cleanup</span> <span class="kn">as</span> <span class="nn">cleanup</span>
+<span class="kn">import</span> <span class="nn">bots.pluglib</span> <span class="kn">as</span> <span class="nn">pluglib</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">time</span>
+
+<span class="k">def</span> <span class="nf">main</span><span class="p">(</span><span class="n">routedict</span><span class="p">,</span><span class="o">*</span><span class="n">args</span><span class="p">,</span><span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="c1"># if main is present, it takes over the whole route (nothing is done in route except this function).</span>
+    <span class="c1"># for example, create a daily route that does a backup and cleanup</span>
+
+    <span class="c1"># Prevent this script from accidentally running more than once per day</span>
+    <span class="k">if</span> <span class="n">transform</span><span class="o">.</span><span class="n">persist_lookup</span><span class="p">(</span><span class="n">routedict</span><span class="p">[</span><span class="s1">&#39;idroute&#39;</span><span class="p">],</span><span class="s1">&#39;run_date&#39;</span><span class="p">)</span> <span class="o">!=</span> <span class="n">time</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s1">&#39;%Y%m</span><span class="si">%d</span><span class="s1">&#39;</span><span class="p">):</span>
+        <span class="n">transform</span><span class="o">.</span><span class="n">persist_add_update</span><span class="p">(</span><span class="n">routedict</span><span class="p">[</span><span class="s1">&#39;idroute&#39;</span><span class="p">],</span><span class="s1">&#39;run_date&#39;</span><span class="p">,</span><span class="n">time</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s1">&#39;%Y%m</span><span class="si">%d</span><span class="s1">&#39;</span><span class="p">))</span>
+
+        <span class="c1"># backup directory and subdirectory - one per weekday gives a 7 day rolling backup</span>
+        <span class="n">backup_dir</span> <span class="o">=</span> <span class="n">botslib</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">botsglobal</span><span class="o">.</span><span class="n">ini</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;directories&#39;</span><span class="p">,</span><span class="s1">&#39;botssys&#39;</span><span class="p">),</span> <span class="s1">&#39;backup&#39;</span><span class="p">)</span>
+        <span class="n">makedir</span><span class="p">(</span><span class="n">backup_dir</span><span class="p">)</span>
+        <span class="n">backup_dir</span> <span class="o">=</span> <span class="n">botslib</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">backup_dir</span><span class="p">,</span> <span class="n">time</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s1">&#39;%w-%a&#39;</span><span class="p">))</span>
+        <span class="n">makedir</span><span class="p">(</span><span class="n">backup_dir</span><span class="p">)</span>
+
+        <span class="c1"># Create a bots backup (as a plugin)</span>
+        <span class="n">botsglobal</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;Create a bots backup&#39;</span><span class="p">)</span>
+        <span class="n">pluglib</span><span class="o">.</span><span class="n">plugoutcore</span><span class="p">({</span>
+             <span class="s1">&#39;databaseconfiguration&#39;</span><span class="p">:</span> <span class="bp">True</span><span class="p">,</span>
+             <span class="s1">&#39;umlists&#39;</span><span class="p">:</span> <span class="bp">True</span><span class="p">,</span>
+             <span class="s1">&#39;fileconfiguration&#39;</span><span class="p">:</span> <span class="bp">True</span><span class="p">,</span>
+             <span class="s1">&#39;infiles&#39;</span><span class="p">:</span> <span class="bp">False</span><span class="p">,</span>
+             <span class="s1">&#39;charset&#39;</span><span class="p">:</span> <span class="bp">False</span><span class="p">,</span>
+             <span class="s1">&#39;databasetransactions&#39;</span><span class="p">:</span> <span class="bp">False</span><span class="p">,</span>
+             <span class="s1">&#39;data&#39;</span><span class="p">:</span> <span class="bp">False</span><span class="p">,</span>
+             <span class="s1">&#39;logfiles&#39;</span><span class="p">:</span> <span class="bp">True</span><span class="p">,</span>
+             <span class="s1">&#39;config&#39;</span><span class="p">:</span> <span class="bp">True</span><span class="p">,</span>
+             <span class="s1">&#39;database&#39;</span><span class="p">:</span> <span class="bp">True</span><span class="p">,</span>
+             <span class="s1">&#39;filename&#39;</span><span class="p">:</span> <span class="n">botslib</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">backup_dir</span><span class="p">,</span><span class="s1">&#39;bots-backup.zip&#39;</span><span class="p">)})</span>
+
+        <span class="c1"># Do cleanup, if scheduled daily</span>
+        <span class="c1"># In bots.ini set whencleanup=daily (other values are always or never)</span>
+        <span class="k">if</span> <span class="n">botsglobal</span><span class="o">.</span><span class="n">ini</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;settings&#39;</span><span class="p">,</span><span class="s1">&#39;whencleanup&#39;</span><span class="p">,</span><span class="s1">&#39;always&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="s1">&#39;daily&#39;</span><span class="p">:</span>
+            <span class="n">botsglobal</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">u&#39;Cleanup of database and files&#39;</span><span class="p">)</span>
+            <span class="n">cleanup</span><span class="o">.</span><span class="n">cleanup</span><span class="p">()</span>
+
+<span class="k">def</span> <span class="nf">makedir</span><span class="p">(</span><span class="nb">dir</span><span class="p">):</span>
+    <span class="k">try</span><span class="p">:</span> <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="nb">dir</span><span class="p">)</span>
+    <span class="k">except</span><span class="p">:</span> <span class="k">pass</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../channel/index.html" class="btn btn-neutral float-right" title="Channels" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="passthrough.html" class="btn btn-neutral" title="PassThrough (no translation)" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2007 - 2016, Henk-Jan Ebbers.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'3.3.1.dev0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

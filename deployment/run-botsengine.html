@@ -1,0 +1,476 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Running Bots-Engine &mdash; Bots EDI Translator 3.3.1.dev0 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="Bots EDI Translator 3.3.1.dev0 documentation" href="../index.html"/>
+        <link rel="up" title="Deployment" href="index.html"/>
+        <link rel="next" title="Handling errors in Production" href="production-errors.html"/>
+        <link rel="prev" title="Deployment" href="index.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Bots EDI Translator
+          
+
+          
+            
+            <img src="../_static/botslogo_square2.png" class="logo" />
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                3.3.1.dev0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../readme.html">Bots-Edi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction.html">Welcome to <code class="docutils literal"><span class="pre">Bots</span></code>&#8216;s documentation!</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../get-bots-running.html">Get Bots Running</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quick-start-guide/index.html">Quick Start Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guide-for-botsmonitor/index.html">Guide For Bots-Monitor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview/index.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../configuration/index.html">Configuration</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Deployment</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Running Bots-Engine</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#scheduling-bots-engine">Scheduling Bots-Engine</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#job-queue-server-bots-3-0">Job Queue Server(bots &gt;= 3.0)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#directory-monitor-bots-3-0">Directory Monitor (bots &gt;= 3.0)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#return-codes-for-bots-engine-bots-3-0">Return codes for bots engine (bots&gt;=3.0)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="production-errors.html">Handling errors in Production</a></li>
+<li class="toctree-l2"><a class="reference internal" href="email-notifications.html">Email Notifications for Errors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="archiving.html">Archiving of Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="run-as-service.html">Run as Service/Daemon</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multiple-environments.html">Multiple Environments</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../advanced-deployment/index.html">Advanced Deployment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../plugins/index.html">Plugins</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/index.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../debugging.html">Debugging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../troubleshooting.html">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../change-migrate/index.html">Changes and Migrate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../new-to-python.html">New to python?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../external-reference.html">External reference links</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../useful-tools.html">Useful Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../documentation.html">Bots Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../documentation.html#credits">Credits</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">Bots EDI Translator</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="index.html">Deployment</a> &raquo;</li>
+      
+    <li>Running Bots-Engine</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/deployment/run-botsengine.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="running-bots-engine">
+<h1>Running Bots-Engine<a class="headerlink" href="#running-bots-engine" title="Permalink to this headline">¶</a></h1>
+<p>Options for running bots-engine:</p>
+<ol class="arabic">
+<li><dl class="first docutils">
+<dt>Run automatic or manual</dt>
+<dd><ul class="first last">
+<li><p class="first">Manual runs by using the <code class="docutils literal"><span class="pre">run</span></code> options in the menu.</p>
+</li>
+<li><p class="first"><a class="reference external" href="#scheduling-bots-engine">Schedule</a> Bots-Engine.</p>
+</li>
+<li><p class="first">Use the <a class="reference external" href="#directory-monitor-bots-3-0">directory monitor/watcher</a>.</p>
+</li>
+<li><dl class="first docutils">
+<dt>This can be combined; eg</dt>
+<dd><ul class="first last simple">
+<li>schedule <code class="docutils literal"><span class="pre">new</span></code> every 15minutes</li>
+<li>manually <code class="docutils literal"><span class="pre">rereceive</span></code> and <code class="docutils literal"><span class="pre">resend</span></code></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p class="first">Direct or via <a class="reference external" href="#job-queue-server-bots-3-0">jobqueue-server</a>.</p>
+</li>
+<li><dl class="first docutils">
+<dt>Specify the routes to run:</dt>
+<dd><ul class="first last simple">
+<li>Run all routes. Default way of running (nothing specified).</li>
+<li>Run all routes with excludes. Indicate in route if routes ought not to run in a default run.</li>
+<li>Run specific routes: include route as parameters. Eg (command-line): <code class="docutils literal"><span class="pre">bots-engine.py</span> <span class="pre">myroute1</span> <span class="pre">myroute2</span></code></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Run new or other</dt>
+<dd><ul class="first last simple">
+<li><strong>new</strong>: Via run-menu or command-line: <code class="docutils literal"><span class="pre">bots-engine.py</span></code></li>
+<li><strong>rereceive</strong>: rereceive user indicated edi files. Via run-menu or command-line: <code class="docutils literal"><span class="pre">bots-engine.py</span> <span class="pre">--rereceive</span></code></li>
+<li><strong>resend</strong>: resend user indicated edi-files. Via run-menu or command-line: <code class="docutils literal"><span class="pre">bots-engine.py</span> <span class="pre">--resend</span></code></li>
+<li><strong>automaticretrycommunication</strong>: resend edi-files where out-communication failed. Command-line: <code class="docutils literal"><span class="pre">bots-engine.py</span> <span class="pre">--automaticretrycommunication</span></code></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ol>
+<div class="section" id="scheduling-bots-engine">
+<h2>Scheduling Bots-Engine<a class="headerlink" href="#scheduling-bots-engine" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><dl class="first docutils">
+<dt>Bots does not have a built-in scheduler. Scheduling is done by the scheduler of your OS.</dt>
+<dd><ul class="first last simple">
+<li>Windows: use eg <a class="reference external" href="http://support.microsoft.com/kb/308569">Windows Task Scheduler</a>.</li>
+<li>Linux/unix: use eg <a class="reference external" href="http://www.linuxhelp.net/guides/cron/">cron</a>.</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p class="first">Bots-engine does not run concurrently (in parallel). If a previous run is still in progress, a new run will not start. From version 3.0 onwards, Bots includes an optional <a class="reference external" href="#job-queue-server-bots-3-0">job queue server</a> to use when scheduling Bots engine. Using this is recommended, to prevent discarding runs that overlap.</p>
+</li>
+<li><p class="first"><strong>Strong advice</strong>: when scheduling bots-engine, activate the sending of <a class="reference internal" href="email-notifications.html"><span class="doc">automatic email-reports</span></a> for errors.</p>
+</li>
+</ul>
+<p class="rubric">Possible scheduling scenarios</p>
+<p>(command lines below are for Windows):</p>
+<ul>
+<li><p class="first">If all (or most) routes can be run on the same schedule, then just schedule bots-engine &#8220;new&#8221; run as often as you need, Eg. every 5 minutes. To exclude some routes from this run, tick the Notindefaultrun box in the route advanced settings. These can then be scheduled separately by specifying route names on the command line.</p>
+<blockquote>
+<div><div class="highlight-bat"><div class="highlight"><pre><span></span>c<span class="p">:</span><span class="nl">\python27\python</span><span class="c1"> c:\python27\Scripts\bots-engine.py --new</span>
+
+c<span class="p">:</span><span class="nl">\python27\python</span><span class="c1"> c:\python27\Scripts\bots-engine.py &quot;my hourly route&quot;</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p class="first">If you have few routes but with varying schedules, then schedule them individually (by putting route names on the command line). Disadvantage: newly added routes are not automatically run, you must adjust your schedule.</p>
+<blockquote>
+<div><div class="highlight-bat"><div class="highlight"><pre><span></span>c<span class="p">:</span><span class="nl">\python27\python</span><span class="c1"> c:\python27\Scripts\bots-engine.py &quot;my orders route&quot; &quot;my invoice route&quot;</span>
+
+c<span class="p">:</span><span class="nl">\python27\python</span><span class="c1"> c:\python27\Scripts\bots-engine.py &quot;my daily route&quot;</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p class="first">Consider whether you need to schedule retries periodically. Particularly with accessing remote servers, sometimes there may be communication errors that would be ok next time bots tries. Otherwise you will need to retry these yourself. File errors are not retried automatically because the same error will just come up again!</p>
+<blockquote>
+<div><div class="highlight-bat"><div class="highlight"><pre><span></span>c<span class="p">:</span><span class="nl">\python27\python</span><span class="c1"> c:\python27\Scripts\bots-engine.py --automaticretrycommunication</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+</ul>
+<p class="rubric">My Setup (Mike)</p>
+<p>I am using Windows task scheduler and Bots <a class="reference external" href="#job-queue-server-bots-3-0">job queue</a> is enabled. I have five scheduled tasks:</p>
+<ol class="arabic simple">
+<li>Bots-engine (every 5 minutes, 24x7)</li>
+<li>Bots-engine-hourly (every hour on the hour)</li>
+<li>Bots-engine-daily (1am daily)</li>
+<li>Bots-engine-weekly (1am every Monday morning)</li>
+<li>Bots-engine-monthly (1am first of the month)</li>
+</ol>
+<p>Each task has a corresponding batch file in the scripts directory. This makes task configuration and changes easier; the scheduled tasks simply call the batch files. Within the batch files I use job2queue.py for adding jobs. Some add only a single job, while some add multiple jobs. (You could also put the command lines directly into Windows task scheduler, each one as a separate task). I use appropriate priorities for each job, as some times of the day Bots can get very busy. Several examples are shown below.</p>
+<div class="highlight-bat"><div class="highlight"><pre><span></span><span class="p">:</span><span class="c1">: bots-engine.bat</span>
+
+<span class="p">:</span><span class="c1">: Regular run of bots engine (eg. every 5 minutes, highest priority)</span>
+C<span class="p">:</span><span class="nl">\python27\python.exe</span><span class="c1"> C:\python27\scripts\bots-job2queue.py -p1 C:\python27\python.exe C:\python27\scripts\bots-engine.py --new</span>
+</pre></div>
+</div>
+<div class="highlight-bat"><div class="highlight"><pre><span></span><span class="p">:</span><span class="c1">: bots-engine-hourly.bat</span>
+
+<span class="p">:</span><span class="c1">: Hourly monitoring alerts</span>
+C<span class="p">:</span><span class="nl">\python27\python.exe</span><span class="c1"> C:\python27\scripts\bots-job2queue.py -p2 C:\python27\python.exe C:\python27\scripts\bots-engine.py hourly_alerts</span>
+
+<span class="p">:</span><span class="c1">: Hourly cleanup and low priority routes</span>
+C<span class="p">:</span><span class="nl">\python27\python.exe</span><span class="c1"> C:\python27\scripts\bots-job2queue.py -p6 C:\python27\python.exe C:\python27\scripts\bots-engine.py ftp_cleanup ProductionOrders RemitAdvice</span>
+
+<span class="p">:</span><span class="c1">: automatic retry of failed outgoing communication</span>
+C<span class="p">:</span><span class="nl">\python27\python.exe</span><span class="c1"> C:\python27\scripts\bots-job2queue.py -p7 C:\python27\python.exe C:\python27\scripts\bots-engine.py --automaticretrycommunication</span>
+</pre></div>
+</div>
+<div class="highlight-bat"><div class="highlight"><pre><span></span><span class="p">:</span><span class="c1">: bots-engine-daily.bat</span>
+
+<span class="p">:</span><span class="c1">: daily housekeeping</span>
+C<span class="p">:</span><span class="nl">\python27\python.exe</span><span class="c1"> C:\python27\scripts\bots-job2queue.py -p3 C:\python27\python.exe C:\python27\scripts\bots-engine.py daily_housekeeping</span>
+
+<span class="p">:</span><span class="c1">: daily reporting &amp;amp; SAP data downloads</span>
+C<span class="p">:</span><span class="nl">\python27\python.exe</span><span class="c1"> C:\python27\scripts\bots-job2queue.py -p9 C:\python27\python.exe C:\python27\scripts\bots-engine.py daily_reports SAP_Expired_Contracts</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="job-queue-server-bots-3-0">
+<h2>Job Queue Server(bots &gt;= 3.0)<a class="headerlink" href="#job-queue-server-bots-3-0" title="Permalink to this headline">¶</a></h2>
+<p>Purpose of the bots jobqueue is to enable better scheduling of bots engine:</p>
+<blockquote>
+<div><ul class="simple">
+<li>ensures only a single bots-engine runs at any time.</li>
+<li>no engine runs are lost/discarded.</li>
+<li>next engine run is started as soon as previous run has ended.</li>
+</ul>
+</div></blockquote>
+<p>Use of the job queue is optional, but is recommended if <a class="reference external" href="#scheduling-bots-engine">scheduling bots-engine</a>.</p>
+<p>Details:</p>
+<ul>
+<li><p class="first">Launch sequence from the queue can be controlled using different priorities when adding jobs.</p>
+</li>
+<li><p class="first">Other (non bots-engine) jobs can also be added to the queue if they need to be run <strong>in between</strong> bots-engine runs.</p>
+</li>
+<li><p class="first">If you add a duplicate of another job <strong>already waiting on the queue</strong> the request is discarded. This is because the job on the queue will perform the same action when it runs. If that job is already running, the new job <strong>will</strong> be added to the queue.</p>
+</li>
+<li><p class="first">Logging in <code class="docutils literal"><span class="pre">bots/botssys/logging/jobqueue.log</span></code></p>
+</li>
+<li><p class="first">When using Bots monitor run-menu the job queue will be used if enabled in bots.ini; jobs are added with default priority of 5.</p>
+</li>
+<li><p class="first">In production you&#8217;ll probably want to run bots-jobqueueserver as a <a class="reference internal" href="run-as-service.html"><span class="doc">daemon process/service</span></a>.</p>
+</li>
+<li><p class="first">Full command-line usage instructions for bots-job2queue.py and bots-jobqueueserver.py when started up with <code class="docutils literal"><span class="pre">--help</span></code></p>
+</li>
+<li><dl class="first docutils">
+<dt>The bots job queue server does 3 things</dt>
+<dd><ul class="first last simple">
+<li>maintains a queue of jobs for bots-engine.</li>
+<li>receives new jobs via the <code class="docutils literal"><span class="pre">bots-job2queue.py</span></code> (or via <code class="docutils literal"><span class="pre">bots-monitor-&gt;Run</span></code>)</li>
+<li>launches a new job from the queue as soon as previous job ended.</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<p class="rubric">Starting with the job queue</p>
+<ol class="arabic">
+<li><p class="first">First, enabled in <a class="reference external" href="../overview/configuration-files.html#bots-ini">bots.ini</a> (jobqueue section, <code class="docutils literal"><span class="pre">enabled</span> <span class="pre">=</span> <span class="pre">True</span></code>).</p>
+</li>
+<li><p class="first">Start the bots-jobqueueserver. Command-line: <code class="docutils literal"><span class="pre">bots-jobqueueserver.py</span></code>.</p>
+</li>
+<li><dl class="first docutils">
+<dt>Put jobs in the job queue:</dt>
+<dd><ul class="first last simple">
+<li>via menu using <code class="docutils literal"><span class="pre">bots-monitor-&gt;Run</span></code></li>
+<li>start from command-line (using <code class="docutils literal"><span class="pre">bots-job2queue.py</span></code>).</li>
+<li>start from scheduler (using <code class="docutils literal"><span class="pre">bots-job2queue.py</span></code>).</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ol>
+<p><strong>Command examples</strong></p>
+<blockquote>
+<div><p>Job2queue on windows example 1:</p>
+<div class="highlight-bat"><div class="highlight"><pre><span></span>c<span class="p">:</span><span class="nl">\python27\python</span><span class="c1"> c:\python27\Scripts\bots-job2queue.py c:\python27\python c:\python27\Scripts\bots-engine.py</span>
+</pre></div>
+</div>
+<p>Job2queue on windows example 2:</p>
+<div class="highlight-bat"><div class="highlight"><pre><span></span>c<span class="p">:</span><span class="nl">\python27\python</span><span class="c1"> c:\python27\Scripts\bots-job2queue.py -p3 c:\python27\python c:\python27\Scripts\bots-engine.py --new -Cconfigprod</span>
+</pre></div>
+</div>
+<p>Job2queue on windows example  3 (Adding other commands to the job queue):</p>
+<div class="highlight-bat"><div class="highlight"><pre><span></span>c<span class="p">:</span><span class="nl">\python27\python</span><span class="c1"> c:\python27\Scripts\bots-job2queue.py c:\program files\my_program.exe my_parm_1 my_parm_2</span>
+</pre></div>
+</div>
+<p>Job2queue on linux example 4:</p>
+<div class="highlight-bat"><div class="highlight"><pre><span></span>bots-job2queue.py bots-engine.py
+</pre></div>
+</div>
+<p>Job2queue on linux example 5:</p>
+<div class="highlight-bat"><div class="highlight"><pre><span></span>bots-job2queue.py -p3 bots-engine.py --new -Cconfigprod
+</pre></div>
+</div>
+</div></blockquote>
+</div>
+<div class="section" id="directory-monitor-bots-3-0">
+<h2>Directory Monitor (bots &gt;= 3.0)<a class="headerlink" href="#directory-monitor-bots-3-0" title="Permalink to this headline">¶</a></h2>
+<p>This provides a method of monitoring specific <strong>local</strong> directories, and running Bots engine when files are ready to be processed.</p>
+<p>Use of the directory monitor is optional. It may be useful for processing files that only arrive occasionally and at random times.</p>
+<p><strong>Prerequisites</strong></p>
+<ul class="simple">
+<li>Directory monitor uses the <a class="reference external" href="#job-queue-server-bots-3-0">job queue</a>.</li>
+<li>Monitoring must be configured in <a class="reference external" href="../overview/configuration-files.html#bots-ini">bots.ini</a> (<code class="docutils literal"><span class="pre">dirmonitorX</span></code> sections)</li>
+<li>Directory monitor <a class="reference internal" href="run-as-service.html"><span class="doc">daemon process</span></a> must be started (<code class="docutils literal"><span class="pre">bots-dirmonitor.py</span></code>)</li>
+</ul>
+</div>
+<div class="section" id="return-codes-for-bots-engine-bots-3-0">
+<h2>Return codes for bots engine (bots&gt;=3.0)<a class="headerlink" href="#return-codes-for-bots-engine-bots-3-0" title="Permalink to this headline">¶</a></h2>
+<p>Bots-engine uses the following return codes:</p>
+<ul class="simple">
+<li>0: OK, no errors.</li>
+<li>1: (system) errors: could not connect to database, not correct command line arguments, database damaged, unexpected system error etc.</li>
+<li>2: bots ran OK, but there are errors/process errors in the run.</li>
+<li>3: Database is locked, but <strong>maxruntime</strong> has not been exceeded. (use the job queue server to avoid this type of errors).</li>
+</ul>
+<p>Return code <strong>2</strong> is similar/equivalent to the error reports by email.</p>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="production-errors.html" class="btn btn-neutral float-right" title="Handling errors in Production" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral" title="Deployment" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2007 - 2016, Henk-Jan Ebbers.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'3.3.1.dev0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

@@ -1,0 +1,420 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Performance &mdash; Bots EDI Translator 3.3.1.dev0 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="Bots EDI Translator 3.3.1.dev0 documentation" href="../index.html"/>
+        <link rel="up" title="Advanced Deployment" href="index.html"/>
+        <link rel="next" title="Plugins" href="../plugins/index.html"/>
+        <link rel="prev" title="Configuration Change Management" href="change-management.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Bots EDI Translator
+          
+
+          
+            
+            <img src="../_static/botslogo_square2.png" class="logo" />
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                3.3.1.dev0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../readme.html">Bots-Edi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction.html">Welcome to <code class="docutils literal"><span class="pre">Bots</span></code>&#8216;s documentation!</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../get-bots-running.html">Get Bots Running</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quick-start-guide/index.html">Quick Start Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guide-for-botsmonitor/index.html">Guide For Bots-Monitor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview/index.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../configuration/index.html">Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../deployment/index.html">Deployment</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Advanced Deployment</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="user-rights.html">User Rights</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bots-https.html">Bots-Monitor over HTTPS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="use-apache2.html">Use Apache2 as Webserver</a></li>
+<li class="toctree-l2"><a class="reference internal" href="use-mysql.html">Use MySQL or PostgreSQL as Database</a></li>
+<li class="toctree-l2"><a class="reference internal" href="use-as2.html">Using AS2 with Bots</a></li>
+<li class="toctree-l2"><a class="reference internal" href="change-management.html">Configuration Change Management</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Performance</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../plugins/index.html">Plugins</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/index.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../debugging.html">Debugging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../troubleshooting.html">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../change-migrate/index.html">Changes and Migrate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../new-to-python.html">New to python?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../external-reference.html">External reference links</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../useful-tools.html">Useful Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../documentation.html">Bots Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../documentation.html#credits">Credits</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">Bots EDI Translator</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="index.html">Advanced Deployment</a> &raquo;</li>
+      
+    <li>Performance</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/advanced-deployment/performance.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="performance">
+<h1>Performance<a class="headerlink" href="#performance" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li>Most edi files are just a few kilobyes. An edi file of 5Mb is very large (edifact, x12). If you encounter larger ones: please let me know.</li>
+<li>AFAIK there are no issues with performance. If you run into this: please inform me eg via mailing list.</li>
+</ul>
+<p><strong>Get More Performance</strong></p>
+<ul class="simple">
+<li>(Bots &gt;= 2.2.0) <a class="reference external" href="http://www.bytereef.org/mpdecimal/index.html">Cdecimals (Extern library)</a> speeds up bots. This library will be included in python 3.3, but can be installed in earlier python versions.</li>
+<li>(bots &gt;= 3.1) Do not use <code class="docutils literal"><span class="pre">get_checklevel=2</span></code> in <code class="docutils literal"><span class="pre">config/bots.ini</span></code>. This does extended checking of mpath&#8217;s, use this during development only.</li>
+<li>(bots &gt;= 3.0) Schedule bots-engine via the job queue server.</li>
+<li>For xml: check if the c-version of python&#8217;s elementtree is installed and used.</li>
+<li>Enough memory is important for performance: disk-memory swapping is slow! Actual memory usage depends on size of edi-files.</li>
+<li>Check mappings for slow/inefficient algorithms.</li>
+<li>Bots works with <a class="reference external" href="www.pypy.org">pypy</a>, see below on this page.</li>
+<li>Use SSD for faster reading/writing. In <code class="docutils literal"><span class="pre">config/bots.ini</span></code> the <code class="docutils literal"><span class="pre">botssys-directory</span></code> can be set, in <code class="docutils literal"><span class="pre">config/settings.py</span></code> the place of the SQLite-database.</li>
+</ul>
+<p><strong>Strategy for bigger edi volumes</strong></p>
+<ul>
+<li><p class="first">Best strategy is to <a class="reference external" href="../deployment/run-botsengine.html#scheduling-bots-engine">schedule</a> bots-engine more often.</p>
+</li>
+<li><p class="first">(bots &gt;= 3.0) Schedule bots-engine via the <a class="reference external" href="../deployment/run-botsengine.html#job-queue-server-bots-3-0">job queue server</a>.</p>
+</li>
+<li><p class="first">Routes can be <a class="reference external" href="../deployment/run-botsengine.html#scheduling-bots-engine">scheduled independently</a>.</p>
+</li>
+<li><p class="first">Set-up good scheduling, keeping volumes in mind.</p>
+</li>
+<li><p class="first">EDI in the real world has often large peaks.</p>
+</li>
+<li><p class="first">Dome edi transactions are time critical (eg orders), others not so much (eg invoices)</p>
+</li>
+<li><p class="first">Check where the large volumes are (size and number of edi-transactions)</p>
+</li>
+<li><p class="first">Look at the sending pattern of your customers. Often edi is send in night jobs, so you might receive lot of volume early in the morning.</p>
+</li>
+<li><p class="first">Check where you send large volumes. Send this at a time that does not interfere with other flows.</p>
+</li>
+<li><dl class="first docutils">
+<dt>Incoming volumes can be limited per run. This way the time bots-engine runs is predictable.</dt>
+<dd><ul class="first last simple">
+<li>The max time a channel fetches incoming files is a parameter for each channel.</li>
+<li>This is dependent upon the communication type used; eg file system I/O is much faster than SFTP.</li>
+<li>Files &#8220;left behind&#8221; will be fetched on subsequent runs.</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p class="first">(Bots &gt;= 3.0) Limit for max file-size (set in bots.ini). If an incoming file is larger, bots will give error. This is to prevent <strong>accidents</strong>.</p>
+</li>
+</ul>
+<p><strong>Performance/throughput testing</strong></p>
+<ol class="arabic simple">
+<li>Tests are done using file system I/O (no testing of communication performance).</li>
+<li>Tests done in one run of bots-engine.</li>
+<li>Test system: Intel Q9400 2.66GHz; 4Gb memory; ubuntu 10.04(lucid); python 2.7; default SQLite database.</li>
+<li>Please note that these tests are <strong>artificial</strong>: if you have such high volumes and big files look at good scheduling!</li>
+<li>Tests are with edifact; x12 performance is the same.</li>
+</ol>
+<table border="1" class="docutils">
+<colgroup>
+<col width="10%" />
+<col width="10%" />
+<col width="10%" />
+<col width="10%" />
+<col width="10%" />
+<col width="10%" />
+<col width="10%" />
+<col width="10%" />
+<col width="10%" />
+<col width="10%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Description</th>
+<th class="head">File Count</th>
+<th class="head">Total Size</th>
+<th class="head">Message Count</th>
+<th class="head">Time(bots2.0)</th>
+<th class="head">Speed(bots2.0)</th>
+<th class="head">Time(bots2.2)</th>
+<th class="head">Speed(bots2.2)</th>
+<th class="head">Time(bots3.2)</th>
+<th class="head">Speed(bots3.2)</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>01 edifact2fixed</td>
+<td>32</td>
+<td>305Mb</td>
+<td>32</td>
+<td>1:01:39</td>
+<td>82 kb/s</td>
+<td>0:50:57</td>
+<td>100 kb/s</td>
+<td>0:44:01</td>
+<td>115 kb/s</td>
+</tr>
+<tr class="row-odd"><td>02 edifact2fixed</td>
+<td>116</td>
+<td>300Mb</td>
+<td>116</td>
+<td>1:14:18</td>
+<td>68 kb/s</td>
+<td>0:36:20</td>
+<td>137 kb/s</td>
+<td>0:37:25</td>
+<td>133 kb/s</td>
+</tr>
+<tr class="row-even"><td>03 edifact2fixed</td>
+<td>94048</td>
+<td>295Mb</td>
+<td>141072</td>
+<td>0:47:21</td>
+<td>104 kb/s</td>
+<td>0:39:54</td>
+<td>125 kb/s</td>
+<td>0:42:30</td>
+<td>115 kb/s</td>
+</tr>
+<tr class="row-odd"><td>04 fixed2edifact</td>
+<td>14244</td>
+<td>300Mb</td>
+<td>78342</td>
+<td>1:04:11</td>
+<td>78 kb/s</td>
+<td>0:33:21</td>
+<td>150 kb/s</td>
+<td>0:32:40</td>
+<td>153 kb/s</td>
+</tr>
+<tr class="row-even"><td>05 xml2edifact</td>
+<td>17424</td>
+<td>300Mb</td>
+<td>17424</td>
+<td>0:41:24</td>
+<td>121 kb/s</td>
+<td>0:35:48</td>
+<td>139 kb/s</td>
+<td>0:35:20</td>
+<td>141 kb/s</td>
+</tr>
+<tr class="row-odd"><td>06 edifact2xml(1to1)</td>
+<td>14609</td>
+<td>300Mb</td>
+<td>74919</td>
+<td>1:23:03</td>
+<td>60 kb/s</td>
+<td>0:58:19</td>
+<td>85 kb/s</td>
+<td>0:44:38</td>
+<td>112 kb/s</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Conclusions of performance measurements:</strong></p>
+<ol class="arabic simple">
+<li>Memory usage is stable (no leakage).</li>
+<li>Memory usage is directly related to the size of the edi-files. In test 01 (edifact files of 9.5Mb) bots-engine uses 1.5Gb memory.</li>
+<li>Tested with edifact files of 120Mb; memory usage is stable at 4.5Gb.</li>
+<li>Performance is reasonably independent from the size of edi-files/messages.</li>
+<li>An edifact file of 9.5Mb takes about 85sec to be processed.</li>
+<li>For outgoing edi files: writing to one file or multiple file does not significantly affect performance.</li>
+</ol>
+<p><strong>Testing with pypy</strong></p>
+<p><a class="reference external" href="www.pypy.org">pypy</a> s a python implementation that is faster by using a JIT (that is one of their achievements).
+Results of the first tests with pypy (beta-versions of pypy 2.0):</p>
+<ul>
+<li><p class="first">Bots works with pypy.</p>
+</li>
+<li><p class="first">Comparing some stress tests: much faster, 2-3 times faster.</p>
+</li>
+<li><p class="first">Did not run all test-sets. Probably I will do that with definitive version of pypy 2.0 and/or release of bots 3.1.</p>
+</li>
+<li><dl class="first docutils">
+<dt>Problem might be that not all libraries/dependencies work with pypy.</dt>
+<dd><ul class="first last simple">
+<li>SQLite3 database connector: OK</li>
+<li>MySQL database connector: version 1.2.5 does. Note that bots 3.1.0 gave am error with this version, a patch was easy.</li>
+<li>paramiko (for SFTP/SSH): no, dependency pycrypto is not supported.</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<p>This looks like a very interesting development!</p>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../plugins/index.html" class="btn btn-neutral float-right" title="Plugins" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="change-management.html" class="btn btn-neutral" title="Configuration Change Management" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2007 - 2016, Henk-Jan Ebbers.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'3.3.1.dev0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

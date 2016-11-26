@@ -1,0 +1,440 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Recorddefs &mdash; Bots EDI Translator 3.3.1.dev0 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="Bots EDI Translator 3.3.1.dev0 documentation" href="../../index.html"/>
+        <link rel="up" title="Grammars" href="index.html"/>
+        <link rel="next" title="Next Message" href="nextmessage.html"/>
+        <link rel="prev" title="Structure" href="structure.html"/> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Bots EDI Translator
+          
+
+          
+            
+            <img src="../../_static/botslogo_square2.png" class="logo" />
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                3.3.1.dev0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../readme.html">Bots-Edi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../introduction.html">Welcome to <code class="docutils literal"><span class="pre">Bots</span></code>&#8216;s documentation!</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../get-bots-running.html">Get Bots Running</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quick-start-guide/index.html">Quick Start Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../guide-for-botsmonitor/index.html">Guide For Bots-Monitor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../overview/index.html">Overview</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Configuration</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../how-to-configuration.html">How to do configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../route/index.html">Routes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../channel/index.html">Channels</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../translation/index.html">Translation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../mapping-scripts/index.html">Mapping Scripts</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Grammars</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="get-grammars.html">How to Get Grammars</a></li>
+<li class="toctree-l3"><a class="reference internal" href="syntax-params.html">Syntax Parameters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="structure.html">Structure</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Recorddefs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="nextmessage.html">Next Message</a></li>
+<li class="toctree-l3"><a class="reference internal" href="nextmessageblock.html">Next Message Block</a></li>
+<li class="toctree-l3"><a class="reference internal" href="edifact-charsets.html">EDIFACT Character-Sets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="xml-namespaces.html">XML Namespaces</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../document-view.html">Document View</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../user-scripting.html">User Scripting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../acknowledgements.html">Confirmations/Acknowledgements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../split-merge.html">Split, Merge and Envelope</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../partner/index.html">EDI Partners</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../charsets.html">Characters Sets</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../deployment/index.html">Deployment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../advanced-deployment/index.html">Advanced Deployment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../plugins/index.html">Plugins</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorials/index.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../debugging.html">Debugging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../troubleshooting.html">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../change-migrate/index.html">Changes and Migrate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../new-to-python.html">New to python?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../external-reference.html">External reference links</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../useful-tools.html">Useful Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../documentation.html">Bots Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../documentation.html#credits">Credits</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">Bots EDI Translator</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../index.html">Configuration</a> &raquo;</li>
+      
+          <li><a href="index.html">Grammars</a> &raquo;</li>
+      
+    <li>Recorddefs</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../_sources/configuration/grammars/recorddefs.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="recorddefs">
+<h1>Recorddefs<a class="headerlink" href="#recorddefs" title="Permalink to this headline">¶</a></h1>
+<blockquote class="epigraph">
+<div>Definition: Recorddefs defines the layout of each record.</div></blockquote>
+<ul class="simple">
+<li>Recorddefs is required, except for grammars for editypes <code class="docutils literal"><span class="pre">templatehtml</span></code>, <code class="docutils literal"><span class="pre">xmlnocheck</span></code>, <code class="docutils literal"><span class="pre">jsonnocheck</span></code>.</li>
+<li>Recorddefs is a dictionary; key is record ID/tag, value is list of fields.</li>
+<li>There is <strong>always</strong> a field <code class="docutils literal"><span class="pre">BOTSID</span></code> in a record; mostly BOTSID is the first field (fixed format is the exception).</li>
+</ul>
+<p class="rubric">Some specifics for different editypes</p>
+<ul class="simple">
+<li><strong>edifact</strong>: record ID is edifact tag (DTM, BGM, etc).</li>
+<li><strong>X12</strong>: record ID is the segment identifier</li>
+<li><strong>Xml</strong>: record ID is xml-tag (without angle brackets).</li>
+<li><strong>Fixed</strong>: bots has to know where record ID is. Default: first three positions in record; this can be set with syntax parameters</li>
+<li><strong>Csv</strong>: Csv/Excel does not always have a record ID (all records in an edi-file are of the same type). Bots uses the name of the record as BOTSID if you use syntax parameter: <code class="docutils literal"><span class="pre">'noBOTSID':True</span></code></li>
+</ul>
+<p class="rubric">Each field is a list of:</p>
+<ol class="arabic">
+<li><p class="first"><strong>field ID</strong>: has to be unique (bots checks for this).</p>
+</li>
+<li><p class="first"><strong>M/C</strong>: mandatory or conditional.</p>
+</li>
+<li><dl class="first docutils">
+<dt><strong>length</strong>: Examples:</dt>
+<dd><div class="first last highlight-python"><div class="highlight"><pre><span></span><span class="p">[</span><span class="s1">&#39;field name&#39;</span><span class="p">,</span><span class="s1">&#39;C&#39;</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="s1">&#39;A&#39;</span><span class="p">],</span>       <span class="c1">#max length</span>
+<span class="p">[</span><span class="s1">&#39;field name&#39;</span><span class="p">,</span><span class="s1">&#39;C&#39;</span><span class="p">,</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">9</span><span class="p">),</span> <span class="s1">&#39;A&#39;</span><span class="p">],</span>   <span class="c1">#min length, max length. Use eg as:</span>
+<span class="p">[</span><span class="s1">&#39;field name&#39;</span><span class="p">,</span><span class="s1">&#39;C&#39;</span><span class="p">,</span> <span class="p">(</span><span class="mi">9</span><span class="p">,</span><span class="mi">9</span><span class="p">),</span> <span class="s1">&#39;A&#39;</span><span class="p">],</span>   <span class="c1">#field length should always be 9</span>
+<span class="p">[</span><span class="s1">&#39;field name&#39;</span><span class="p">,</span><span class="s1">&#39;C&#39;</span><span class="p">,</span> <span class="mf">8.3</span><span class="p">,</span> <span class="s1">&#39;N&#39;</span><span class="p">],</span>     <span class="c1">#length max 8 field, must have 3 decimals.</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>format: Different per editype. Especially edifact, x12 and tradacoms have their own formatting codes, just use these. For csv, fixed, xml etc no standard formats exists, so bots uses these formats:</dt>
+<dd><ul class="first last">
+<li><p class="first"><strong>A</strong> (or AN): alphanumeric.</p>
+</li>
+<li><p class="first"><strong>AR</strong>: right aligned alphanumeric (fixed only)</p>
+</li>
+<li><dl class="first docutils">
+<dt><strong>N</strong>: fixed decimals</dt>
+<dd><ul class="first last simple">
+<li>Numeric</li>
+<li>Fixed numbers of decimals. If no decimals are indicated: integer</li>
+<li>Incoming: format is checked.</li>
+<li>Outgoing: bots formats this (rounding if needed, add leading zeros)</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p class="first"><strong>NL</strong>: (for fixed only) as fixed decimals, left aligned, trailing blancs</p>
+</li>
+<li><p class="first"><strong>NR</strong>: (for fixed only) as fixed decimals, right aligned, leading blancs</p>
+</li>
+<li><dl class="first docutils">
+<dt><strong>R</strong>: floating point</dt>
+<dd><ul class="first last simple">
+<li>Numeric</li>
+<li>May have any number of decimals</li>
+<li>Bots does no checking of formatting.</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p class="first"><strong>RL</strong>: (for fixed only) as floating point, left aligned, trailing blancs</p>
+</li>
+<li><p class="first"><strong>RR</strong>: (for fixed only) as floating point, left aligned, leading blancs</p>
+</li>
+<li><dl class="first docutils">
+<dt><strong>I</strong>: fixed decimals implicit. Example:</dt>
+<dd><ul class="first last">
+<li><p class="first">Numeric</p>
+</li>
+<li><p class="first">Fixed number of decimals. Is converted from/to &#8216;normal&#8217; amount; rounded if outgoing.</p>
+</li>
+<li><p class="first">There is no decimal sign in the field, the number of decimals is implicit from the definition. Eg:</p>
+</li>
+<li><p class="first">Can be negative</p>
+</li>
+<li><dl class="first docutils">
+<dt>Example:</dt>
+<dd><div class="first last highlight-python"><div class="highlight"><pre><span></span><span class="p">[</span><span class="s1">&#39;field name&#39;</span><span class="p">,</span><span class="s1">&#39;C&#39;</span><span class="p">,</span> <span class="mf">8.2</span><span class="p">,</span> <span class="s1">&#39;I&#39;</span><span class="p">],</span>   <span class="c1">#max 8 long, last 2 positions are decimals; eg for an amount.</span>
+                                <span class="c1">#Valid is eg:  12345</span>
+                                <span class="c1">#Bots converts this to 123.45 (and vice versa)</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p class="first"><strong>D</strong> (or DT): date. Either 6 or 8 positions; format YYMMDD or CCYYMMDD. Bots checks for valid dates both in- en outgoing.</p>
+</li>
+<li><p class="first"><strong>T</strong> (or TM): time. Either 4 or 6 positions; format HHMM or HHMMSS. Bots checks for valid times both in- en outgoing.</p>
+</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ol>
+<p class="rubric">Composite fields</p>
+<p>Edifact, x12 and tradacoms have composite fields. Example:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="p">[</span><span class="s1">&#39;S005&#39;</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">,</span>                      <span class="c1">#composite field</span>
+    <span class="p">[</span>
+    <span class="p">[</span><span class="s1">&#39;S005.0022&#39;</span><span class="p">,</span> <span class="s1">&#39;M&#39;</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="s1">&#39;AN&#39;</span><span class="p">],</span>  <span class="c1">#subfield nr1</span>
+    <span class="p">[</span><span class="s1">&#39;S005.0025&#39;</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;AN&#39;</span><span class="p">],</span>   <span class="c1">#subfield nr2</span>
+    <span class="p">]],</span>
+</pre></div>
+</div>
+<p>A composite has:</p>
+<ul class="simple">
+<li>field ID; has to be unique (bots checks for this).</li>
+<li>M/C (mandatory/conditional).</li>
+<li>A list of subfields.</li>
+</ul>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>Bots requires that each composite ID and sub-field has an unique ID. If a composite occurs more than once, do eg like:</p>
+<div class="last highlight-python"><div class="highlight"><pre><span></span><span class="p">[</span><span class="s1">&#39;C090&#39;</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">,</span> <span class="p">[</span>                        <span class="c1">#composite contains 2 subfields with same ID</span>
+    <span class="p">[</span><span class="s1">&#39;C090.3286#1&#39;</span><span class="p">,</span> <span class="s1">&#39;M&#39;</span><span class="p">,</span> <span class="mi">70</span><span class="p">,</span> <span class="s1">&#39;AN&#39;</span><span class="p">],</span>
+    <span class="p">[</span><span class="s1">&#39;C090.3286#2&#39;</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">,</span> <span class="mi">70</span><span class="p">,</span> <span class="s1">&#39;AN&#39;</span><span class="p">],</span>
+    <span class="p">]],</span>
+<span class="p">[</span><span class="s1">&#39;C542#1&#39;</span><span class="p">,</span> <span class="s1">&#39;M&#39;</span><span class="p">,</span> <span class="p">[</span>                      <span class="c1">#composite occurs twice</span>
+    <span class="p">[</span><span class="s1">&#39;C542.9425#1&#39;</span><span class="p">,</span> <span class="s1">&#39;M&#39;</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="s1">&#39;AN&#39;</span><span class="p">],</span>
+    <span class="p">[</span><span class="s1">&#39;C542.9424#1&#39;</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">,</span> <span class="mi">35</span><span class="p">,</span> <span class="s1">&#39;AN&#39;</span><span class="p">],</span>
+    <span class="p">]],</span>
+<span class="p">[</span><span class="s1">&#39;C542#2&#39;</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">,</span> <span class="p">[</span>                      <span class="c1">#composite occurs twice</span>
+    <span class="p">[</span><span class="s1">&#39;C542.9425#2&#39;</span><span class="p">,</span> <span class="s1">&#39;M&#39;</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="s1">&#39;AN&#39;</span><span class="p">],</span>
+    <span class="p">[</span><span class="s1">&#39;C542.9424#2&#39;</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">,</span> <span class="mi">35</span><span class="p">,</span> <span class="s1">&#39;AN&#39;</span><span class="p">],</span>
+    <span class="p">]],</span>
+</pre></div>
+</div>
+</div>
+<p class="rubric">Details of field format handling</p>
+<ul>
+<li><p class="first">M/C of fields are always checked.</p>
+</li>
+<li><p class="first">min/max length of field are always checked.</p>
+</li>
+<li><dl class="first docutils">
+<dt>numerical:</dt>
+<dd><ul class="first last simple">
+<li>&#8216;-&#8216; is accepted both at beginning and end. Bots outputs only leading &#8216;-&#8216;</li>
+<li>&#8216;+&#8217; is accepted at beginning. Bots does not output &#8216;+&#8217;</li>
+<li>Thousands separators are removed if specified in syntax-parameter &#8216;triad&#8217; (see above).</li>
+<li>Bots does not output thousands separators</li>
+<li>default decimal separator is &#8216;.&#8217;; use syntax-parameter &#8216;decimaal&#8217; to change this (&#8216;decimaal&#8217; is Dutch, sorry about that. Noticed to late to change ;-)). Internally bots only uses/accepts decimal point!</li>
+<li>(incoming) leading zeros are removed</li>
+<li>(incoming) trailing zeros are kept</li>
+<li>&#8216;.45&#8217; is converted to &#8216;0.45&#8217;.</li>
+<li>&#8216;4.&#8217; is converted to &#8216;4&#8217;.</li>
+<li>Note that eg edifact numeric lengths do NOT include decimal sign and negative...</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<p class="rubric">Utility for positions in fixed records</p>
+<p>A grammar does not contains the position/offset of each field in a fixed record, but it sure is useful to have this. Add this code to the bottom of the grammar and run/execute the code:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">record</span> <span class="ow">in</span> <span class="n">recorddefs</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="n">length</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">for</span> <span class="n">field</span> <span class="ow">in</span> <span class="n">record</span><span class="p">:</span>
+            <span class="k">print</span> <span class="s1">&#39;           &#39;</span><span class="p">,</span> <span class="n">field</span><span class="p">,</span> <span class="s1">&#39;      #pos&#39;</span><span class="p">,</span><span class="n">length</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">length</span> <span class="o">+</span> <span class="n">field</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+            <span class="n">length</span> <span class="o">+=</span> <span class="n">field</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+        <span class="k">print</span> <span class="s1">&#39;Record&#39;</span><span class="p">,</span><span class="n">key</span><span class="p">,</span><span class="s1">&#39;  has length &#39;</span><span class="p">,</span><span class="n">length</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span>
+</pre></div>
+</div>
+<p>Slightly different version - output can be pasted back into grammar</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">space</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">record</span> <span class="ow">in</span> <span class="n">recorddefs</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="k">for</span> <span class="n">field</span> <span class="ow">in</span> <span class="n">record</span><span class="p">:</span>
+            <span class="n">space</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">space</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">field</span><span class="p">))</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">record</span> <span class="ow">in</span> <span class="n">recorddefs</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+        <span class="n">length</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">print</span> <span class="s1">&#39;    </span><span class="se">\&#39;</span><span class="s1">&#39;</span> <span class="o">+</span> <span class="n">key</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="se">\&#39;</span><span class="s1">:[&#39;</span>
+        <span class="k">for</span> <span class="n">field</span> <span class="ow">in</span> <span class="n">record</span><span class="p">:</span>
+            <span class="k">print</span> <span class="s1">&#39;           &#39;</span><span class="p">,</span> <span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">field</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;,&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">ljust</span><span class="p">(</span><span class="n">space</span><span class="p">),</span> <span class="s1">&#39; # pos&#39;</span><span class="p">,</span><span class="n">length</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="n">length</span> <span class="o">+</span> <span class="n">field</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+            <span class="n">length</span> <span class="o">+=</span> <span class="n">field</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+        <span class="k">print</span> <span class="s1">&#39;    ],&#39;</span>
+</pre></div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="nextmessage.html" class="btn btn-neutral float-right" title="Next Message" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="structure.html" class="btn btn-neutral" title="Structure" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2007 - 2016, Henk-Jan Ebbers.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'3.3.1.dev0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

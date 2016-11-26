@@ -1,0 +1,405 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Bots 3.1.0 &mdash; Bots EDI Translator 3.3.1.dev0 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="Bots EDI Translator 3.3.1.dev0 documentation" href="../index.html"/>
+        <link rel="up" title="Changes and Migrate" href="index.html"/>
+        <link rel="next" title="Bots 3.0.0" href="bots300.html"/>
+        <link rel="prev" title="Bots 3.2.0" href="bots320.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Bots EDI Translator
+          
+
+          
+            
+            <img src="../_static/botslogo_square2.png" class="logo" />
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                3.3.1.dev0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../readme.html">Bots-Edi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction.html">Welcome to <code class="docutils literal"><span class="pre">Bots</span></code>&#8216;s documentation!</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../get-bots-running.html">Get Bots Running</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quick-start-guide/index.html">Quick Start Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guide-for-botsmonitor/index.html">Guide For Bots-Monitor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview/index.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../configuration/index.html">Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../deployment/index.html">Deployment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../advanced-deployment/index.html">Advanced Deployment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../plugins/index.html">Plugins</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/index.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../debugging.html">Debugging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../troubleshooting.html">Troubleshooting</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Changes and Migrate</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="bots320.html">Bots 3.2.0</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Bots 3.1.0</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#migration-notes-from-3-0-0">Migration notes (from 3.0.0)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#changes">Changes</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="bots300.html">Bots 3.0.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bots220.html">Bots 2.2.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bots210.html">Bots 2.1.0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="migrate-kid.html">Migrate Kid to Genshi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="migrate-django.html">Migrate Django versions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="migrate-db.html">Migrate Database</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../new-to-python.html">New to python?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../external-reference.html">External reference links</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../useful-tools.html">Useful Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../documentation.html">Bots Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../documentation.html#credits">Credits</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">Bots EDI Translator</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="index.html">Changes and Migrate</a> &raquo;</li>
+      
+    <li>Bots 3.1.0</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/change-migrate/bots310.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="bots-3-1-0">
+<h1>Bots 3.1.0<a class="headerlink" href="#bots-3-1-0" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li>Bots 3.1.0RC was released 2013-07-17.</li>
+<li>No database migration is needed.</li>
+<li>Some small changes in x12 grammar might be needed, see details below.</li>
+</ul>
+<div class="section" id="migration-notes-from-3-0-0">
+<h2>Migration notes (from 3.0.0)<a class="headerlink" href="#migration-notes-from-3-0-0" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><p><strong>Editype x12: in ISA definition &#8216;ISA11&#8217; has to be conditional</strong></p>
+<ul>
+<li><p class="first">Bots 3.1.0 supports the repeating character (for ISA-versions &gt;= 00403).</p>
+</li>
+<li><dl class="first docutils">
+<dt>If you use this, ISA11 has to be conditional in definition; file <code class="docutils literal"><span class="pre">usersys/grammars/x12/envelope.py</span></code>, was:</dt>
+<dd><p class="first last"><code class="docutils literal"><span class="pre">['ISA11','M',(1,1),'AN'],</span></code></p>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>becomes in 3.1.0:</dt>
+<dd><p class="first last"><code class="docutils literal"><span class="pre">['ISA11','C',(1,1),'AN'],</span></code></p>
+</dd>
+</dl>
+</li>
+<li><p class="first">This change also works for older ISA-version. Advised is to use this.</p>
+</li>
+</ul>
+<p><strong>Editype x12, edifact, tradacoms: different handling of syntax parameters</strong></p>
+<ul>
+<li><dl class="first docutils">
+<dt>Bots handles the syntax parameters differently. In bots 3.0 and earlier this was somewhat &#8216;fuzzy&#8217;. This works now like:</dt>
+<dd><ul class="first last simple">
+<li>default syntax parameters are overruled by envelope parameters,</li>
+<li>are overruled by message parameters,</li>
+<li>are overruled by frompartner parameters,</li>
+<li>are overruled by topartner parameters.</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Most common problem will be for x12: message grammars had by default in syntax parameters:</dt>
+<dd><p class="first last"><code class="docutils literal"><span class="pre">'version'</span> <span class="pre">:</span> <span class="pre">'00403',</span></code></p>
+</dd>
+</dl>
+</li>
+<li><p class="first">Formerly this was not used; now it is used.</p>
+</li>
+<li><p class="first">This might lead to sending another version of ISA-envelope, this is probably not what you want!</p>
+</li>
+<li><p class="first">Solution: delete (or uncomment) the <code class="docutils literal"><span class="pre">version</span></code> syntax parameter for message grammar.</p>
+</li>
+</ul>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The ISA-version you send now is probably in <code class="docutils literal"><span class="pre">usersys/grammars/x12/x12.py</span></code></p>
+</div>
+<p><strong>Editype fixed and idoc: &#8216;startrecordID&#8217; and &#8216;endrecordID&#8217; not longer used</strong></p>
+<ul class="simple">
+<li>Bots calculates this automatically now.</li>
+<li>Bots also checks for all used records if this is used the same over all records.</li>
+<li>This might lead to errors.</li>
+<li><strong>Solution</strong>: BOTSID should have correct length in all records and be at correct position.</li>
+</ul>
+<p><strong>Envelope scripts</strong></p>
+<ul>
+<li><dl class="first docutils">
+<dt>was:</dt>
+<dd><p class="first last"><code class="docutils literal"><span class="pre">self._openoutenvelope(self.ta_info['editype'],self.ta_info['envelope'])</span></code></p>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>becomes in 3.1.0:</dt>
+<dd><p class="first last"><code class="docutils literal"><span class="pre">self._openoutenvelope()</span></code></p>
+</dd>
+</dl>
+</li>
+</ul>
+<p><strong>Route scripting</strong></p>
+<p>Function transform.translate is changed:parameters startstatus,endstatus,idroute,rootidta have to be explicitly indicated (no more defaults).</p>
+</div></blockquote>
+</div>
+<div class="section" id="changes">
+<h2>Changes<a class="headerlink" href="#changes" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><blockquote>
+<div><p><strong>Interface (GUI)</strong></p>
+<ol class="arabic">
+<li><dl class="first docutils">
+<dt>Improved and simplified many screens. Eg only filename is displayed (takes less space), a pop-up show full path name</dt>
+<dd><ol class="first last arabic simple">
+<li>incoming</li>
+<li>outgoing</li>
+<li>detail</li>
+<li>document; split up to incoming and outgoing screens;</li>
+<li>confirm</li>
+</ol>
+</dd>
+</dl>
+</li>
+<li><p class="first">Show in configuration screen if there are routescripts, communicationscripts, mappingscripts, grammars. Routescripts etc can be viewed.</p>
+</li>
+<li><p class="first">Partners and partnergroups are split up (via menu and screens).</p>
+</li>
+<li><p class="first">Added a cancel button in configuration editing.</p>
+</li>
+<li><p class="first">Added a choice list for routes in Configuration-Confirm.</p>
+</li>
+<li><p class="first">Display edifact/x12: display per segment for better readability.</p>
+</li>
+<li><p class="first">Show correct number of messages for resends.</p>
+</li>
+<li><p class="first">Email error report is extended with information about errors.</p>
+</li>
+<li><p class="first">Improved view/edit counters screen.</p>
+</li>
+<li><p class="first">In errors the correct name of eg grammars is shown. This was confusing (using sometimes &#8216;.&#8217; instead of &#8216;&#8217; etc).</p>
+</li>
+</ol>
+</div></blockquote>
+<p><strong>Highlights</strong></p>
+<blockquote>
+<div><ol class="arabic simple">
+<li>Extra debug option: check all get/getloop if OK with grammars.</li>
+<li>Support for repeating elements is added (x12/edifact).</li>
+<li>Simplified logic of syntax reading: default syntax is overridden by envelope syntax is overridden by message sytax is overridden by partner-syntax.</li>
+<li>Added: fixed records can now be &#8216;nobotsid&#8217;: one record type, split to messages via field.</li>
+<li>Generating 997&#8217;s can be done/manipulated via user script .</li>
+</ol>
+<p><strong>Smaller changes</strong></p>
+<ol class="arabic simple">
+<li>Skip empty json elements in incoming files.</li>
+<li>StartrecordID and endrecordID are not needed anymore for in grammars for fixed message/idoc, bots calculates this now.</li>
+<li>Small improvements and bug fixes in XML reading/writing.</li>
+<li>QUERIES now also support callables.</li>
+<li>Xml2botsgrammar: sort fields in recorddefs, use empty elements in grammar.</li>
+<li>If &#8216;alt&#8217; transaltion is not found, use default translation.</li>
+<li>More consistent handling of exceptions and logging (coding only).</li>
+<li>Fixed problems starting bots-engine from webserver in less common situations.</li>
+<li>Get correct incoming filename for re-receive.</li>
+<li>Removed code for old database connector and code-conversion via file.</li>
+<li>Automaticretry: first run only initialization (to avoid sending moch older files).</li>
+<li>Explicitly set for outgoing file: no automatic retry.</li>
+<li>Plugins: for different environments, path and testpath in channels are also relocated .</li>
+<li>Plugins: handling of unicode-characters is now correct.</li>
+<li>Add mapping function: getdecimal(). Returns a python decimal; if not found or non-valid input: returns decimal 0.</li>
+<li>For csv and fixed with &#8216;noBOTSID&#8217;: nextmessageblock can check for multiple fields, eg: <code class="docutils literal"><span class="pre">nextmessageblock</span> <span class="pre">=</span> <span class="pre">([{'BOTSID':'lin','field1':None},{'BOTSID':'lin','field2':None}])</span></code></li>
+<li>When deleting configuration items via &#8216;bulk delete&#8217;: make a backup plugin first.</li>
+</ol>
+<p><strong>Bug fixes</strong></p>
+<ol class="arabic simple">
+<li>There was a missing import in <code class="docutils literal"><span class="pre">xml2botsgrammar</span></code></li>
+<li>Logging of mapping debug did not work in 3.0</li>
+<li>Correct handling of resends/rereceives for already resend/received files</li>
+<li>Fixed bug in automaticretrycommunication</li>
+<li>Confirmation can now be asked via channel-rule.</li>
+<li>if multiple commands in run: reports etc are based on timestamp. This messed up the relation between runs and eg incoming files.</li>
+</ol>
+</div></blockquote>
+</div></blockquote>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="bots300.html" class="btn btn-neutral float-right" title="Bots 3.0.0" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="bots320.html" class="btn btn-neutral" title="Bots 3.2.0" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2007 - 2016, Henk-Jan Ebbers.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'3.3.1.dev0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

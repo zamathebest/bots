@@ -1,0 +1,268 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Bots-Monitor over HTTPS &mdash; Bots EDI Translator 3.3.1.dev0 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="Bots EDI Translator 3.3.1.dev0 documentation" href="../index.html"/>
+        <link rel="up" title="Advanced Deployment" href="index.html"/>
+        <link rel="next" title="Use Apache2 as Webserver" href="use-apache2.html"/>
+        <link rel="prev" title="User Rights" href="user-rights.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Bots EDI Translator
+          
+
+          
+            
+            <img src="../_static/botslogo_square2.png" class="logo" />
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                3.3.1.dev0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../readme.html">Bots-Edi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../introduction.html">Welcome to <code class="docutils literal"><span class="pre">Bots</span></code>&#8216;s documentation!</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../get-bots-running.html">Get Bots Running</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../quick-start-guide/index.html">Quick Start Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guide-for-botsmonitor/index.html">Guide For Bots-Monitor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview/index.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../configuration/index.html">Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../deployment/index.html">Deployment</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Advanced Deployment</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="user-rights.html">User Rights</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Bots-Monitor over HTTPS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="use-apache2.html">Use Apache2 as Webserver</a></li>
+<li class="toctree-l2"><a class="reference internal" href="use-mysql.html">Use MySQL or PostgreSQL as Database</a></li>
+<li class="toctree-l2"><a class="reference internal" href="use-as2.html">Using AS2 with Bots</a></li>
+<li class="toctree-l2"><a class="reference internal" href="change-management.html">Configuration Change Management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="performance.html">Performance</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../plugins/index.html">Plugins</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/index.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../debugging.html">Debugging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../troubleshooting.html">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../change-migrate/index.html">Changes and Migrate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../new-to-python.html">New to python?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../external-reference.html">External reference links</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../useful-tools.html">Useful Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../documentation.html">Bots Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../documentation.html#credits">Credits</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">Bots EDI Translator</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="index.html">Advanced Deployment</a> &raquo;</li>
+      
+    <li>Bots-Monitor over HTTPS</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/advanced-deployment/bots-https.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="bots-monitor-over-https">
+<h1>Bots-Monitor over HTTPS<a class="headerlink" href="#bots-monitor-over-https" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li>This feature is introduced in bots 2.1.0.</li>
+<li>This works with cherrypy &gt; 3.2.0 in combination with python 2.6 or 2.7. In python 2.5 this works (using extra dependency pyOpenssl) but gives problems with reading plugins.</li>
+</ul>
+<p><strong>Procedure</strong></p>
+<ol class="arabic">
+<li><p class="first">You will need an SSL certificate. You can use self-signed certificates.</p>
+</li>
+<li><p class="first">In <code class="docutils literal"><span class="pre">bots/config/bots.ini</span></code> uncomment options ssl_certificate and ssl_private_key (in section webserver), and set these to the right value, eg:</p>
+<blockquote>
+<div><div class="highlight-ini"><div class="highlight"><pre><span></span><span class="na">ssl_certificate</span> <span class="o">=</span> <span class="s">/mysafeplace/mycert.pem</span>
+<span class="na">ssl_private_key</span> <span class="o">=</span> <span class="s">/mysafeplace/mycert.pem</span>
+<span class="c1">#In this example certificate and private key are in the same pem-file.</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p class="first">Restart bots-webserver</p>
+</li>
+<li><p class="first">Point your browser to the right https-address, eg: <a class="reference external" href="https://localhost:8080">https://localhost:8080</a></p>
+</li>
+</ol>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<ul class="last simple">
+<li>If you are using cherrypy and receive an error &#8220;ssl_error_rx_record_too_long&#8221; try the <a class="reference external" href="https://bitbucket.org/cherrypy/cherrypy/issue/1293/ssl-broken-under-pypy-221">2-line fix</a></li>
+<li>You can create self-signed certificates <a class="reference external" href="http://www.selfsignedcertificate.com/">here</a></li>
+<li>You can configure port=443 in bots.ini then just point your browser to <a class="reference external" href="https://localhost">https://localhost</a></li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="use-apache2.html" class="btn btn-neutral float-right" title="Use Apache2 as Webserver" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="user-rights.html" class="btn btn-neutral" title="User Rights" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2007 - 2016, Henk-Jan Ebbers.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'3.3.1.dev0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

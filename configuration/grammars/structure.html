@@ -1,0 +1,384 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Structure &mdash; Bots EDI Translator 3.3.1.dev0 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+    <link rel="top" title="Bots EDI Translator 3.3.1.dev0 documentation" href="../../index.html"/>
+        <link rel="up" title="Grammars" href="index.html"/>
+        <link rel="next" title="Recorddefs" href="recorddefs.html"/>
+        <link rel="prev" title="Syntax Parameters" href="syntax-params.html"/> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Bots EDI Translator
+          
+
+          
+            
+            <img src="../../_static/botslogo_square2.png" class="logo" />
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                3.3.1.dev0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../readme.html">Bots-Edi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../introduction.html">Welcome to <code class="docutils literal"><span class="pre">Bots</span></code>&#8216;s documentation!</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../get-bots-running.html">Get Bots Running</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../quick-start-guide/index.html">Quick Start Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../guide-for-botsmonitor/index.html">Guide For Bots-Monitor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../overview/index.html">Overview</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Configuration</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../how-to-configuration.html">How to do configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../route/index.html">Routes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../channel/index.html">Channels</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../translation/index.html">Translation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../mapping-scripts/index.html">Mapping Scripts</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Grammars</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="get-grammars.html">How to Get Grammars</a></li>
+<li class="toctree-l3"><a class="reference internal" href="syntax-params.html">Syntax Parameters</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Structure</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#queries">QUERIES</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="recorddefs.html">Recorddefs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="nextmessage.html">Next Message</a></li>
+<li class="toctree-l3"><a class="reference internal" href="nextmessageblock.html">Next Message Block</a></li>
+<li class="toctree-l3"><a class="reference internal" href="edifact-charsets.html">EDIFACT Character-Sets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="xml-namespaces.html">XML Namespaces</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../document-view.html">Document View</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../user-scripting.html">User Scripting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../acknowledgements.html">Confirmations/Acknowledgements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../split-merge.html">Split, Merge and Envelope</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../partner/index.html">EDI Partners</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../charsets.html">Characters Sets</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../deployment/index.html">Deployment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../advanced-deployment/index.html">Advanced Deployment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../plugins/index.html">Plugins</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorials/index.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../debugging.html">Debugging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../troubleshooting.html">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../change-migrate/index.html">Changes and Migrate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../new-to-python.html">New to python?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../external-reference.html">External reference links</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../useful-tools.html">Useful Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../documentation.html">Bots Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../documentation.html#credits">Credits</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">Bots EDI Translator</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../index.html">Configuration</a> &raquo;</li>
+      
+          <li><a href="index.html">Grammars</a> &raquo;</li>
+      
+    <li>Structure</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../_sources/configuration/grammars/structure.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="structure">
+<h1>Structure<a class="headerlink" href="#structure" title="Permalink to this headline">¶</a></h1>
+<blockquote class="epigraph">
+<div>Definition: the structure section in a grammar defines the sequence of records in a message.</div></blockquote>
+<p>A structure is required in a grammar except for template grammars.
+Example of a simple structure:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">structure</span> <span class="o">=</span> <span class="p">[</span>
+<span class="p">{</span><span class="n">ID</span><span class="p">:</span><span class="s1">&#39;ENV&#39;</span><span class="p">,</span><span class="n">MIN</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="n">MAX</span><span class="p">:</span><span class="mi">999</span><span class="p">,</span> <span class="n">LEVEL</span><span class="p">:[</span>        <span class="c1">#envelope record</span>
+    <span class="p">{</span><span class="n">ID</span><span class="p">:</span><span class="s1">&#39;HEA&#39;</span><span class="p">,</span><span class="n">MIN</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="n">MAX</span><span class="p">:</span><span class="mi">9999</span><span class="p">,</span><span class="n">LEVEL</span><span class="p">:[</span>    <span class="c1">#header record</span>
+        <span class="p">{</span><span class="n">ID</span><span class="p">:</span><span class="s1">&#39;LIN&#39;</span><span class="p">,</span><span class="n">MIN</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="n">MAX</span><span class="p">:</span><span class="mi">9999</span><span class="p">},</span>      <span class="c1">#line record</span>
+        <span class="p">]},</span>
+    <span class="p">]}</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+<p>The example above should be read as:</p>
+<blockquote>
+<div><ul class="simple">
+<li>ENV-record is required; max 999 repeats.</li>
+<li>&#8216;Nested&#8217; under the ENV-record: HEA-record; per ENV max 9999 HEA-records; min is 1, so required.</li>
+<li>Per HEA-record max 9999 LIN-records; the LIN-record is not required (MIN=0).</li>
+</ul>
+</div></blockquote>
+<p>Example of a more elaborate structure:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">structure</span> <span class="o">=</span> <span class="p">[</span>
+<span class="p">{</span><span class="n">ID</span><span class="p">:</span><span class="s1">&#39;ENV&#39;</span><span class="p">,</span><span class="n">MIN</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="n">MAX</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span> <span class="n">LEVEL</span><span class="p">:[</span>        <span class="c1">#envelope record: max one per file</span>
+    <span class="p">{</span><span class="n">ID</span><span class="p">:</span><span class="s1">&#39;HEA&#39;</span><span class="p">,</span><span class="n">MIN</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="n">MAX</span><span class="p">:</span><span class="mi">9999</span><span class="p">,</span><span class="n">LEVEL</span><span class="p">:[</span>  <span class="c1">#header record of messageat least one message per ENV, max 9999 messages</span>
+        <span class="p">{</span><span class="n">ID</span><span class="p">:</span><span class="s1">&#39;PAR&#39;</span><span class="p">,</span><span class="n">MIN</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span><span class="n">MAX</span><span class="p">:</span><span class="mi">10</span><span class="p">},</span>      <span class="c1">#party record</span>
+        <span class="p">{</span><span class="n">ID</span><span class="p">:</span><span class="s1">&#39;ALC&#39;</span><span class="p">,</span><span class="n">MIN</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="n">MAX</span><span class="p">:</span><span class="mi">9</span><span class="p">},</span>       <span class="c1">#allowances/charges per message</span>
+        <span class="p">{</span><span class="n">ID</span><span class="p">:</span><span class="s1">&#39;LIN&#39;</span><span class="p">,</span><span class="n">MIN</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="n">MAX</span><span class="p">:</span><span class="mi">9999</span><span class="p">},</span>    <span class="c1">#line record</span>
+        <span class="p">]},</span>
+    <span class="p">{</span><span class="n">ID</span><span class="p">:</span><span class="s1">&#39;TRL&#39;</span><span class="p">,</span><span class="n">MIN</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="n">MAX</span><span class="p">:</span><span class="mi">1</span><span class="p">},</span>           <span class="c1">#each ENV record has a trailer record</span>
+    <span class="p">]}</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+<p class="rubric">A structure consists of</p>
+<ol class="arabic">
+<li><p class="first">A structure is a nested list of records.</p>
+</li>
+<li><p class="first">Each record is a python dict.</p>
+</li>
+<li><dl class="first docutils">
+<dt>Per Record:</dt>
+<dd><ul class="first last simple">
+<li><strong>ID</strong>: tag of record.</li>
+<li><strong>MIN</strong>: minimum number of occurrences.</li>
+<li><strong>MAX</strong>: maximum number of occurrences.</li>
+<li><strong>LEVEL</strong> (optional): indicate nested record. The nested records are in a list of records.</li>
+<li><strong>QUERIES</strong> (optional)</li>
+<li><strong>SUBTRANSLATION</strong> (optional). Very advanced. Purpose: identify separate messages within within a standard envelope.</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ol>
+<div class="section" id="queries">
+<h2>QUERIES<a class="headerlink" href="#queries" title="Permalink to this headline">¶</a></h2>
+<p>QUERIES in a structure are used to extract values from edi files before the mapping script starts.
+Example of an structure with QUERIES:</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">structure</span> <span class="o">=</span> <span class="p">[</span>
+<span class="p">{</span><span class="n">ID</span><span class="p">:</span><span class="s1">&#39;ENV&#39;</span><span class="p">,</span><span class="n">MIN</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="n">MAX</span><span class="p">:</span><span class="mi">999</span><span class="p">,</span>                <span class="c1">#envelope record</span>
+    <span class="n">QUERIES</span><span class="p">:{</span>
+        <span class="s1">&#39;frompartner&#39;</span><span class="p">:</span>  <span class="p">{</span><span class="s1">&#39;BOTSID&#39;</span><span class="p">:</span><span class="s1">&#39;ENV&#39;</span><span class="p">,</span><span class="s1">&#39;sender&#39;</span><span class="p">:</span><span class="bp">None</span><span class="p">},</span>   <span class="c1">#extract sender from ENV record.</span>
+        <span class="s1">&#39;topartner&#39;</span><span class="p">:</span>    <span class="p">{</span><span class="s1">&#39;BOTSID&#39;</span><span class="p">:</span><span class="s1">&#39;ENV&#39;</span><span class="p">,</span><span class="s1">&#39;receiver&#39;</span><span class="p">:</span><span class="bp">None</span><span class="p">},</span> <span class="c1">#extract receiver from ENV record.</span>
+        <span class="s1">&#39;testindicator&#39;</span><span class="p">:({</span><span class="s1">&#39;BOTSID&#39;</span><span class="p">:</span><span class="s1">&#39;ENV&#39;</span><span class="p">},{</span><span class="s1">&#39;BOTSID&#39;</span><span class="p">:</span><span class="s1">&#39;MESSAGE&#39;</span><span class="p">,</span><span class="s1">&#39;test&#39;</span><span class="p">:</span><span class="bp">None</span><span class="p">}),</span> <span class="c1">#extract testindicator from &#39;deeper&#39; level; note that this is in tuple (with brackets).</span>
+        <span class="p">},</span>
+    <span class="n">LEVEL</span><span class="p">:[</span>
+    <span class="p">{</span><span class="n">ID</span><span class="p">:</span><span class="s1">&#39;HEA&#39;</span><span class="p">,</span><span class="n">MIN</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="n">MAX</span><span class="p">:</span><span class="mi">9999</span><span class="p">,</span><span class="n">LEVEL</span><span class="p">:[</span>    <span class="c1">#header record</span>
+        <span class="p">{</span><span class="n">ID</span><span class="p">:</span><span class="s1">&#39;LIN&#39;</span><span class="p">,</span><span class="n">MIN</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="n">MAX</span><span class="p">:</span><span class="mi">9999</span><span class="p">},</span>      <span class="c1">#line record</span>
+        <span class="p">]},</span>
+    <span class="p">]}</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+<p>Use cases of the information extracted by QUERIES: Think of frompartner, topartner, reference, testindicator etc.</p>
+<ol class="arabic">
+<li><p class="first">To choose the right translation (QUERIES can extract frompartner, topartner, alt)</p>
+</li>
+<li><p class="first">Update the database.</p>
+</li>
+<li><p class="first">In a mapping script this information is inn.ta_info&#8217;.</p>
+</li>
+<li><p class="first">Data in the envelope can be accessed in the mapping.</p>
+</li>
+<li><p class="first">One of the most import uses is the extraction of <strong>botskey</strong>.</p>
+</li>
+<li><dl class="first docutils">
+<dt>Typical information extracted by QUERIES:</dt>
+<dd><ul class="first last simple">
+<li>frompartner</li>
+<li>topartner</li>
+<li>reference</li>
+<li>testindicator</li>
+<li>botskey</li>
+<li>alt</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ol>
+<p class="rubric">QUERIES using multiple values (concatenated)</p>
+<p>Pass a list into the QUERIES, and the values returned will be concatenated.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">QUERIES</span><span class="p">:{</span>
+    <span class="s1">&#39;botskey&#39;</span><span class="p">:</span> <span class="p">[</span> <span class="p">({</span><span class="s1">&#39;BOTSID&#39;</span><span class="p">:</span><span class="s1">&#39;UNH&#39;</span><span class="p">},</span><span class="s1">&#39;BOTSID&#39;</span><span class="p">:</span><span class="s1">&#39;BGM&#39;</span><span class="p">,</span><span class="s1">&#39;C002.1001&#39;</span><span class="p">:</span><span class="bp">None</span><span class="p">}),</span> <span class="p">({</span><span class="s1">&#39;BOTSID&#39;</span><span class="p">:</span><span class="s1">&#39;UNH&#39;</span><span class="p">},</span><span class="s1">&#39;BOTSID&#39;</span><span class="p">:</span><span class="s1">&#39;BGM&#39;</span><span class="p">,</span><span class="s1">&#39;1004&#39;</span><span class="p">:</span><span class="bp">None</span><span class="p">})],</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p class="rubric">QUERIES using a function</p>
+<p>Sometimes you might need something more complex, eg. to extract a substring or do partner lookup and transformation. You can add a function in the grammar to do this and call it in QUERIES.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1"># frompartner needs some transformation...</span>
+<span class="kn">import</span> <span class="nn">bots.transform</span> <span class="kn">as</span> <span class="nn">transform</span>
+<span class="k">def</span> <span class="nf">get_frompartner</span><span class="p">(</span><span class="n">thisnode</span><span class="p">):</span>
+     <span class="n">partner</span> <span class="o">=</span> <span class="n">thisnode</span><span class="o">.</span><span class="n">get</span><span class="p">({</span><span class="s1">&#39;BOTSID&#39;</span><span class="p">:</span><span class="s1">&#39;invoice&#39;</span><span class="p">,</span><span class="s1">&#39;supplier&#39;</span><span class="p">:</span><span class="bp">None</span><span class="p">})</span>
+     <span class="n">new_partner</span> <span class="o">=</span> <span class="n">transform</span><span class="o">.</span><span class="n">partnerlookup</span><span class="p">(</span><span class="n">partner</span><span class="p">,</span><span class="s1">&#39;attr1&#39;</span><span class="p">,</span><span class="n">safe</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+     <span class="k">return</span> <span class="n">new_partner</span>
+
+<span class="n">structure</span> <span class="o">=</span> <span class="p">[</span>
+<span class="p">{</span><span class="n">ID</span><span class="p">:</span><span class="s1">&#39;envelope&#39;</span><span class="p">,</span><span class="n">MIN</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="n">MAX</span><span class="p">:</span><span class="mi">99999</span><span class="p">,</span><span class="n">LEVEL</span><span class="p">:[</span>
+     <span class="p">{</span><span class="n">ID</span><span class="p">:</span><span class="s1">&#39;invoice&#39;</span><span class="p">,</span><span class="n">MIN</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="n">MAX</span><span class="p">:</span><span class="mi">99999</span><span class="p">,</span>
+         <span class="n">QUERIES</span><span class="p">:{</span>
+             <span class="s1">&#39;frompartner&#39;</span><span class="p">:</span> <span class="n">get_frompartner</span><span class="p">,</span>
+             <span class="p">},</span>
+         <span class="n">LEVEL</span><span class="p">:[</span>
+             <span class="p">{</span><span class="n">ID</span><span class="p">:</span><span class="s1">&#39;line&#39;</span><span class="p">,</span><span class="n">MIN</span><span class="p">:</span><span class="mi">0</span><span class="p">,</span><span class="n">MAX</span><span class="p">:</span><span class="mi">99999</span><span class="p">},</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="recorddefs.html" class="btn btn-neutral float-right" title="Recorddefs" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="syntax-params.html" class="btn btn-neutral" title="Syntax Parameters" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2007 - 2016, Henk-Jan Ebbers.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'3.3.1.dev0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
