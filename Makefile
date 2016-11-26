@@ -1,4 +1,4 @@
-GH_PAGES_SOURCES = docs
+GH_PAGES_SOURCES = docs license.rst setup.py
 ghpages:
 	git checkout gh-pages
 	rm -rf _build _sources _static _modules
