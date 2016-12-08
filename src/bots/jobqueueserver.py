@@ -1,9 +1,16 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-from __future__ import (absolute_import, division, print_function, unicode_literals)
-from builtins import (
-    bytes, dict, int, list, object, range, str, ascii, chr, hex,
-    input, next, oct, open, pow, round, super, filter, map, zip)
+
+from __future__ import absolute_import, division, print_function, unicode_literals
+
+from future import standard_library
+standard_library.install_aliases()
+
+from builtins import *  # noqa
+
+#from builtins import (
+    #bytes, dict, int, list, object, range, str, ascii, chr, hex,
+    #input, next, oct, open, pow, round, super, filter, map, zip)
 
 import os
 import time
@@ -12,23 +19,18 @@ import subprocess
 import queue
 import sys
 import threading
-import xmlrpc.client
-import xmlrpc.server
 
 from bots import botsinit
 from bots import botslib
 from bots import botsglobal
 
 try:
-    from xmlrpc.server import SimpleXMLRPCServer
+    from xmlrpc.server import SimpleXMLRPCServer  # fails to import on python2  even future is available
 except ImportError:
     from SimpleXMLRPCServer import SimpleXMLRPCServer
 
 #if sys.version_info[0] > 2:
     #basestring = unicode = str
-    #from xmlrpc.server import SimpleXMLRPCServer
-#else:
-    #from SimpleXMLRPCServer import SimpleXMLRPCServer
 
 PRIORITY = 0
 JOBNUMBER = 1
@@ -91,15 +93,11 @@ class Jobqueue(object):
 
 def maxruntimeerror(logger, maxruntime, jobnumber, task_to_run):
     """"""
-    logger.error(u'Job %(job)s exceeded maxruntime of %(maxruntime)s minutes',
-                 {'job': jobnumber, 'maxruntime': maxruntime})
+    logger.error(u'Job {} exceeded maxruntime of {} minutes'.format(jobnumber, maxruntime))
+
     botslib.sendbotserrorreport(
         u'[Bots Job Queue] - Job exceeded maximum runtime',
-        u'Job %(job)s exceeded maxruntime of %(maxruntime)s minutes:\n %(task)s' % {
-            'job': jobnumber,
-            'maxruntime': maxruntime,
-            'task': task_to_run}
-        )
+        u'Job {} exceeded maxruntime of {} minutes:\n {}'.format(jobnumber, maxruntime, task_to_run))
 
 
 def launcher(logger, queue, lauchfrequency, maxruntime):
@@ -113,24 +111,33 @@ def launcher(logger, queue, lauchfrequency, maxruntime):
             jobnumber = job[1]
             task_to_run = job[2]
             # Start a timer thread for maxruntime error
-            timer_thread = threading.Timer(maxseconds, maxruntimeerror, args=(
-                logger, maxruntime, jobnumber, task_to_run))
+            timer_thread = threading.Timer(
+                maxseconds,
+                maxruntimeerror,
+                args=(logger, maxruntime, jobnumber, task_to_run),
+                )
             timer_thread.start()
             try:
-                starttime = datetime.datetime.now()
+                t0 = datetime.datetime.now()
                 logger.info('Starting job %(job)s', {'job': jobnumber})
-                result = subprocess.call(task_to_run, stdin=open(os.devnull, 'r'),
-                                         stdout=open(os.devnull, 'w'), stderr=open(os.devnull, 'w'))
-                time_taken = datetime.timedelta(seconds=(datetime.datetime.now() - starttime).seconds)
+                result = subprocess.call(
+                    task_to_run,
+                    stdin=open(os.devnull, 'r'),
+                    stdout=open(os.devnull, 'w'),
+                    stderr=open(os.devnull, 'w'))
+                t1 = datetime.datetime.now()
+                time_taken = (t1 - t0).seconds
+
                 logger.info('Finished job %(job)s, elapsed time %(time_taken)s, result %(result)s',
                             {'job': jobnumber, 'time_taken': time_taken, 'result': result})
-            except Exception as msg:
-                logger.error('Error starting job %(job)s: %(msg)s', {'job': jobnumber, 'msg': msg})
-                print('[Bots Job Queue] - Error starting job')
+            except Exception as e:
+                logger.error('Error starting job {}: {}'.format(jobnumber, e))
+
                 botslib.sendbotserrorreport(
                     '[Bots Job Queue] - Error starting job',
-                    'Error starting job %(job)s:\n %(task)s\n\n %(msg)s' %
-                    {'job': jobnumber, 'task': task_to_run, 'msg': msg})
+                    'Error starting job {}:\n {}\n\n {}'.format(jobnumber, task_to_run, e))
+
+
             timer_thread.cancel()
             queue.task_done()
 
@@ -139,16 +146,17 @@ def start():
     """"""
     #NOTE: bots directory should always be on PYTHONPATH - otherwise it will not start.
     #command line arguments
-    usage = """This is "%(name)s" version %(version)s, part of Bots open source edi translator (http://bots.sourceforge.net).
+    usage = """This is "{name}" version {version}, part of Bots open source edi translator (http://bots.sourceforge.net).
     Server program that ensures only a single bots-engine runs at any time, and no engine run requests are
     lost/discarded. Each request goes to a queue and is run in sequence when the previous run completes.
     Use of the job queue is optional and must be configured in bots.ini (jobqueue section, enabled = True).
     Usage:
-        %(name)s  -c<directory>
+        {name} -c<directory>
     Options:
         -c<directory>   directory for configuration files (default: config).
 
-    """ % {'name': os.path.basename(sys.argv[0]), 'version': 3.3}
+    """.format(name=os.path.basename(sys.argv[0]), version=3.3)
+
     configdir = 'config'
     for arg in sys.argv[1:]:
         if arg.startswith('-c'):
@@ -163,7 +171,7 @@ def start():
 
     botsinit.generalinit(configdir)
     if not botsglobal.ini.getboolean('jobqueue', 'enabled', False):
-        print('Error: bots jobqueue cannot start; not enabled in %s/bots.ini' % (configdir))
+        print('Error: bots jobqueue cannot start; not enabled in {}/bots.ini'.format(configdir))
         sys.exit(1)
     nr_threads = 2  # botsglobal.ini.getint('jobqueue','nr_threads')
     process_name = 'jobqueue'
@@ -172,12 +180,13 @@ def start():
     logger.log(25, 'Bots %(process_name)s started.', {'process_name': process_name})
     logger.log(25, 'Bots %(process_name)s configdir: "%(configdir)s".', {
                'process_name': process_name, 'configdir': botsglobal.ini.get('directories', 'config')})
-    port = 28082  # botsglobal.ini.getint('jobqueue','port',28082)
+    port = botsglobal.ini.getint('jobqueue','port',28082)
     logger.log(25, 'Bots %(process_name)s listens for xmlrpc at port: "%(port)s".',
                {'process_name': process_name, 'port': port})
 
     # start launcher thread
     q = queue.Queue()
+
     lauchfrequency = botsglobal.ini.getint('jobqueue', 'lauchfrequency', 5)
     maxruntime = botsglobal.ini.getint('settings', 'maxruntime', 60)
     for thread in range(nr_threads):
@@ -193,9 +202,10 @@ def start():
     logger.info('Jobqueue server started.')
     server = SimpleXMLRPCServer(('localhost', port), logRequests=False)
     server.register_instance(Jobqueue(logger))
+
     try:
         server.serve_forever()
-    except KeyboardInterrupt:
+    except (KeyboardInterrupt, SystemExit) as e:
         pass
 
     sys.exit(0)
