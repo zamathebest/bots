@@ -1,29 +1,31 @@
 # -*- coding: utf-8 -*-
 
 from __future__ import unicode_literals
+import json as simplejson
 import sys
+import time
+
 if sys.version_info[0] > 2:
     basestring = unicode = str
-import time
 try:
     import cdecimal as decimal
 except ImportError:
     import decimal
+
 NODECIMAL = decimal.Decimal(1)
 try:
     from xml.etree import cElementTree as ET
 except ImportError:
     from xml.etree import ElementTree as ET
+
 try:
     import elementtree.ElementInclude as ETI
 except ImportError:
     from xml.etree import ElementInclude as ETI
-import json as simplejson
-try:
-    from collections import OrderedDict
-except:
-    from .bots_ordereddict import OrderedDict  # python2.6
+
+from collections import OrderedDict
 from django.utils.translation import ugettext as _
+
 #bots-modules
 from . import botslib
 from . import botsglobal

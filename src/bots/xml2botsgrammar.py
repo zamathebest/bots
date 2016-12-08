@@ -8,6 +8,7 @@ from __future__ import print_function
 from __future__ import unicode_literals
 
 import atexit
+import collections
 import copy
 import logging
 import os
@@ -18,10 +19,7 @@ try:
 except ImportError:
     from xml.etree import ElementTree as ET
 
-try:
-    from collections import OrderedDict
-except:
-    from .bots_ordereddict import OrderedDict
+from collections import OrderedDict
 
 from . import botslib
 from . import botsinit
