@@ -5,6 +5,22 @@ Changelog
 3.3.1 (unreleased)
 ------------------
 
+- Restore jobqueueserver. It was broken in 3.3.0 because of unfinished
+  python2/3-support. Fixes https://github.com/bots-edi/bots/issues/21.
+  [WouterVH]
+
+- Remove ``bots_importlib``. Python2.6 is no longer supported.
+  Cfr. https://github.com/bots-edi/bots/issues/23
+  [WouterVH]
+
+- Remove ``bots_ordereddict``. Python2.6 is no longer supported.
+  Cfr. https://github.com/bots-edi/bots/issues/22
+  [WouterVH]
+
+- Add new dependency on ``future`` to help with python3-compatibility.
+  For more information, please see https://pypi.python.org/pypi/future/.
+  [WouterVH]
+
 - Add rst-version of GPL3-license.
   Thanks to https://github.com/shibukawa/rest-licenses/
   [WouterVH]

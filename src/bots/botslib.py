@@ -1,26 +1,27 @@
 # -*- coding: utf-8 -*-
 
 from __future__ import unicode_literals
-import sys
-if sys.version_info[0] > 2:
-    basestring = unicode = str
-import os
-import datetime as python_datetime
 import codecs
-import traceback
-import socket
-import platform
 import collections
+import datetime as python_datetime
+import django
+import importlib
+import os
+import platform
+import socket
+import traceback
+import sys
+
 try:
     import cPickle as pickle
 except ImportError:
     import pickle
-try:
-    import importlib
-except:
-    from . import bots_importlib as importlib  # for python 2.6
-import django
+
+if sys.version_info[0] > 2:
+    basestring = unicode = str
+
 from django.utils.translation import ugettext as _
+
 #bots-modules (no code)
 from . import botsglobal
 from .botsconfig import *
