@@ -6,12 +6,7 @@ from __future__ import absolute_import, division, print_function, unicode_litera
 from future import standard_library
 standard_library.install_aliases()
 
-from builtins import *  # noqa
-
-#from builtins import (
-    #bytes, dict, int, list, object, range, str, ascii, chr, hex,
-    #input, next, oct, open, pow, round, super, filter, map, zip)
-
+import click
 import os
 import time
 import datetime
@@ -19,6 +14,11 @@ import subprocess
 import queue
 import sys
 import threading
+
+from builtins import *  # noqa
+# from builtins import (
+#     bytes, dict, int, list, object, range, str, ascii, chr, hex,
+#     input, next, oct, open, pow, round, super, filter, map, zip)
 
 from bots import botsinit
 from bots import botslib
@@ -29,8 +29,8 @@ try:
 except ImportError:
     from SimpleXMLRPCServer import SimpleXMLRPCServer
 
-#if sys.version_info[0] > 2:
-    #basestring = unicode = str
+# if sys.version_info[0] > 2:
+#     basestring = unicode = str
 
 PRIORITY = 0
 JOBNUMBER = 1
@@ -137,37 +137,19 @@ def launcher(logger, queue, lauchfrequency, maxruntime):
                     '[Bots Job Queue] - Error starting job',
                     'Error starting job {}:\n {}\n\n {}'.format(jobnumber, task_to_run, e))
 
-
             timer_thread.cancel()
             queue.task_done()
 
 
-def start():
-    """"""
-    #NOTE: bots directory should always be on PYTHONPATH - otherwise it will not start.
-    #command line arguments
-    usage = """This is "{name}" version {version}, part of Bots open source edi translator (http://bots.sourceforge.net).
-    Server program that ensures only a single bots-engine runs at any time, and no engine run requests are
-    lost/discarded. Each request goes to a queue and is run in sequence when the previous run completes.
+@click.command()
+@click.option('--configdir', '-c', default='config', help='path to config-directory.')
+def start(configdir):
+    """Server program that ensures only a single bots-engine runs at any time,
+    and no engine run requests are lost/discarded.
+
+    Each request goes to a queue and is run in sequence when the previous run completes.
     Use of the job queue is optional and must be configured in bots.ini (jobqueue section, enabled = True).
-    Usage:
-        {name} -c<directory>
-    Options:
-        -c<directory>   directory for configuration files (default: config).
-
-    """.format(name=os.path.basename(sys.argv[0]), version=3.3)
-
-    configdir = 'config'
-    for arg in sys.argv[1:]:
-        if arg.startswith('-c'):
-            configdir = arg[2:]
-            if not configdir:
-                print('Error: configuration directory indicated, but no directory name.')
-                sys.exit(1)
-        else:
-            print(usage)
-            sys.exit(0)
-    # end handling command line arguments
+    """
 
     botsinit.generalinit(configdir)
     if not botsglobal.ini.getboolean('jobqueue', 'enabled', False):
@@ -180,7 +162,7 @@ def start():
     logger.log(25, 'Bots %(process_name)s started.', {'process_name': process_name})
     logger.log(25, 'Bots %(process_name)s configdir: "%(configdir)s".', {
                'process_name': process_name, 'configdir': botsglobal.ini.get('directories', 'config')})
-    port = botsglobal.ini.getint('jobqueue','port',28082)
+    port = botsglobal.ini.getint('jobqueue', 'port', 28082)
     logger.log(25, 'Bots %(process_name)s listens for xmlrpc at port: "%(port)s".',
                {'process_name': process_name, 'port': port})
 
@@ -205,7 +187,7 @@ def start():
 
     try:
         server.serve_forever()
-    except (KeyboardInterrupt, SystemExit) as e:
+    except (KeyboardInterrupt, SystemExit) as e:  # noqa
         pass
 
     sys.exit(0)

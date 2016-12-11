@@ -9,6 +9,7 @@ from __future__ import unicode_literals
 
 import atexit
 import copy
+import click
 import logging
 import os
 import sys
@@ -29,11 +30,8 @@ from . import node
 from .botsconfig import ID, LEVEL, MAX, MIN
 
 
-#****************************************************
-#***classes used in inmessage for xml2botsgrammar.
-#***These classes are dynamically added to inmessage
-#****************************************************
-
+# classes used in inmessage for xml2botsgrammar.
+# These classes are dynamically added to inmessage
 
 class xmlforgrammar(inmessage.Inmessage):
     """class for ediobjects in XML. Uses ElementTree"""
@@ -116,7 +114,7 @@ class xmlforgrammar_allrecords(inmessage.Inmessage):
         return bool(len(xmlchildnode))
 
 
-#***functions for mapping****
+# functions for mapping
 
 def map_treewalker(node_instance, mpath):
     """ Generator function.
@@ -139,7 +137,7 @@ def map_writefields(node_out, node_in, mpath):
         mpath_with_all_fields[-1][key] = 'dummy'  # add key to the mpath
     node_out.put(*mpath_with_all_fields)  # write all fields.
 
-#***functions to convert out-tree to grammar****
+# functions to convert out-tree to grammar
 
 
 def tree2grammar(node_instance, structure, recorddefs):
@@ -163,7 +161,7 @@ def removedoublesfromlist(orglist):
             list2return.append(member)
     return list2return
 
-#***functions to write grammar to file***
+# functions to write grammar to file***
 
 
 def recorddefs2string(recorddefs, targetNamespace):
@@ -221,58 +219,27 @@ def grammar2file(botsgrammarfilename, structure, recorddefs, targetNamespace):
     print('grammar file is written:', botsgrammarfilename)
 
 
-def start():
-    #***command line arguments***
-    usage = """
-    This is "%(name)s" version %(version)s, part of Bots open source edi translator (http://bots.sourceforge.net).
-    Creates a grammar from an xml file.'
-    Usage:'
-        %(name)s  -c<directory>  <xml_file>  <xml_grammar_file>
-    Options:
-        -c<directory>      directory for configuration files (default: config).
-        -a                 all xml elements as records
-        <xml_file>         name of the xml file to read
-        <xml_grammar_file> name of the grammar file to write
-
-    """ % {'name': os.path.basename(sys.argv[0]), 'version': botsglobal.version}
-    configdir = 'config'
-    edifile = ''
-    botsgrammarfilename = ''
-    allrecords = False
-    for arg in sys.argv[1:]:
-        if arg.startswith('-c'):
-            configdir = arg[2:]
-            if not configdir:
-                print('Error: configuration directory indicated, but no directory name.')
-                sys.exit(1)
-        elif arg.startswith('-a'):
-            allrecords = True
-        elif arg in ['?', '/?', '-h', '--help'] or arg.startswith('-'):
-            print(usage)
-            sys.exit(0)
-        else:
-            if not edifile:
-                edifile = arg
-            else:
-                botsgrammarfilename = arg
-    if not edifile or not botsgrammarfilename:
-        print('Error: both edifile and grammarfile are required.')
-        sys.exit(0)
-    #***end handling command line arguments**************************
+@click.command()
+@click.option('--configdir', '-c', default='config', help='path to config-directory.')
+@click.option('--allrecords', '-a', is_flag=False, default=False, help='all xml elements as records.')
+@click.option('--edifile', '-e', required=True, help='name of the xml file to read.')
+@click.option('--botsgrammarfilename', '-b', required=True, help='name of the grammar file to write.')
+def start(configdir):
+    """Creates a grammar from an xml file.
+    """
     botsinit.generalinit(configdir)  # find locating of bots, configfiles, init paths etc.
     process_name = 'xml2botsgrammar'
     botsglobal.logger = botsinit.initenginelogging(process_name)
     atexit.register(logging.shutdown)
 
     targetNamespace = ''
-    #*****************************************************
-    #***add classes for handling editype xml to inmessage
-    #*****************************************************
+
+    # add classes for handling editype xml to inmessage
     if allrecords:
-        #~ editype = 'xmlforgrammar_allrecords'
+        #  editype = 'xmlforgrammar_allrecords'
         inmessage.xmlforgrammar = xmlforgrammar_allrecords
     else:
-        #~ editype = 'xmlforgrammar'
+        #  editype = 'xmlforgrammar'
         inmessage.xmlforgrammar = xmlforgrammar
     #make inmessage object: read the xml file
     inn = inmessage.parse_edi_file(editype='xmlforgrammar', messagetype='', filename=edifile)
@@ -280,7 +247,7 @@ def start():
     #make outmessage object; nothing is 'filled' yet. In mapping tree is filled; nothing is written to file.
     out = outmessage.outmessage_init(editype='xmlnocheck', messagetype='', filename='', divtext='', topartner='')
 
-    #***mapping: make 'normalised' out-tree suited for writing as a grammar***
+    # mapping: make 'normalised' out-tree suited for writing as a grammar***
     mpath_root = [OrderedDict({'BOTSID': inn.root.record['BOTSID'], 'BOTSIDnr':'1'})]  # handle root
     out.put(*mpath_root)
     map_writefields(out, inn.root, mpath_root)
@@ -292,14 +259,14 @@ def start():
         if out.get(*mpath) is None:  # if node does not exist: write it.
             out.put(*mpath)
         map_writefields(out, node_instance, mpath)
-    #***mapping is done
+    # mapping is done
 
-    #***convert out-tree to grammar
+    # convert out-tree to grammar
     structure = []
     recorddefs = {}
     tree2grammar(out.root, structure, recorddefs)
 
-    #***write grammar to file
+    # write grammar to file
     grammar2file(botsgrammarfilename, structure, recorddefs, targetNamespace)
 
 

@@ -1,23 +1,27 @@
 # -*- coding: utf-8 -*-
 
-from __future__ import print_function
-from __future__ import unicode_literals
-import sys
-import os
-import fnmatch
-import threading
-import time
-#bots-modules
-from . import botsinit
-from . import botsglobal
-from . import job2queue
-'''
+"""
 monitors directories for new files.
 if a new file, lauch a job to the jobqueue server (so: jobqueue-server is needed).
 directories to wachs are in config/bots.ini
 runs as a daemon/service.
 this module contains separate implementations for linux and windows
-'''
+"""
+
+from __future__ import print_function
+from __future__ import unicode_literals
+
+import click
+import fnmatch
+import os
+import sys
+import threading
+import time
+
+from . import botsinit
+from . import botsglobal
+from . import job2queue
+
 
 if os.name == 'nt':
     try:
@@ -28,41 +32,44 @@ if os.name == 'nt':
             'Dependency failure: bots directory monitoring requires python library "Python Win32 Extensions" on windows.')
 
     def windows_event_handler(logger, dir_watch, cond, tasks):
-        ACTIONS = {1: 'Created  ',  # tekst for printing results
-                   2: 'Deleted  ',
-                   3: 'Updated  ',
-                   4: 'Rename from',
-                   5: 'Rename to',
-                   }
+        ACTIONS = {
+            1: 'Created  ',  # tekst for printing results
+            2: 'Deleted  ',
+            3: 'Updated  ',
+            4: 'Rename from',
+            5: 'Rename to',
+            }
         FILE_LIST_DIRECTORY = 0x0001
-        hDir = win32file.CreateFile(dir_watch['path'],  # path to directory
-                                    FILE_LIST_DIRECTORY,  # access (read/write) mode
-                                    # share mode: FILE_SHARE_READ | FILE_SHARE_WRITE | FILE_SHARE_DELETE
-                                    win32con.FILE_SHARE_READ | win32con.FILE_SHARE_WRITE | win32con.FILE_SHARE_DELETE,
-                                    None,  # security descriptor
-                                    win32con.OPEN_EXISTING,  # how to create
-                                    win32con.FILE_FLAG_BACKUP_SEMANTICS,    # file attributes: FILE_FLAG_BACKUP_SEMANTICS | FILE_FLAG_OVERLAPPED
-                                    None,
-                                    )
+        hDir = win32file.CreateFile(
+            dir_watch['path'],  # path to directory
+            FILE_LIST_DIRECTORY,  # access (read/write) mode
+            # share mode: FILE_SHARE_READ | FILE_SHARE_WRITE | FILE_SHARE_DELETE
+            win32con.FILE_SHARE_READ | win32con.FILE_SHARE_WRITE | win32con.FILE_SHARE_DELETE,
+            None,  # security descriptor
+            win32con.OPEN_EXISTING,  # how to create
+            win32con.FILE_FLAG_BACKUP_SEMANTICS,    # file attributes: FILE_FLAG_BACKUP_SEMANTICS | FILE_FLAG_OVERLAPPED
+            None,
+            )
         # detecting right events is not easy in windows :-(
         # want to detect: new file,  move, drop, rename, write/append to file
         # only FILE_NOTIFY_CHANGE_LAST_WRITE: copy yes, no move
         # for rec=True: event that subdirectory itself is updated (for file deletes in dir)
         while True:
-            results = win32file.ReadDirectoryChangesW(hDir,
-                                                      8192,  # buffer size was 1024, do not want to miss anything
-                                                      dir_watch['rec'],  # recursive
-                                                      win32con.FILE_NOTIFY_CHANGE_FILE_NAME |
-                                                      #~ win32con.FILE_NOTIFY_CHANGE_DIR_NAME |
-                                                      #~ win32con.FILE_NOTIFY_CHANGE_ATTRIBUTES |
-                                                      #~ win32con.FILE_NOTIFY_CHANGE_SIZE |
-                                                      #~ win32con.FILE_NOTIFY_CHANGE_SECURITY |
-                                                      #~ win32con.FILE_NOTIFY_CHANGE_CREATION |       #unknown, does not work!
-                                                      #~ win32con.FILE_NOTIFsY_CHANGE_LAST_ACCESS |   #unknown, does not work!
-                                                      win32con.FILE_NOTIFY_CHANGE_LAST_WRITE,
-                                                      None,
-                                                      None
-                                                      )
+            results = win32file.ReadDirectoryChangesW(
+                hDir,
+                8192,  # buffer size was 1024, do not want to miss anything
+                dir_watch['rec'],  # recursive
+                win32con.FILE_NOTIFY_CHANGE_FILE_NAME |
+                #~ win32con.FILE_NOTIFY_CHANGE_DIR_NAME |
+                #~ win32con.FILE_NOTIFY_CHANGE_ATTRIBUTES |
+                #~ win32con.FILE_NOTIFY_CHANGE_SIZE |
+                #~ win32con.FILE_NOTIFY_CHANGE_SECURITY |
+                #~ win32con.FILE_NOTIFY_CHANGE_CREATION |       #unknown, does not work!
+                #~ win32con.FILE_NOTIFsY_CHANGE_LAST_ACCESS |   #unknown, does not work!
+                win32con.FILE_NOTIFY_CHANGE_LAST_WRITE,
+                None,
+                None
+                )
             if results:
                 #for each incoming event: place route to run in a set. Main thread takes action.
                 for action, filename in results:
@@ -78,9 +85,9 @@ if os.name == 'nt':
                         cond.notify()
                         cond.release()
                         break  # the route is triggered, do not need to trigger more often
-    #end of windows-specific ##################################################################################
+    # end of windows-specific
 else:
-    #linux specific ###########################################################################################
+    # linux specific
     try:
         import pyinotify
     except Exception as msg:
@@ -133,30 +140,11 @@ else:
     #end of linux-specific ##################################################################################
 
 
-def start():
-    #NOTE: bots directory should always be on PYTHONPATH - otherwise it will not start.
-    #***command line arguments**************************
-    usage = '''
-    This is "%(name)s" version %(version)s, part of Bots open source edi translator (http://bots.sourceforge.net).
-    A utility to generate the index file of a plugin; this can be seen as a database dump of the configuration.
-    This is eg useful for version control.
-    Usage:
-        %(name)s  -c<directory>
-    Options:
-        -c<directory>   directory for configuration files (default: config).
-
-    ''' % {'name': os.path.basename(sys.argv[0]), 'version': botsglobal.version}
-    configdir = 'config'
-    for arg in sys.argv[1:]:
-        if arg.startswith('-c'):
-            configdir = arg[2:]
-            if not configdir:
-                print('Error: configuration directory indicated, but no directory name.')
-                sys.exit(1)
-        else:
-            print(usage)
-            sys.exit(0)
-    #***end handling command line arguments**************************
+@click.command()
+@click.option('--configdir', '-c', default='config', help='path to config-directory.')
+def start(configdir):
+    """Directory-monitor.
+    """
     botsinit.generalinit(configdir)  # find locating of bots, configfiles, init paths etc.
     if not botsglobal.ini.getboolean('jobqueue', 'enabled', False):
         print('Error: bots jobqueue cannot start; not enabled in %s/bots.ini' % (configdir))

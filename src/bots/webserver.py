@@ -4,8 +4,8 @@
 from __future__ import print_function
 from __future__ import unicode_literals
 
-import cherrypy
-import os
+import cherrypy.wsgiserver
+import click
 import sys
 
 from django.core.handlers.wsgi import WSGIHandler
@@ -18,30 +18,13 @@ if sys.version_info[0] > 2:
     basestring = unicode = str
 
 
-def start():
-    #NOTE: bots directory should always be on PYTHONPATH - otherwise it will not start.
-    #***command line arguments**************************
-    usage = '''
-    This is "%(name)s" version %(version)s, part of Bots open source edi translator (http://bots.sourceforge.net).
-    The %(name)s is the web server for bots; the interface (bots-monitor) can be accessed in a
-    browser, eg 'http://localhost:8080'.
-    Usage:
-        %(name)s  -c<directory>
-    Options:
-        -c<directory>   directory for configuration files (default: config).
+@click.command()
+@click.option('--configdir', '-c', default='config', help='path to config-directory.')
+def start(configdir):
+    """Start the webserver.
+    The interface (bots-monitor) can be accessed via browser at e.g 'http://localhost:8080'.
+    """
 
-    ''' % {'name': os.path.basename(sys.argv[0]), 'version': botsglobal.version}
-    configdir = 'config'
-    for arg in sys.argv[1:]:
-        if arg.startswith('-c'):
-            configdir = arg[2:]
-            if not configdir:
-                print('Error: configuration directory indicated, but no directory name.')
-                sys.exit(1)
-        else:
-            print(usage)
-            sys.exit(0)
-    #***end handling command line arguments**************************
     botsinit.generalinit(configdir)  # find locating of bots, configfiles, init paths etc.
     process_name = 'webserver'
     # initialise file-logging for web-server. This logging only contains the
@@ -55,7 +38,7 @@ def start():
             'log.screen': False,
             'server.environment': botsglobal.ini.get('webserver', 'environment', 'production'),
             }
-        })
+         })
 
     #cherrypy handling of static files
     conf = {'/': {'tools.staticdir.on': True, 'tools.staticdir.dir': 'media',
@@ -81,6 +64,7 @@ def start():
                           {'process_name': process_name, 'configdir': botsglobal.ini.get('directories', 'config')})
     botsglobal.logger.log(25, _('Bots %(process_name)s serving at port: "%(port)s".'),
                           {'process_name': process_name, 'port': botsglobal.ini.getint('webserver', 'port', 8080)})
+
     # handle ssl: cherrypy < 3.2 always uses pyOpenssl. cherrypy >= 3.2 uses
     # python buildin ssl (python >= 2.6 has buildin support for ssl).
     ssl_certificate = botsglobal.ini.get('webserver', 'ssl_certificate', None)
@@ -97,10 +81,10 @@ def start():
     else:
         botsglobal.logger.log(25, _('Bots %(process_name)s uses plain http (no ssl).'), {'process_name': process_name})
 
-    #***start the cherrypy webserver.************************************************
+    # start the cherrypy webserver.
     try:
         botswebserver.start()
-    except KeyboardInterrupt:
+    except (KeyboardInterrupt, SystemExit) as e:  # noqa
         botswebserver.stop()
 
 

@@ -2,15 +2,19 @@
 
 from __future__ import print_function
 from __future__ import unicode_literals
+
+import atexit
+import click
+import logging
+import os
+import socket
 import sys
+
 if sys.version_info[0] > 2:
     basestring = unicode = str
-import os
-import atexit
-import logging
-import socket
+
 from django.utils.translation import ugettext as _
-#bots-modules
+
 from . import botslib
 from . import botsinit
 from . import botsglobal
@@ -287,29 +291,11 @@ def mysql():
     return 0
 
 
-def start():
-    #********command line arguments**************************
-    usage = '''
-    This is "%(name)s" version %(version)s, part of Bots open source edi translator (http://bots.sourceforge.net).
-    Updates existing bots database to version %(version)s
-
-    Usage:
-        %(name)s  [config-option]
-    Options:
-        -c<directory>        directory for configuration files (default: config).
-
-    ''' % {'name': os.path.basename(sys.argv[0]), 'version': botsglobal.version}
-    configdir = 'config'
-    for arg in sys.argv[1:]:
-        if arg.startswith('-c'):
-            configdir = arg[2:]
-            if not configdir:
-                print('Error: configuration directory indicated, but no directory name.')
-                sys.exit(3)
-        else:  # pick up names of routes to run
-            print(usage)
-            sys.exit(0)
-    #***end handling command line arguments**************************
+@click.command()
+@click.option('--configdir', '-c', default='config', help='path to config-directory.')
+def start(configdir):
+    """Update database.
+    """
     botsinit.generalinit(configdir)  # find locating of bots, configfiles, init paths etc.
 
     #**************check if another instance of bots-engine is running/if port is free******************************
