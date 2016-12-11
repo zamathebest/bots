@@ -19,7 +19,7 @@ import setuptools
 
 
 def read(*names, **kwargs):
-    """Return the contents of a file.
+    r"""Return the contents of a file.
 
     Default encoding is UTF-8, unless specified otherwise.
 
