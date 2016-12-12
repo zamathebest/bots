@@ -8,7 +8,7 @@ Bots-Edi
 .. image:: https://readthedocs.org/projects/bots/badge/?version=latest
     :alt: Documentation Status
     :scale: 100%
-    :target: https://bots.readthedocs.io/en/latest/?badge=latest
+    :target: https://bots-edi.github.io/bots/
 
 .. image:: https://landscape.io/github/bots-edi/bots/master/landscape.svg?style=flat
    :target: https://landscape.io/github/bots-edi/bots/master
