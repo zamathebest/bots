@@ -8,7 +8,7 @@ Bots-Edi
 .. image:: https://readthedocs.org/projects/bots/badge/?version=latest
     :alt: Documentation Status
     :scale: 100%
-    :target: https://bots.readthedocs.io/en/latest/?badge=latest
+    :target: https://bots-edi.github.io/bots/
 
 .. image:: https://landscape.io/github/bots-edi/bots/master/landscape.svg?style=flat
    :target: https://landscape.io/github/bots-edi/bots/master
@@ -64,4 +64,4 @@ Bots is licenced under GNU GENERAL PUBLIC LICENSE Version 3; for full
 text: http://www.gnu.org/copyleft/gpl.html
 
 .. _Henk-Jan Ebbers: http://bots.sourceforge.net/en/index.shtml
-.. _documentation: https://bots-edi.github.io/
+.. _documentation: https://bots-edi.github.io/bots
