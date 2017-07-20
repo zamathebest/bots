@@ -103,6 +103,7 @@ class MyConfirmruleAdminForm(forms.ModelForm):
     class Meta:
         model = models.confirmrule
         widgets = {'idroute': forms.Select(), }
+        fields = '__all__'
 
     def clean(self):
         super(MyConfirmruleAdminForm, self).clean()
@@ -219,6 +220,7 @@ class MyRouteAdminForm(forms.ModelForm):
     ''' customs form for route for additional checks'''
     class Meta:
         model = models.routes
+        fields = '__all__'
 
     def clean(self):
         super(MyRouteAdminForm, self).clean()
@@ -257,6 +259,7 @@ class MyTranslateAdminForm(forms.ModelForm):
     ''' customs form for translations to check if entry exists (unique_together not validated right (because of null values in partner fields))'''
     class Meta:
         model = models.translate
+        fields = '__all__'
 
     def clean(self):
         super(MyTranslateAdminForm, self).clean()
