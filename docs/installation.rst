@@ -19,7 +19,7 @@ Dependencies
 Always needed
     * Needs: python 2.6/2.7. Python 2.5 works but extra dependencies are needed. Python >= 3.0 does not work.
     * Needs: django >= 1.4.0, django <= 1.7.0
-    * Needs: cherrypy > 3.1.0
+    * Needs: cherrypy > 3.1.0, cherrypy < 9.0
 
 Optional
     * Genshi (when using templates/mapping to HTML).
