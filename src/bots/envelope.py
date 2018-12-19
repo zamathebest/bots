@@ -181,9 +181,9 @@ class Envelope(object):
     def check_partners_are_known(self):
         ''' check if partners are known.'''
         if not self.ta_info['frompartner']:
-            raise botslib.OutMessageError(_('In enveloping "frompartner" unknown: "%(frompartner)s".'), ta_info)
+            raise botslib.OutMessageError(_('In enveloping "frompartner" unknown: "%(frompartner)s".'), self.ta_info)
         if not self.ta_info['topartner']:
-            raise botslib.OutMessageError(_('In enveloping "topartner" unknown: "%(topartner)s".'), ta_info)
+            raise botslib.OutMessageError(_('In enveloping "topartner" unknown: "%(topartner)s".'), self.ta_info)
 
     def convert_partners(self):
         ''' convert partnerID's according to syntax parameter IDmode.
