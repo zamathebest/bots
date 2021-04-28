@@ -17,3 +17,7 @@ services:
       - SUPERVUSER=bots
       - SUPERVPASS=botsbots
     command: /usr/local/bin/supervisord -c /etc/supervisor/supervisord.conf
+    volumes:
+      - ./config:/usr/local/lib/python2.7/dist-packages/bots/config
+      - ./botssys:/usr/local/lib/python2.7/dist-packages/bots/botssys
+      - ./usersys:/usr/local/lib/python2.7/dist-packages/bots/usersys
